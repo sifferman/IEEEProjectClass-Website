@@ -1,0 +1,56 @@
+@font-face {
+    font-family: Dosis;
+    src: url("../fonts/Dosis.ttf");
+}
+@font-face {
+    font-family: Dosis;
+    src: url("../fonts/Dosis-Bold.ttf");
+    font-weight: bold;
+}
+
+
+
+/**********/
+/* Header */
+/**********/
+
+#_HEADER_ {
+    position: relative;
+    align-items: center;
+}
+
+#_HEADER_ > * {
+    display: block;
+    margin: 0;
+    margin-right: auto;
+}
+
+#_HEADER_ h1 {
+    font-size: calc( 100px - 1vw );
+    font-weight: normal;
+}
+
+#Back {
+    width: 3em;
+    height: 3em;
+}
+
+/********/
+/* Main */
+/********/
+
+#Squished {
+    max-width: 1200px;
+    margin: auto;
+}
+
+#Squished > * { margin: 1em 0; }
+
+#_MAIN_ li {
+    margin: 1em;
+}
+
+#Whoops {
+    width: fit-content;
+    margin: auto;
+}
