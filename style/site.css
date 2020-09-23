@@ -14,6 +14,7 @@ html,
 body {
     margin: 0;
     overflow-x: hidden;
+    width: 100vw;
     min-height: 100vh;
     
     background-color: #f0f8ff;
@@ -26,12 +27,15 @@ body {
     flex-direction: column;
     
 }
+
+
+
 /* For Hashes */
 html { scroll-behavior: smooth; }
 
+
 /* Scrollbar */
 body::-webkit-scrollbar {
-    width: .5em;
     background-color: transparent;
 }
 body::-webkit-scrollbar-track {
@@ -46,8 +50,9 @@ body::-webkit-scrollbar-thumb {
 }
 body > * {
     box-sizing: border-box;
-    padding: 1em;
+    padding: 0 1em;
 }
+
 
 /* Element Defaults */
 img {
@@ -89,6 +94,20 @@ a:active {
 .animated * {
     transition-timing-function: ease-out;
     transition-duration: .1s;
+}
+
+
+.external-link::after {
+    content: "";
+
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+
+    background-image: url( "../media/external-link.svg" );
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /**********/

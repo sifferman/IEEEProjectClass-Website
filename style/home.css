@@ -15,7 +15,7 @@
 /**********/
 
 #_HEADER_ {
-    height: 100vh !important;
+    min-height: 100vh;
 }
 
 #_HEADER_ > * {
@@ -82,10 +82,12 @@
     text-indent: 1em;
 }
 
+
 /* Register */
 
 
 
+/* Links */
 #Links {
     flex-wrap: wrap;
     justify-content: space-evenly;

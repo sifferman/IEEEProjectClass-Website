@@ -42,6 +42,7 @@
 #Squished {
     max-width: 1200px;
     margin: auto;
+    margin-top: 2em;
 }
 
 #Squished > * { margin: 1em 0; }
