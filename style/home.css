@@ -28,6 +28,11 @@
 #Welcome {
     width: min( 31ch, 100% );
 
+    /* align-self: flex-end; */
+    border-right: #00000071 solid .05em;
+    box-sizing: border-box;
+    padding-right: .5em;
+
     font-size: calc( 10px + 2em );
     font-weight: 900;
     text-align: right;
