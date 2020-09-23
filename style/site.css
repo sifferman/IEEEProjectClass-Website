@@ -89,6 +89,8 @@ a:active {
     border: #0000006b solid 2px;
     padding: 1.1em;
     border-radius: 2em;
+
+    text-align: center;
 }
 
 .clickable,
