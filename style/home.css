@@ -43,17 +43,6 @@
     margin: var(--margin);
 }
 
-#Get-Started {
-    color: aliceblue;
-    font-size: 1.2em;
-    
-    background-color: #00000050;
-    border: #0000006b solid 2px;
-    padding: 1.1em;
-    border-radius: 2em;
-}
-
-
 #Headshot {
     width: 8rem;
     border-radius: 2em;
@@ -72,19 +61,25 @@
 
 #_MAIN_ > * { margin: 1em 0; }
 
+#_MAIN_ h1 {
+    text-align: center;
+}
 #_MAIN_ li {
-    margin: 1em;
+    padding: .5em;
+    margin: 0;
 }
 
+/* About */
 #About {
     max-width: 1000px;
-}
-#About h1 {
-    text-align: center;
 }
 #About p {
     text-indent: 1em;
 }
+
+/* Register */
+
+
 
 #Links {
     flex-wrap: wrap;
@@ -96,8 +91,7 @@
     border-radius: 2em;
     box-shadow: #0000005e .5em .5em 1em;
 
-    --margin: 2rem;
-    margin: var(--margin);
+    margin: 2rem;
 }
 #Links * {
     text-align: center;
@@ -105,6 +99,10 @@
 #Links ul {
     list-style: none;
     padding: 0;
+}
+#Links li {
+    margin: 0;
+    padding: .6rem 2rem;
 }
 
 #Lectures {
