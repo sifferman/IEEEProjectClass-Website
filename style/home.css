@@ -67,6 +67,7 @@
 #_MAIN_ > * { margin: 1em 0; }
 
 #_MAIN_ h1 {
+    font-size: calc( 1.2em + 2.2vw );
     text-align: center;
 }
 #_MAIN_ li {
