@@ -26,7 +26,7 @@
 }
 
 #_HEADER_ h1 {
-    font-size: calc( 100px - 1vw );
+    font-size: calc( 60px + .6vw );
     font-weight: normal;
 }
 
@@ -38,6 +38,10 @@
 /********/
 /* Main */
 /********/
+
+#_MAIN_ {
+    font-size: calc( .7rem + .7vw );
+}
 
 #Squished {
     max-width: 1200px;

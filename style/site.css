@@ -19,7 +19,7 @@ body {
     
     background-color: #f0f8ff;
     
-    font-size: max( 40px - .5vw );
+    font-size: max( 20px + .5vw );
     font-family: 'Dosis', Courier, monospace;
     letter-spacing: .08em;    
 }
@@ -151,6 +151,5 @@ a:active {
 /*********/
 
 .code {
-    font-size: .6rem;
     height: auto;
 }
