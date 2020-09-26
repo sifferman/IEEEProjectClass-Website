@@ -26,21 +26,283 @@
         </div>
         <div id="_MAIN_"><div id="Squished">
 
-            <div id="Whoops">
-                Nothing here yet! Keep checking back.
+
+            <div id="Table-of-Contents" class="bubble">
+<h1>Table of Contents</h1>
+    <ul>
+        <li class="clickable"><a href="#Preliminaries">
+            Preliminaries
+        </a></li>
+        <li class="clickable"><a href="#GitHub-Pages">
+            GitHub Pages
+        </a></li>
+        <li class="clickable"><a href="#HTML-Introduction">
+            HTML Introduction
+        </a></li>
+        <li class="clickable"><a href="#CSS-Introduction">
+            CSS Introduction
+        </a></li>
+    </ul>
             </div>
 
-<textarea class="code" cols="10" rows="30" readonly>
+            <div id="Preliminaries">
+<h1>Preliminaries</h1>
+<p>Be sure to download all required software for this class:</p>
+    <ul>
+        <li class="clickable external-link"><a href="https://desktop.github.com/" target="_blank">
+            GitHub Desktop
+        </a></li>
+        <li class="clickable external-link"><a href="https://code.visualstudio.com/download" target="_blank">
+            Visual Studio Code
+        </a></li>
+        <li class="clickable external-link"><a href="https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css" target="_blank">
+            VSC HTML/CSS Extension
+        </a></li>
+    </ul>
+<p>
+    Please make a <a href="https://github.com/" target="_blank">GitHub account</a> and
+    sign into it on GitHub Desktop.
+</p>
+            </div>
+
+            <div id="GitHub-Pages">
+<h1>Getting Started with GitHub Pages</h1>
+<p>First, sign into your
+<a href="https://github.com/" target="_blank">GitHub account</a>.
+Create a new repository titled <code>{YOUR_USERNAME}.github.io</code>.
+For example, since my username is E4tham, my repository is titled
+<code>E4tham.github.io</code>. Make sure the repository is public.
+</p>
+<p>
+Now clone repository into GitHub Desktop. GitHub Desktop should now look like this:
+<img src="../../media/Introduction/GitHub Desktop.jpg" alt="GitHub Desktop">
+</p>
+<p>
+Click <code>Open in Visual Studio Code</code>. Create a new file titled
+<code>index.html</code>. Fill the file with an important message you want shared
+with the world!
+<img src="../../media/Introduction/VSC New File.jpg" alt="New File">
+<img src="../../media/Introduction/index.html.png" alt="index.html">
+</p>
+<p>
+To upload our new file, just navigate back to GitHub Desktop and click Commit
+then Push/Publish.
+<img src="../../media/Introduction/commit.jpg" alt="Commit">
+<img src="../../media/Introduction/push.jpg" alt="Push">
+</p>
+<p>
+And that's all there is to it! You have now created a website! Open your browser of choice,
+navigate to <code>https://{YOUR_USERNAME}.github.io</code>, and you should see your message!
+It could take a couple minutes to update, but once it does, anyone in the world can visit
+that your web page!
+<img src="../../media/Introduction/website.jpg" alt="Website">
+</p>
+<p>
+Note: I did skip a few steps, so if you would like a more cohesive guide, check out the official
+<a href="https://guides.github.com/features/pages/#:~:text=Create%20Your%20Website,-Once%20you've&text=On%20the%20new%20repository%20screen,name%20to%20generate%20your%20website.&text=If%20you%20scroll%20down%20on,process%20of%20creating%20your%20site." target="_blank">
+GitHub Pages Getting Started</a> guide.
+</p>
+<p>
+Now we just need to get this page looking good!
+</p>
+            </div>
+
+
+
+
+
+            <div id="HTML-Introduction">
+<h1>
+HTML Introduction
+</h1>
+
+
+
+
+<h2>What is HTML?</h2>
+<p>
+HTML is the standard markup language used by internet browsers to display content. Every time
+you &ldquo;visit&rdquo; a page, a server somewhere is simply sending you an HTML file for your
+browser to interpret. This means that we can open any local <code>.html</code> file and view it
+just like a webpage.
+<img src="../../media/Introduction/local file.jpg" alt="Local File">
+</p>
+
+
+
+
+<h2>Opening Local .HTML files</h2>
+<p>
+Try opening your <code>index.html</code> in a browser, and you should see the exact same
+page as if you had opened <code>https://{YOUR_USERNAME}.github.io</code>. Now if you edit your
+<code>index.html</code> file, just hit refresh and you will see your changes. That way, you
+don't need to reupload to see a new change. This is a wonderful way to test your website quickly.
+</p>
+<p>
+<span class="highlight">Note: you should name all your .html files <code>index.html</code></span>
+and distinguish between
+files through its directory. This is because browsers can hide the <code>index.html</code>
+part of a URL.
+</p>
+<p>
+For example, the URL,
+<code>https://ucsbieee.org/membership/</code> actually opens
+<code>https://ucsbieee.org/membership/index.html</code>. However, the <code>index.html</code>
+is hidden. If the file was renamed to <code>page.html</code>, the URL would be
+<code>https://ucsbieee.org/membership/page.html</code>.
+</p>
+
+
+
+
+<h2>
+HTML Elements
+</h2>
+<p>
+HTML is written with tags. All content must go inside an opening tag <code>&lt;TAG></code>
+and closing tag <code>&lt;/TAG></code>. For example:
+<textarea class="code" readonly>
+<h1>Header 1</h1>
+<h2>Header 2</h2>
+<h3>Header 3</h3>
+<p>
+    Paragraph here.
+</p>
+<p>
+    Another paragraph here.
+</p></textarea>
+
+<div class="code_out">
+    <h1>Header 1</h1>
+    <h2>Header 2</h2>
+    <h3>Header 3</h3>
+    <p>Paragraph here.</p>
+    <p>Another paragraph here.</p>
+</div>
+
+</p>
+
+<p>
+However, some HTML elements cannot have content and use <span class="highlight">self-closing</span> tags.
+Common examples include line breaks, <code>&lt;br></code> and images.
+<code>&lt;img></code>
+
+<textarea class="code" readonly>
+<div>
+    <p>
+        Hello, guys! Wonderful<br>weather!
+    </p>
+</div></textarea>
+
+<div class="code_out">
+<p>Hello, guys! Wonderful<br>weather!</p>
+</div>
+
+</p>
+
+<div class="bubble">
+    <div class="clickable external-link"><a href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">
+        Here is a list of native HTML elements!
+    </div>
+</div>
+
+
+
+
+
+<h2>HTML Attributes</h2>
+
+<p>
+HTML Elements can have attributes denoted after the tag name with
+<code>{ATTRIBUTE_NAME}="{VALUE}"</code>. For example, you can define
+the source file for an image, url for a link, and more! Later, you can
+define your own attributes to use with CSS and JavaScript.
+</p>
+
+<textarea class="code" readonly>
+<div class="picture-div">
+
+    <img src="snorlax.png" alt="Snorlax">
+
+    <p id="Snorlax-Label">
+        Look at this bad boy! Learn more
+        <a href="https://www.pokemon.com/us/pokedex/snorlax"
+           target="_blank">
+            here</a>!
+    </p>
+    
+</div></textarea>
+
+<div class="code_out">
+<div class="picture-div">
+    <img src="snorlax.png" alt="Snorlax">
+    <p id="Snorlax-Label">
+        Look at this bad boy! Learn more
+        <a href="https://www.pokemon.com/us/pokedex/snorlax"
+           target="_blank">
+            here</a>!
+    </p>
+</div>
+
+</div>
+
+<p>
+Attributes also let you define elements to have a <code>class</code> and/or
+an <code>id</code>. These are the two most important attributes for
+styling your webpage. Classes and IDs will be explored in the
+CSS section!</p>
+
+<h2>
+HTML Structure
+</h2>
+<p>
+To make it easier for all browsers, all your html files should follow this structure.
+
+<textarea class="code" readonly>
 <!DOCTYPE html>
 <html>
-    <head>
-
+    <head> <!-- Document Properties -->
+        <title></title>
     </head>
-    <body>
+    <body> <!-- Document Content -->
 
     </body>
 </html>
 </textarea>
+
+No text should be put into the <code>head</code> element. That is where
+you can include styling files, set a page title and description, or add
+JavaScript. The body is where all content must go.
+</p>
+<p>
+Feel free to copy this template and paste it into a file you can refer
+back to!
+</p>
+
+
+
+
+
+
+<h2>Final Thoughts</h2>
+<p>
+Try to only use each tag for its intended purpose. Do not use a table
+as a paragraph, or a paragraph as a button label. HTML is designed to
+be simple, so people who read it should not have to guess what each
+section is SUPPOSED to be. If you need a funtion, and are not sure
+which element to use, <span class="highlight">WHEN IN DOUBT, USE <code>div</code></span>!
+</p>
+
+            </div>
+
+
+
+
+
+
+            <div id="CSS-Introduction">
+                <h1>CSS-Introduction</h1>
+            </div>
 
         </div></div>
     </body>

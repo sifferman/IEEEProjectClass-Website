@@ -19,9 +19,9 @@ body {
     
     background-color: #f0f8ff;
     
-    font-size: max( 20px + .5vw );
+    font-size: max( 18px + .4vw );
     font-family: 'Dosis', Courier, monospace;
-    letter-spacing: .08em;    
+    letter-spacing: .08em; 
 }
 
 body {
@@ -66,6 +66,17 @@ a {
 }
 a:active {
     color: inherit;
+}
+p {
+    text-indent: 1em;
+}
+p img {
+    max-width: 100%;
+    margin: .2em auto;
+}
+code {
+    opacity: .7;
+    font-size: .84em;
 }
 
 
@@ -112,6 +123,25 @@ a:active {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+
+p > a {
+    color: #4c61a8c9;
+}
+
+
+.bubble {
+    padding: 1em;
+    background-color: #00000019;
+    border-radius: 2em;
+    box-shadow: #0000005e .5em .5em 1em;
+
+    margin: auto;
+    width: fit-content;
+}
+
+.highlight {
+    background-color: #ffff0067;
 }
 
 /**********/

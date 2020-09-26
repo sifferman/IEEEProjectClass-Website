@@ -79,9 +79,6 @@
 #About {
     max-width: 1000px;
 }
-#About p {
-    text-indent: 1em;
-}
 
 
 /* Register */
@@ -94,11 +91,6 @@
     justify-content: space-evenly;
 }
 #Links > * {
-    padding: 1em;
-    background-color: #00000019;
-    border-radius: 2em;
-    box-shadow: #0000005e .5em .5em 1em;
-
     margin: 2rem;
 }
 #Links * {
