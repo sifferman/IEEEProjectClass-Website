@@ -40,8 +40,9 @@
 /********/
 
 #_MAIN_ {
-    font-size: calc( .7rem + .7vw );
+    font-size: min( 30px, calc( 1rem + .1vw ) );
 }
+
 
 #Squished {
     max-width: 1200px;
@@ -61,16 +62,22 @@
 }
 
 .code_out {
-    width: 80%;
-    margin: auto;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     background-color: #f5fcff;
     box-shadow: inset 0 0 .2em black;
+
+    font-family: Georgia, 'Times New Roman', Times, serif;
+
+    width: min( 100%, 800px );
     padding: 2em;
+    box-sizing: border-box;
+    
+    margin: auto;
     margin: .5em auto;
+    
 }
+
 #Table-of-Contents {
     width: fit-content;
     margin: auto;
-    font-size: .7em;
+    font-size: .75em;
 }

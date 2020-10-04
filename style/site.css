@@ -14,12 +14,11 @@ html,
 body {
     margin: 0;
     overflow-x: hidden;
-    /* width: 100vw; */
     min-height: 100vh;
     
     background-color: #f0f8ff;
     
-    font-size: max( 18px + .4vw );
+    font-size: 20px;
     font-family: 'Dosis', Courier, monospace;
     letter-spacing: .08em; 
 }
@@ -111,7 +110,7 @@ code {
     transition-duration: .1s;
 }
 
-
+/* Links */
 .external-link::after {
     content: "";
 
@@ -124,12 +123,11 @@ code {
     background-position: center;
     background-repeat: no-repeat;
 }
-
-p > a {
+p a {
     color: #4c61a8c9;
 }
 
-
+/* Bubble */
 .bubble {
     padding: 1em;
     background-color: #00000019;
@@ -140,7 +138,8 @@ p > a {
     width: fit-content;
 }
 
-.highlight {
+
+span.highlight {
     background-color: #ffff0067;
 }
 

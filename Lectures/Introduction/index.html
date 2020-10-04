@@ -11,6 +11,7 @@
         <script src="../../src/codemirror/lib/codemirror.js"></script>
         <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
         <script src="../../src/codemirror/mode/xml/xml.js"></script>
+        <script src="../../src/codemirror/mode/css/css.js"></script>
     </head>
     <body>
         <div id="_HEADER_" class="flex flex__row">
@@ -161,7 +162,7 @@ HTML Elements
 <p>
 HTML is written with tags. All content must go inside an opening tag <code>&lt;TAG></code>
 and closing tag <code>&lt;/TAG></code>. For example:
-<textarea class="code" readonly>
+<textarea class="code-HTML" readonly>
 <h1>Header 1</h1>
 <h2>Header 2</h2>
 <h3>Header 3</h3>
@@ -187,25 +188,24 @@ However, some HTML elements cannot have content and use <span class="highlight">
 Common examples include line breaks, <code>&lt;br></code> and images.
 <code>&lt;img></code>
 
-<textarea class="code" readonly>
+<textarea class="code-HTML" readonly>
 <div>
     <p>
-        Hello, guys! Wonderful<br>weather!
+        Hello, everyone! Wonderful<br>weather!
     </p>
 </div></textarea>
 
 <div class="code_out">
-<p>Hello, guys! Wonderful<br>weather!</p>
+<p>Hello, everyone! Wonderful<br>weather!</p>
 </div>
 
 </p>
 
-<div class="bubble">
-    <div class="clickable external-link"><a href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">
-        Here is a list of native HTML elements!
-    </div>
+<a href="https://www.w3schools.com/tags/ref_byfunc.asp" target="_blank">
+<div class="clickable external-link bubble">
+    Here is a list of native HTML elements!
 </div>
-
+</a>
 
 
 
@@ -214,12 +214,12 @@ Common examples include line breaks, <code>&lt;br></code> and images.
 
 <p>
 HTML Elements can have attributes denoted after the tag name with
-<code>{ATTRIBUTE_NAME}="{VALUE}"</code>. For example, you can define
-the source file for an image, url for a link, and more! Later, you can
-define your own attributes to use with CSS and JavaScript.
+<code>{ATTRIBUTE_NAME}="{VALUE}"</code>. Uses incude defining
+the source file for an image, url for a link, and more! We will
+be relying on these <em>heavily</em> for all CSS and JavaScript.
 </p>
 
-<textarea class="code" readonly>
+<textarea class="code-HTML" readonly>
 <div class="picture-div">
 
     <img src="snorlax.png" alt="Snorlax">
@@ -235,12 +235,10 @@ define your own attributes to use with CSS and JavaScript.
 
 <div class="code_out">
 <div class="picture-div">
-    <img src="snorlax.png" alt="Snorlax">
+    <img src="snorlax.png" alt="Snorlax" style="max-width: 100%;">
     <p id="Snorlax-Label">
         Look at this bad boy! Learn more
-        <a href="https://www.pokemon.com/us/pokedex/snorlax"
-           target="_blank">
-            here</a>!
+        <a href="https://www.pokemon.com/us/pokedex/snorlax" target="_blank">here</a>!
     </p>
 </div>
 
@@ -258,7 +256,7 @@ HTML Structure
 <p>
 To make it easier for all browsers, all your html files should follow this structure.
 
-<textarea class="code" readonly>
+<textarea class="code-HTML" readonly>
 <!DOCTYPE html>
 <html>
     <head> <!-- Document Properties -->
@@ -290,7 +288,8 @@ Try to only use each tag for its intended purpose. Do not use a table
 as a paragraph, or a paragraph as a button label. HTML is designed to
 be simple, so people who read it should not have to guess what each
 section is SUPPOSED to be. If you need a funtion, and are not sure
-which element to use, <span class="highlight">WHEN IN DOUBT, USE <code>div</code></span>!
+which element to use, <span class="highlight">when in doubt, use
+<code>div</code></span>!
 </p>
 
             </div>
@@ -302,6 +301,115 @@ which element to use, <span class="highlight">WHEN IN DOUBT, USE <code>div</code
 
             <div id="CSS-Introduction">
                 <h1>CSS-Introduction</h1>
+<h2>What is CSS?</h2>
+<p>
+CSS is the style sheet language we use to format the presentation of HTML.
+We can use CSS to add backgrounds, colors, layouts, animations, and more!
+It is an incredibly powerful tool that has been evolving for many years,
+accross all browsers.
+</p>
+<p>
+However, CSS can get quite tricky for beginners. For one thing, all browsers
+handle CSS differently. It is important to check
+<span class="highlight"><a href="https://caniuse.com/" target="_blank">
+browser compatibility</a></span>
+before applying any property. Another difficulty is that
+<span class="highlight">some CSS properties will cancel out others</span>.
+If a property does not seem to change your layout,
+it is important to know why, since it may negativily affect something later.
+But the biggest learning curve is simply remembering all the different properties. 
+When starting out,
+<span class="highlight">you will likely have to Google absolutely everything
+several times over before you remember anything</span>.
+It is perfectly normal to struggle with
+CSS, so please ask questions and speak with me and fellow classmates for help!
+</p>
+
+
+<h2>Including CSS in HTML</h2>
+<p>
+
+CSS can be added in many ways, although I will only show you the main way.
+<ol>
+    <li>Create a file with the <code>.css</code> extension.</li>
+    <li>Add the element <code>&lt;link rel="stylesheet" href="{PATH}"></code>
+        to your HTML file's <code>head</code> section.</li>
+</ol>
+
+
+<code>index.html</code>
+<textarea class="code-HTML" readonly>
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1 id="Welcome-Header">Saluatations!</h1>
+        
+        <p>Look at my color!!!</p>
+
+        <div class="right">I'm on the right!</div>
+    </body>
+</html></textarea>
+
+
+<code>style.css</code>
+<textarea class="code-CSS" readonly>
+html,
+body { /* changing properties of entire document */
+    font-family: cursive; /* changing font to Comic Sans */
+}
+
+#Welcome-Header { /* elements with ID of "Welcome-Header" */
+    background-color: lightsalmon;
+    width: fit-content; /* width is as small as possible */
+    margin: auto; /* left and right margins are equal */
+}
+
+p { /* all paragraphs */
+    background-color: lavender;
+    color: darkslateblue;
+}
+
+.right { /* elements with class of "right" */
+    background-color: skyblue;
+    width: fit-content; /* width is as small as possible */
+    margin-left: auto; /* div is pushed right */
+}</textarea>
+
+
+<div class="code_out" style="font-family: cursive;">
+    <h1 id="Welcome-Header" style="
+        background-color: lightsalmon;
+        width: fit-content;
+        margin: auto;
+    ">Saluatations!</h1>
+
+    <p style="
+        color: darkslateblue;
+        background-color: lavender;
+    ">Look at my color!!!</p>
+
+    <div class="right" style="
+        background-color: skyblue;
+        width: fit-content;
+        margin-left: auto;
+    ">I'm on the right!</div>
+</div>
+</p>
+
+
+
+<h2>Selectors</h2>
+<p>
+The two easiest ways to select which elements to style is through classes and IDs.
+Nearly every element you write should have either a class or an ID or both. Use
+classes when you reuse stylings, ie things with left margins, red backgrounds, etc.
+Use IDs for single-instance elements, ie a specific image, a page section, etc.
+</p>
+
+
             </div>
 
         </div></div>

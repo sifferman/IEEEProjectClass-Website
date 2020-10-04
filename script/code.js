@@ -1,7 +1,7 @@
 
 /* code.js */
 
-var code_instances = document.getElementsByClassName("code");
+var code_instances = document.getElementsByClassName("code-HTML");
 for ( var i = 0 ; i < code_instances.length ; i++ ) {
     let c = CodeMirror.fromTextArea(
         code_instances[i], {
@@ -13,3 +13,16 @@ for ( var i = 0 ; i < code_instances.length ; i++ ) {
     );
 }
 
+
+
+var code_instances = document.getElementsByClassName("code-CSS");
+for ( var i = 0 ; i < code_instances.length ; i++ ) {
+    let c = CodeMirror.fromTextArea(
+        code_instances[i], {
+            mode: "css",
+            lineNumbers: true,
+            viewportMargin: Infinity,
+            readOnly: "nocursor"
+        }
+    );
+}
