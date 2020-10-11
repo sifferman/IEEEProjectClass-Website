@@ -76,8 +76,20 @@
     
 }
 
+
+
+/* Contents */
+
 #Table-of-Contents {
     width: fit-content;
     margin: auto;
     font-size: .75em;
 }
+#Table-of-Contents h1 { text-align: center; }
+
+#To-Do {
+    font-size: .9em;
+    margin: auto;
+    width: fit-content;
+}
+#To-Do h1 { text-align: center; }
