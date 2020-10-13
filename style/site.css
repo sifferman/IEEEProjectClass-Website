@@ -87,7 +87,7 @@ code {
 .flex__row-reverse { flex-direction: row-reverse; }
 
 /* Buttons */
-.clickable { cursor: pointer; }
+.clickable { cursor: pointer; width: fit-content; }
 .clickable:hover { transform: scale(1.05); }
 .clickable:active { transform: scale(.98); }
 
