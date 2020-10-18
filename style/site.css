@@ -185,3 +185,8 @@ span.highlight {
 .code {
     height: auto;
 }
+.center {
+    display: block !important;
+    margin: auto !important;
+    width: fit-content;
+}
