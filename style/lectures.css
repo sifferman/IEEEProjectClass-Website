@@ -78,9 +78,10 @@
 }
 
 .center {
-    display: block;
+    display: block !important;
     margin: auto !important;
     width: fit-content;
+    text-align: center !important;
 }
 
 /* Contents */
