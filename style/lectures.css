@@ -28,6 +28,7 @@
 #_HEADER_ h1 {
     font-size: calc( 60px + .6vw );
     font-weight: normal;
+    text-align: center;
 }
 
 #Back {
@@ -76,12 +77,16 @@
     
 }
 
-
+.center {
+    display: block;
+    margin: auto !important;
+    width: fit-content;
+}
 
 /* Contents */
 
 #Table-of-Contents {
-    width: fit-content;
+    /* width: fit-content; */
     margin: auto;
     font-size: .75em;
 }
@@ -89,11 +94,12 @@
 
 #To-Do {
     font-size: .9em;
-    margin: auto;
-    width: fit-content;
 }
 #To-Do h1 { text-align: center; }
-
+#Recording h1 {
+    text-align: center;
+    margin-bottom: 0;
+}
 
 
 
