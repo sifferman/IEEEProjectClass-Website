@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IEEE WebDev</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <base target="_blank">
+
+        <link rel="stylesheet" href="../../style/site.css">
+        <link rel="stylesheet" href="../../style/lectures.css">
+
+        <!-- codemirror -->
+        <script src="../../src/codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
+        <script src="../../src/codemirror/mode/xml/xml.js"></script>
+        <script src="../../src/codemirror/mode/css/css.js"></script>
+    </head>
+    <body>
+        <div id="_HEADER_" class="flex flex__row">
+
+            <a id="Back" class="clickable" href="../../" target="_self">
+                <img src="../../media/back.svg" alt="back">
+            </a>
+
+            <h1>
+                Lecture 3 (10.31.20) - Organization
+            </h1>
+
+        </div>
+        <div id="_MAIN_"><div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                    <ul>
+                        <li class="clickable"><a href="#To-Do" target="_self">
+                            To Do
+                        </a></li>
+                        <li class="clickable"><a href="#CSS-Variables" target="_self">
+                            CSS Variables
+                        </a></li>
+                        <li class="clickable"><a href="#Directory-Organization" target="_self">
+                            Directory Organization
+                        </a></li>
+                        <li class="clickable"><a href="#Final-Thoughts" target="_self">
+                            Final Thoughts
+                        </a></li>
+                    </ul>
+            </div>
+
+            <div id="To-Do" class="center">
+                <h1>Finish These Before Oct. 31<sup>st</sup></h1>
+                <ul>
+                    <li>Replace all colors with css variables.</li>
+                    <li>Add comments to block CSS files into sections.</li>
+                    <li>Use multiple CSS files.</li>
+                    <li>Arrange files into directories.</li>
+                    <li>Make sure all html files are named <code>index.html</code>.</li>
+                </ul>
+            </div>
+
+            <div id="CSS-Variables">
+                <h1>CSS Variables</h1>
+                <p>Replace all the colors in your CSS files with variables. Learn about them here!</p>
+                <div class="center clickable external-link"><a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">
+                    MDN Web Docs
+                </a></div>
+
+                <p>
+                    But should we use this technique? It cleans our files up a lot,
+                    but will will this technique be supported by all browsers?
+                </p>
+                <div class="center clickable external-link"><a href="caniuse.com">
+                    CanIUse.com
+                </a></div>
+                <p>
+                    As you can see, variables are not supported by Internet Explorer.
+                    This is where you must know your audience. Ask yourself, who will be
+                    visiting your website? Do you expect many IE users to visit? If so,
+                    you should probably avoid using CSS variables.
+                </p>
+            </div>
+
+            <div>
+                <h1>CSS File Organization</h1>
+                <p>
+                    CSS Files can get quite large. It is important for them to stay
+                    easy to understand and organized.
+                </p>
+
+                <h2>Multiple Files</h2>
+                <p>
+                    Consider a website where every page has the exact same nag bar, but
+                    only the home page has a red background.
+                </p>
+                <p>
+                    We could two CSS files. One <code>site.css</code> and one <code>home.css</code>.
+                    Both CSS files are included in <code>home/index.html</code>, but only <code>site.css</code>
+                    is included in all other pages.
+                </p>
+                <p>
+                    Use multiple files according to your judgement. Our main goal is to stay
+                    organized, but when dealing with small websties, one CSS file could be just fine.
+                </p>
+
+                <h2>CSS File Struture</h2>
+                <p>
+                    Once again, organizing your CSS files is up to your own judgement.
+                    However, they should be so clear that anyone should understand what
+                    each section does at a glance.
+                </p>
+                <p>For example:</p>
+<textarea class="code-CSS" readonly>
+
+/* style.css */
+
+
+/* ===== Variables ====== */
+:root {
+    --dark-color: #2b2727;
+    --light-color: #f8d1a7;
+    --golden-ratio: 0.618033;
+}
+
+
+/* === Override HTML Defaults ===== */
+html, body { margin: 0; }
+img { display: block; }
+p { text-align: center; }
+
+
+/* === Page-wide Style ==== */
+html, body {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font: 16px 'Courier New', Courier, monospace;
+}
+
+
+/* === Common Classes ==== */
+.center {
+    text-align: center;
+    width: fit-content;
+    margin: auto;
+}
+.inverted {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+
+/* === Specific Instances ==== */
+
+
+/*  Form  */
+.info > * {
+    margin: .5em;
+}
+
+/*  Spooky Picture  */
+#Skeleton {
+    width: 6em;
+}
+
+</textarea>
+                <p>
+                    In this file, you are likely able to guess what the page
+                    looks like without even seeing the HTML! This should always be your goal.
+                </p>
+
+            </div>
+
+            <div id="Directory-Organization">
+                <h1>
+                    File Directory Organization
+                </h1>
+                <p>
+                    It is important to keep your files organized in directories. Aside from the directories with your web pages, popular directories include:
+                </p>
+                <ul>
+                    <li><code>styles</code> to put all your CSS files.</li>
+                    <li><code>media</code> to put all your images and videos.</li>
+                    <li><code>scripts</code> to put all your Javascript files.</li>
+                    <li><code>fonts</code> to put all your fonts.</li>
+                    <li><code>src</code> to put all your external libraries.</li>
+                </ul>
+                <p>
+                    For example, your website directory may look like this:
+                </p>
+                <img src="example-directory-structure.png" alt="example" class="center">
+                <p>
+                    Once again, this is completely up to your team's preferences. File structure is
+                    entirely dependant on whatever a team decides. From company to company,
+                    file organization can differ greatly.
+                </p>
+            </div>
+
+            <div id="Final-Thoughts">
+                <h1>Final Thoughts</h1>
+                <p>
+                    Organization should be a big part of your career as
+                    any software developer. Manipulating files so they are
+                    easier to understand will increase your and your team's
+                    productivity.
+                </p>
+                <p>
+                    The organization skills that I have learned in software
+                    development have transfered to all areas of my life. I
+                    hope that every time you write any code, you will
+                    feel as passionate about organization as I do.
+                </p>
+            </div>
+            
+            </div>
+
+        </div>
+
+    </body>
+</html>
+<script src="../../script/code.js"></script>
