@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IEEE WebDev</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <base target="_blank">
+
+        <link rel="stylesheet" href="../../style/site.css">
+        <link rel="stylesheet" href="../../style/lectures.css">
+
+        <!-- codemirror -->
+        <script src="../../src/codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
+        <script src="../../src/codemirror/mode/xml/xml.js"></script>
+        <script src="../../src/codemirror/mode/css/css.js"></script>
+        <script src="../../src/codemirror/mode/javascript/javascript.js"></script>
+    </head>
+    <body>
+        <div id="_HEADER_" class="flex flex__row">
+
+            <a id="Back" class="clickable" href="../../" target="_self">
+                <img src="../../media/back.svg" alt="back">
+            </a>
+
+            <h1>
+                Lecture 4 (11.07.20) - Organization
+            </h1>
+
+        </div>
+        <div id="_MAIN_"><div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                    <ul>
+                        <li class="clickable"><a href="#To-Do" target="_self">
+                            To Do
+                        </a></li>
+                        <li class="clickable"><a href="#Favorite-Guides" target="_self">
+                            Favorite Guides
+                        </a></li>
+                        <li class="clickable"><a href="#Introduction" target="_self">
+                            Introduction to JavaScript
+                        </a></li>
+                        <li class="clickable"><a href="#Functions" target="_self">
+                            Calling a JavaScript Function
+                        </a></li>
+                        <li class="clickable"><a href="#Template" target="_self">
+                            JavaScript File Template
+                        </a></li>
+                        <li class="clickable"><a href="#Final-Thoughts" target="_self">
+                            Final Thoughts
+                        </a></li>
+                    </ul>
+            </div>
+
+            <div id="To-Do" class="center">
+                <h1> To Do </h1>
+                <ul>
+                    <li class="clickable external-link"><a href="javascript_exercise.zip" download>
+                        Complete this exercise by editing <code>_scripts/script.js</code> and <code>index.html</code>.
+                    </a></li>
+                    <li class="clickable external-link"><a href="my_solution.zip" download>
+                        Compare with my solution.
+                    </a></li>
+                </ul>
+            </div>
+
+            <div id="Favorite-Guides">
+                <h1> Favorite Guides </h1>
+                <p> Try checking out these tutorials if you'd like more guidance! </p>
+                <ul>
+                    <li class="clickable external-link"><a href="https://youtu.be/c-I5S_zTwAc">
+                        What is JavaScript?
+                    </a></li>
+                    <li class="clickable external-link"><a href="https://youtu.be/zD2BDqA-e0E">
+                        Quick JavaScript Tutorial
+                    </a></li>
+                    <li class="clickable external-link"><a href="https://www.w3schools.com/jsref/dom_obj_all.asp">
+                        Element Object Methods
+                    </a></li>
+                </ul>
+            </div>
+
+            <div id="Introduction">
+                <h1> Introduction to JavaScript </h1>
+                <p>
+                    JavaScript is a language, interpreted by your brower, run on your computer. It can manipulatate styles, attributes, and contents of any HTML element.
+                </p>
+                <p>
+                    Assuming that you already have an understanding of either Python, Java, or C/C++, JavaScript is incredibly easy to pick up, syntax-wise. The hardest part will be how to instantiate and organize it. That is what this lecture will cover.
+                </p>
+            </div>
+
+            <div id="Functions">
+                <h1> Calling a JavaScript Function </h1>
+                <p>
+                    The way to call a JavaScript function is by giving an HTML element an event that needs to be handled. Example events include <code>onclick</code>, <code>onload</code>, and <code>onchange</code>. You can see the complete list here:
+                </p>
+                <div class="clickable external-link center"><a href="https://www.w3schools.com/jsref/dom_obj_event.asp">
+                    Events List
+                </a></div>
+
+                <p>
+                    Here is an example of a page that gives an alert when the button is pressed:
+                </p>
+
+                <p><code> index.html </code></p>
+<textarea class="code-HTML" readonly>
+
+<!-- index.html -->
+
+<html lang="en">
+    <head>
+        <title> JavaScript Alert </title>
+        <script src="script.js"></script>
+    </head>
+    <body onload="initialize()">
+
+        <button onclick="handleAlertButton()">
+            Click me for an alert!
+        </button>
+
+    </body>
+</html>
+</textarea>
+                <p class="center"><code> script.js </code></p>
+<textarea class="code-JS" readonly>
+
+/* script.js */
+
+function initialize() { }
+
+function handleAlertButton() {
+    alert( "Hello, World!" );
+}
+</textarea>
+
+                <h2> Passing <code>this</code> as a Parameter </h2>
+
+                <p>
+                    To get the properties of the button clicked, just pass <code>this</code> as its parameter.
+                </p>
+                <p>
+                    For example, this page displays a secret message stored in the value attribute in each button:
+                </p>
+
+                <p class="center"><code> index.html </code></p>
+<textarea class="code-HTML" readonly>
+
+<!-- index.html -->
+
+<html lang="en">
+    <head>
+        <title> JavaScript Alert </title>
+        <script src="script.js"></script>
+    </head>
+    <body onload="initialize()">
+
+        <button onclick="handleAlertButton(this)" value="This"> Click </button>
+        <button onclick="handleAlertButton(this)" value="Message"> Click </button>
+        <button onclick="handleAlertButton(this)" value="is"> Click </button>
+        <button onclick="handleAlertButton(this)" value="Secret!"> Click </button>
+    </body>
+</html>
+</textarea>
+                <p class="center"><code> script.js </code></p>
+<textarea class="code-JS" readonly>
+
+/* script.js */
+
+function initialize() { }
+
+function handleAlertButton( button ) {
+    alert( button.value );
+}
+</textarea>
+                <p>
+                    If you would like real example of <code>this</code> in action, look at this calculator app.
+                </p>
+                <div class="clickable external-link center"><a href="calculator.zip">
+                    Calculator
+                </a></div>
+            </div>
+
+            <div id="Template">
+                <h1> JavaScript File Template </h1>
+                <p>
+                    Carrying the theme of last week, (organization), JavaScript files need to be organized. Here is how to lay out your file.
+                </p>
+                <ol>
+                    <li>
+                        List all Global Variables prefaced with <code>var</code>. 
+                    </li>
+                    <li>
+                        Have a function <code>initialize()</code>, where you initialize all your Global Variables and call any functions you need.
+                    </li>
+                    <li>
+                        Declare and impliment all functions your page uses.
+                    </li>
+                </ol>
+                <p> For example: </p>
+                <p class="center"><code>script.js</code></p>
+<textarea class="code-JS" readonly>
+
+/*  script.js */
+
+
+/*  Global Variables */
+
+var addInput1;
+var addInput2;
+var addOutput;
+
+
+/*  Run inside body onload  */
+
+function initialize() {
+
+    addInput1 = document.getElementById( "Addition-Input__1" );
+    addInput2 = document.getElementById( "Addition-Input__2" );
+    addOutput = document.getElementById( "Addition-Output" );
+    handleAdditionInput();
+
+}
+
+
+
+/*  Addition Calculator */
+
+function handleAdditionInput() {
+    addOutput.innerHTML = parseInt( addInput1.value )
+                        + parseInt( addInput2.value );
+}
+</textarea>
+            </div>
+
+            
+
+            <div id="Final-Thoughts">
+                <h1>Final Thoughts</h1>
+                <p>
+                    JavaScript is incrdibly powerful and can manipulate anything on the HTML page. Now that you know how to call JavaScript functions, its possibilites are endless! Have fun :)
+                </p>
+            </div>
+            
+            </div>
+
+        </div>
+
+    </body>
+</html>
+
+<script src="../../script/code.js"> </script>
+

@@ -26,3 +26,15 @@ for ( var i = 0 ; i < code_instances.length ; i++ ) {
         }
     );
 }
+
+var code_instances = document.getElementsByClassName("code-JS");
+for ( var i = 0 ; i < code_instances.length ; i++ ) {
+    let c = CodeMirror.fromTextArea(
+        code_instances[i], {
+            mode: "javascript",
+            lineNumbers: true,
+            viewportMargin: Infinity,
+            readOnly: "nocursor"
+        }
+    );
+}
