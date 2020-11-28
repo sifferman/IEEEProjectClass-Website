@@ -1,62 +1,67 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>IEEE WebDev</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <base target="_blank">
+<head>
+    <title>IEEE WebDev</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../../style/site.css">
-        <link rel="stylesheet" href="../../style/lectures.css">
+    <base target="_blank">
 
-        <!-- codemirror -->
-        <script src="../../src/codemirror/lib/codemirror.js"></script>
-        <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
-        <script src="../../src/codemirror/mode/xml/xml.js"></script>
-        <script src="../../src/codemirror/mode/css/css.js"></script>
-    </head>
-    <body>
-        <div id="_HEADER_" class="flex flex__row">
+    <link rel="stylesheet" href="../../style/site.css">
+    <link rel="stylesheet" href="../../style/lectures.css">
 
-            <a id="Back" class="clickable" href="../../" target="_self">
-                <img src="../../media/back.svg" alt="back">
-            </a>
+    <!-- codemirror -->
+    <script src="../../src/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
+    <script src="../../src/codemirror/mode/xml/xml.js"></script>
+    <script src="../../src/codemirror/mode/css/css.js"></script>
+</head>
 
-            <h1>
-                Lecture 1 (10.17.20) - Intro to the Web
-            </h1>
+<body>
+    <div id="_HEADER_" class="flex flex__row">
 
-        </div>
-        <div id="_MAIN_"><div id="Squished">
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="../../media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Lecture 1 (10.17.20) - Intro to the Web
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
 
 
             <div id="Table-of-Contents" class="bubble">
-<h1>Table of Contents</h1>
-    <ul>
-        <li class="clickable"><a href="#Recording" target="_self">
-            Recorded Lecture
-        </a></li>
-        <li class="clickable"><a href="#To-Do" target="_self">
-            To Do
-        </a></li>
-        <li class="clickable"><a href="#Preliminaries" target="_self">
-            Preliminaries
-        </a></li>
-        <li class="clickable"><a href="#GitHub" target="_self">
-            GitHub
-        </a></li>
-        <li class="clickable"><a href="#GitHub-Desktop" target="_self">
-            GitHub Desktop
-        </a></li>
-        <li class="clickable"><a href="#More" target="_self">
-            More
-        </a></li>
-    </ul>
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#Recording" target="_self">
+                            Recorded Lecture
+                        </a></li>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                            To Do
+                        </a></li>
+                    <li class="clickable"><a href="#Preliminaries" target="_self">
+                            Preliminaries
+                        </a></li>
+                    <li class="clickable"><a href="#GitHub" target="_self">
+                            GitHub
+                        </a></li>
+                    <li class="clickable"><a href="#GitHub-Desktop" target="_self">
+                            GitHub Desktop
+                        </a></li>
+                    <li class="clickable"><a href="#More" target="_self">
+                            More
+                        </a></li>
+                </ul>
             </div>
 
             <div id="Recording" class="center">
                 <h1>Recorded Lecture</h1>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/m_qEGs3dacg" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/m_qEGs3dacg" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
             </div>
 
             <div id="To-Do" class="center">
@@ -71,83 +76,99 @@
             </div>
 
             <div id="Preliminaries">
-<h1>Preliminaries</h1>
-<p>Be sure to install all required software for this class:</p>
-    <ul>
-        <li class="clickable external-link"><a href="https://desktop.github.com/">
-            GitHub Desktop
-        </a></li>
-        <li class="clickable external-link"><a href="https://code.visualstudio.com/download">
-            Visual Studio Code
-        </a></li>
-        <li class="clickable external-link"><a href="https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css">
-            VS Code HTML/CSS Extension
-        </a></li>
-    </ul>
-<p>
-    Please make a <a href="https://github.com/">GitHub account</a> and
-    sign into it on GitHub Desktop.
-</p>
+                <h1>Preliminaries</h1>
+                <p>Be sure to install all required software for this class:</p>
+                <ul>
+                    <li class="clickable external-link"><a href="https://desktop.github.com/">
+                            GitHub Desktop
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://code.visualstudio.com/download">
+                            Visual Studio Code
+                        </a></li>
+                    <li class="clickable external-link"><a
+                            href="https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css">
+                            VS Code HTML/CSS Extension
+                        </a></li>
+                </ul>
+                <p>
+                    Please make a <a href="https://github.com/">GitHub account</a> and
+                    sign into it on GitHub Desktop.
+                </p>
             </div>
 
 
             <div id="GitHub">
-<h1>GitHub</h1>
-<p>
-    GitHub is a <em>FANTASTIC</em> resource for organizing and collaborating on code.
-    If you have never used it, get ready to use possibly the most important tool
-    in all of modern-day software engineering!
-</p>
-<ul>
-    <li class="clickable external-link"><a href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site">
-        Follow this tutorial to host a website through GitHub Pages on your account!
-    </a></li>
-    <li class="clickable external-link"><a href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch">
-        Follow this tutorial to create an organization for your team!
-    </a></li>
-    <li>Then make a website for your organization.</li>
-</ul>
+                <h1>GitHub</h1>
+                <p>
+                    GitHub is a <em>FANTASTIC</em> resource for organizing and collaborating on code.
+                    If you have never used it, get ready to use possibly the most important tool
+                    in all of modern-day software engineering!
+                </p>
+                <ul>
+                    <li class="clickable external-link"><a
+                            href="https://docs.github.com/en/free-pro-team@latest/github/working-with-github-pages/creating-a-github-pages-site">
+                            Follow this tutorial to host a website through GitHub Pages on your account!
+                        </a></li>
+                    <li class="clickable external-link"><a
+                            href="https://docs.github.com/en/free-pro-team@latest/github/setting-up-and-managing-organizations-and-teams/creating-a-new-organization-from-scratch">
+                            Follow this tutorial to create an organization for your team!
+                        </a></li>
+                    <li>Then make a website for your organization.</li>
+                </ul>
             </div>
 
 
             <div id="GitHub-Desktop">
-<h1>GitHub Desktop</h1>
-<p>
-GitHub Desktop is a user-friendly app that lets you interface with
-GitHub without a terminal or browser. GitHub Desktop lets you:
-</p>
-<ul>
-    <li>push and pull GitHub repositories,</li>
-    <li>open VS Code workspaces easily,</li>
-    <li>see your changes,</li>
-    <li>and much more!</li>
-</ul>
+                <h1>GitHub Desktop</h1>
+                <p>
+                    GitHub Desktop is a user-friendly app that lets you interface with
+                    GitHub without a terminal or browser. GitHub Desktop lets you:
+                </p>
+                <ul>
+                    <li>push and pull GitHub repositories,</li>
+                    <li>open VS Code workspaces easily,</li>
+                    <li>see your changes,</li>
+                    <li>and much more!</li>
+                </ul>
 
-<p>
-To download a repository with GitHub Desktop, click
-<code>Clone repository...</code> then select your desired repository. 
-You may also go on your repository's page on your browser and click the 
-green code button,
-<img src="../../media/GitHub/download-button.png" alt="Download" id="Download-Button">,
-then click <code>Open with GitHub Desktop</code>.
-</p>
+                <p>
+                    To download a repository with GitHub Desktop, click
+                    <code>Clone repository...</code> then select your desired repository.
+                    You may also go on your repository's page on your browser and click the
+                    green code button,
+                    <img src="../../media/GitHub/download-button.png" alt="Download" id="Download-Button">,
+                    then click <code>Open with GitHub Desktop</code>.
+                </p>
 
-<div class="clickable external-link">
-    <a href="https://youtu.be/-eIJ2R5ZWlg" target="_blank">
-        I highly recommend watching this GitHub Desktop tutorial.
-    </a>
-</div>
+                <div class="clickable external-link">
+                    <a href="https://youtu.be/-eIJ2R5ZWlg" target="_blank">
+                        I highly recommend watching this GitHub Desktop tutorial.
+                    </a>
+                </div>
+
+                <p>
+                    Push an <code>index.html</code> file with some text to make sure your website works!
+                    Also, create an empty file named <code>.nojekyll</code>. This will allow GitHub Pages to use links with underscores.
+                </p>
+
+
             </div>
 
             <div id="More">
-<h1>More</h1>
-<p>Feel free to start getting comfortable with HTML/CSS with these videos.</p>
-<ul>
-    <li class="clickable external-link"><a href="https://youtu.be/4K4QhIAfGKY">
-        HTML
-    </a></li>
-    <li class="clickable external-link"><a href="https://youtu.be/yie_oJlRghw">
-        CSS
-    </a></li>
-</ul>
+                <h1>More</h1>
+                <p>Feel free to start getting comfortable with HTML/CSS with these videos.</p>
+                <ul>
+                    <li class="clickable external-link"><a href="https://youtu.be/4K4QhIAfGKY">
+                            HTML
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://youtu.be/yie_oJlRghw">
+                            CSS
+                        </a></li>
+                </ul>
             </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
