@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>IEEE WebDev</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <base target="_blank">
+
+        <link rel="stylesheet" href="../../style/site.css">
+        <link rel="stylesheet" href="../../style/lectures.css">
+
+        <!-- codemirror -->
+        <script src="../../src/codemirror/lib/codemirror.js"></script>
+        <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
+        <script src="../../src/codemirror/mode/xml/xml.js"></script>
+        <script src="../../src/codemirror/mode/css/css.js"></script>
+        <script src="../../src/codemirror/mode/javascript/javascript.js"></script>
+    </head>
+    <body>
+        <div id="_HEADER_" class="flex flex__row">
+
+            <a id="Back" class="clickable" href="../../" target="_self">
+                <img src="../../media/back.svg" alt="back">
+            </a>
+
+            <h1>
+                Lecture 6 (11.28.20) - Domains
+            </h1>
+
+        </div>
+        <div id="_MAIN_"><div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                    <ul>
+                        <li class="clickable"><a href="#To-Do" target="_self">
+                            To Do
+                        </a></li>
+                        <li class="clickable"><a href="#PowerCert" target="_self">
+                            PowerCert DNS Server Explanation
+                        </a></li>
+                        <li class="clickable"><a href="#Buying-Domain" target="_self">
+                            Buying a Domain
+                        </a></li>
+                        <li class="clickable"><a href="#Setup" target="_self">
+                            Setup
+                        </a></li>
+                    </ul>
+            </div>
+
+            <div id="To-Do" class="center">
+                <h1> To Do </h1>
+                <ul>
+                    <li class="clickable"><a href="#PowerCert" target="_self">
+                        Watch the PowerCert DNS server explanation
+                    </a></li>
+                    <li class="clickable"><a href="#Buying-Domain" target="_self">
+                        Choose / Buy your Domain
+                    </a></li>
+                    <li class="clickable"><a href="#Setup" target="_self">
+                        Configure DNS
+                    </a></li>
+                </ul>
+            </div>
+
+            <div id="PowerCert" class="center">
+                <h1> PowerCert DNS Server Explanation </h1>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/mpQZVYPuDGU" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+
+            <div id="Buying-Domain">
+                <h1> Buying a Domain </h1>
+                <p>
+                    There are many places you can buy domains; a simple Google search will give you hundreds of companies offering domain purchasing. But which one is best?
+                </p>
+                <p>
+                    When buying a domain, you are actually paying for two things: registration of that domain through a Top Level Domain, and access to your own
+                    Authoritative Name Server <em>(as mentioned in the PowerCert video)</em>.
+                </p>
+                <p>
+                    Note: you will need to continually renew your domain purchase. Generally, domains will cost $12/year.
+                </p>
+                <p>
+                    In my experience, I really like Google&#8217;s service, <a href="https://domains.google">Google Domains</a>, but you can use any service you&#8217;d like.
+                </p>
+
+                <h2> Choosing a Name </h2>
+                <p>
+                    Choosing a domain name can be almost as fun as building your website! The main domain I use is <code>sifferman.dev</code>. I like this domain because I can make my
+                    email address <a href="mailto:ethan@sifferman.dev"><code>ethan@sifferman.dev</code></a> and my personal website
+                    <a href="https://ethan.sifferman.dev/"><code>ethan.sifferman.dev</code></a>.
+                </p>
+                <p>
+                    Some cool domain names are:
+                </p>
+                <ul>
+                    <li><code>kickst.art</code></li>
+                    <li><code>isabella.wang</code></li>
+                    <li><code>jack.black</code></li>
+                    <li><code>liqui.date</code></li>
+                </ul>
+            </div>
+
+            <div id="Setup">
+                <h1> Setting Up Your Domain </h1>
+                <p>
+                    Once you have purchased your domain, you need to conigure your Authoritative DNS Server. You must give your DNS server the GitHub Pages IP Address that
+                    needs to be send to your website&#8217;s visitors.
+                </p>
+                <p>
+                    If you are using Google Domains, follow <a href="https://dev.to/trentyang/how-to-setup-google-domain-for-github-pages-1p58">this tutorial</a>. If you are not
+                    using Google Domains, the process will be very similar. If you run into any issues, feel free to send me a message!
+                </p>
+            </div>
+
+    </body>
+</html>
+
+<script src="../../script/code.js"> </script>
+
