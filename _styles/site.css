@@ -1,10 +1,10 @@
 @font-face {
     font-family: Dosis;
-    src: url("../fonts/Dosis.ttf");
+    src: url("../_fonts/Dosis.ttf");
 }
 @font-face {
     font-family: Dosis;
-    src: url("../fonts/Dosis-Bold.ttf");
+    src: url("../_fonts/Dosis-Bold.ttf");
     font-weight: bold;
 }
 
@@ -118,7 +118,7 @@ code {
     width: 1em;
     height: 1em;
 
-    background-image: url( "../media/external-link.svg" );
+    background-image: url( "../_media/external-link.svg" );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -7,21 +7,23 @@
 
     <base target="_blank">
 
-    <link rel="stylesheet" href="../../style/site.css">
-    <link rel="stylesheet" href="../../style/lectures.css">
+    <link rel="stylesheet" href="../../_styles/site.css">
+    <link rel="stylesheet" href="../../_styles/lectures.css">
 
     <!-- codemirror -->
-    <script src="../../src/codemirror/lib/codemirror.js"></script>
-    <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
-    <script src="../../src/codemirror/mode/xml/xml.js"></script>
-    <script src="../../src/codemirror/mode/css/css.js"></script>
+    <script src="../../_src/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../../_src/codemirror/lib/codemirror.css">
+    <script src="../../_src/codemirror/mode/xml/xml.js"></script>
+    <script src="../../_src/codemirror/mode/css/css.js"></script>
+
+    <script src="../../_scripts/init_codemirror.js"></script>
 </head>
 
-<body>
+<body onload="init()">
     <div id="_HEADER_" class="flex flex__row">
 
         <a id="Back" class="clickable" href="../../" target="_self">
-            <img src="../../media/back.svg" alt="back">
+            <img src="../../_media/back.svg" alt="back">
         </a>
 
         <h1>

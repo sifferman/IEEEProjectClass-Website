@@ -1,119 +1,126 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>IEEE WebDev</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <base target="_blank">
+<head>
+    <title>IEEE WebDev</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        <link rel="stylesheet" href="../../style/site.css">
-        <link rel="stylesheet" href="../../style/lectures.css">
+    <base target="_blank">
 
-        <!-- codemirror -->
-        <script src="../../src/codemirror/lib/codemirror.js"></script>
-        <link rel="stylesheet" href="../../src/codemirror/lib/codemirror.css">
-        <script src="../../src/codemirror/mode/xml/xml.js"></script>
-        <script src="../../src/codemirror/mode/css/css.js"></script>
-    </head>
-    <body>
-        <div id="_HEADER_" class="flex flex__row">
+    <link rel="stylesheet" href="../../_styles/site.css">
+    <link rel="stylesheet" href="../../_styles/lectures.css">
 
-            <a id="Back" class="clickable" href="../../" target="_self">
-                <img src="../../media/back.svg" alt="back-arrow">
-            </a>
+    <!-- codemirror -->
+    <script src="../../_src/codemirror/lib/codemirror.js"></script>
+    <link rel="stylesheet" href="../../_src/codemirror/lib/codemirror.css">
+    <script src="../../_src/codemirror/mode/xml/xml.js"></script>
+    <script src="../../_src/codemirror/mode/css/css.js"></script>
 
-            <h1>
-                Lecture 2 (10.24.20) - Intro to HTML/CSS
-            </h1>
+    <script src="../../_scripts/init_codemirror.js"></script>
+</head>
 
-        </div>
-        <div id="_MAIN_"><div id="Squished">
+<body onload="init()">
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="../../_media/back.svg" alt="back-arrow">
+        </a>
+
+        <h1>
+            Lecture 2 (10.24.20) - Intro to HTML/CSS
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
 
 
             <div id="Table-of-Contents" class="bubble">
-<h1>Table of Contents</h1>
-    <ul>
-        <li class="clickable"><a href="#Recording" target="_self">
-            Recorded Lecture
-        </a></li>
-        <li class="clickable"><a href="#To-Do" target="_self">
-            To Do
-        </a></li>
-        <li class="clickable"><a href="#Using-Google" target="_self">
-            Using Google
-        </a></li>
-        <li class="clickable"><a href="#Flexbox" target="_self">
-            Flexbox
-        </a></li>
-    </ul>
-</div>
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#Recording" target="_self">
+                            Recorded Lecture
+                        </a></li>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                            To Do
+                        </a></li>
+                    <li class="clickable"><a href="#Using-Google" target="_self">
+                            Using Google
+                        </a></li>
+                    <li class="clickable"><a href="#Flexbox" target="_self">
+                            Flexbox
+                        </a></li>
+                </ul>
+            </div>
 
-        <div id="Recording" class="center">
-            <h1>Recorded Lecture</h1>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/4xf9CGCFdL8" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-        </div>
+            <div id="Recording" class="center">
+                <h1>Recorded Lecture</h1>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/4xf9CGCFdL8" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div>
 
-        <div id="To-Do" class="center">
-            <h1>Finish These Before You Leave</h1>
-            <ul>
-                <li class="clickable external-link"><a href="html+css_exercise.zip" download>
-                    Complete this exercise.
-                </a></li>
-                <li>Begin work on your website. (You may transfer over your code from the exercise).</li>
-                <li>Create group chat for your team.</li>
-                <li>Create a plan for what to work on until Nov. 7<sup>th</sup>.</li>
-                <li class="clickable external-link"><a href="../20-10-31/">
-                    Plan to finish next week's To Do list by Oct. 31<sup>st</sup>.
-                </a></li>
-                <li class="clickable external-link"><a href="https://forms.gle/vLWbDgACtu8AWfrt7">
-                    Complete this Google Form. <em>ONE PER TEAM.</em>
-                </a></li>
-            </ul>
-        </div>
+            <div id="To-Do" class="center">
+                <h1>Finish These Before You Leave</h1>
+                <ul>
+                    <li class="clickable external-link"><a href="html+css_exercise.zip" download>
+                            Complete this exercise.
+                        </a></li>
+                    <li>Begin work on your website. (You may transfer over your code from the exercise).</li>
+                    <li>Create group chat for your team.</li>
+                    <li>Create a plan for what to work on until Nov. 7<sup>th</sup>.</li>
+                    <li class="clickable external-link"><a href="../20-10-31/">
+                            Plan to finish next week's To Do list by Oct. 31<sup>st</sup>.
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://forms.gle/vLWbDgACtu8AWfrt7">
+                            Complete this Google Form. <em>ONE PER TEAM.</em>
+                        </a></li>
+                </ul>
+            </div>
 
-        <div id="Using-Google">
-            <h1>Using Google</h1>
-            <p>
-                Google is your best friend; it has absolutely everything.
-                There is almost no point in me offering this course
-                because there are thousands of fantastic HTML/CSS tutorials
-                out there. Therefore, a main focus of this class is how to
-                use Google to find these tutorials,
-                and to feel comfortable not knowing things.
-            </p>
-            <p>
-                Here are my favorite guides/tutorials/references:
-            </p>
-            <ul>
-                <li class="clickable external-link"><a href="https://www.youtube.com/kepowob/">
-                    Hands Down, best CSS Youtuber
-                </a></li>
-                <li class="clickable external-link"><a href="https://youtu.be/4K4QhIAfGKY">
-                    HTML in 5 Minutes
-                </a></li>
-                <li class="clickable external-link"><a href="https://youtu.be/yie_oJlRghw">
-                    CSS in 15 Minutes
-                </a></li>
-                <li class="clickable external-link"><a href="https://caniuse.com/">
-                    Check Browser Support
-                </a></li>
-                <li class="clickable external-link"><a href="https://www.w3schools.com/tags/ref_byfunc.asp">
-                    HTML Elements List
-                </a></li>
-                <li class="clickable external-link"><a href="https://www.w3schools.com/cssref/default.asp">
-                    CSS Properties List
-                </a></li>
-                <li class="clickable external-link"><a href="https://www.w3schools.com/cssref/css_units.asp">
-                    Units
-                </a></li>
-                <li class="clickable external-link"><a href="https://www.w3schools.com/css/css3_flexbox.asp">
-                    Flexbox
-                </a></li>
-            </ul>
-        </div>
+            <div id="Using-Google">
+                <h1>Using Google</h1>
+                <p>
+                    Google is your best friend; it has absolutely everything.
+                    There is almost no point in me offering this course
+                    because there are thousands of fantastic HTML/CSS tutorials
+                    out there. Therefore, a main focus of this class is how to
+                    use Google to find these tutorials,
+                    and to feel comfortable not knowing things.
+                </p>
+                <p>
+                    Here are my favorite guides/tutorials/references:
+                </p>
+                <ul>
+                    <li class="clickable external-link"><a href="https://www.youtube.com/kepowob/">
+                            Hands Down, best CSS Youtuber
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://youtu.be/4K4QhIAfGKY">
+                            HTML in 5 Minutes
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://youtu.be/yie_oJlRghw">
+                            CSS in 15 Minutes
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://caniuse.com/">
+                            Check Browser Support
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://www.w3schools.com/tags/ref_byfunc.asp">
+                            HTML Elements List
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://www.w3schools.com/cssref/default.asp">
+                            CSS Properties List
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://www.w3schools.com/cssref/css_units.asp">
+                            Units
+                        </a></li>
+                    <li class="clickable external-link"><a href="https://www.w3schools.com/css/css3_flexbox.asp">
+                            Flexbox
+                        </a></li>
+                </ul>
+            </div>
 
-        <div id="Flexbox">
-            <h1>Flexbox</h1>
+            <div id="Flexbox">
+                <h1>Flexbox</h1>
 <textarea class="code-CSS" readonly>
 
 /* style.css */
@@ -122,30 +129,34 @@
     display: flex;
 }
 </textarea>
-            <p>
-                Flexbox many be the most important and infuential advancement in modern
-                CSS. Flexbox trivializes many things that were once difficult or near
-                impossible to easily complete. Now, we can create websites blazingly fast
-                with flexbox without a worry of things breaking.
-            </p>
-            <div class="center clickable external-link"><a href="https://www.w3schools.com/css/css3_flexbox.asp">
-                Flexbox
-            </a></div>
-            <p>
-                
-                One drawback of using Google is that many tutorials are outdated,
-                (even if they are from just a few years ago). Google will hardly reccomend to use flexbox.
-                This is because many outdated
-                tutorials, which were once popular, avoid flexbox due to compatibility. But over the past two years, flexbox
-                has recieved incredible support from all browsers. Now, there is no reason not to use flexbox in as many opportunities as you can!
-            </p>
-            <p>
-                Although flexbox is great, <code>display: grid</code> will soon take over.
-                But due to grid's poor browser compatibility, just use flex for now.
-            </p>
-        </div>
+                <p>
+                    Flexbox many be the most important and infuential advancement in modern
+                    CSS. Flexbox trivializes many things that were once difficult or near
+                    impossible to easily complete. Now, we can create websites blazingly fast
+                    with flexbox without a worry of things breaking.
+                </p>
+                <div class="center clickable external-link"><a href="https://www.w3schools.com/css/css3_flexbox.asp">
+                        Flexbox
+                    </a></div>
+                <p>
+
+                    One drawback of using Google is that many tutorials are outdated,
+                    (even if they are from just a few years ago). Google will hardly reccomend to use flexbox.
+                    This is because many outdated
+                    tutorials, which were once popular, avoid flexbox due to compatibility. But over the past two years,
+                    flexbox
+                    has recieved incredible support from all browsers. Now, there is no reason not to use flexbox in as
+                    many opportunities as you can!
+                </p>
+                <p>
+                    Although flexbox is great, <code>display: grid</code> will soon take over.
+                    But due to grid's poor browser compatibility, just use flex for now.
+                </p>
+            </div>
 
 
-    </body>
+</body>
+
 </html>
-<script src="../../script/code.js"></script>
+
+<script> </script>
