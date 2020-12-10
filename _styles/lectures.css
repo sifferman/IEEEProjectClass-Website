@@ -107,3 +107,17 @@
     padding: 0;
     transform: translate(0,10%);
 }
+
+
+/* Presentations */
+.website-link {
+    margin-bottom: 1em;
+}
+.website-link h1 {
+    font-size: 1.3rem;
+    margin: 0;
+    padding: 0;
+}
+.website-link * {
+    text-align: center;
+}

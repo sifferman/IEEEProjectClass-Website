@@ -187,6 +187,7 @@ span.highlight {
 }
 .center {
     display: block !important;
-    margin: auto !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
     width: fit-content;
 }
