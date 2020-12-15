@@ -1,0 +1,23 @@
+
+# .gitignore #
+
+
+# codemirror
+
+_src/codemirror/*
+
+!_src/codemirror/lib/
+!_src/codemirror/mode/
+
+_src/codemirror/mode/*
+!_src/codemirror/mode/xml/
+_src/codemirror/mode/xml/*
+!_src/codemirror/mode/xml/xml.js
+
+!_src/codemirror/mode/css/
+_src/codemirror/mode/css/*
+!_src/codemirror/mode/css/css.js
+
+!_src/codemirror/mode/javascript/
+_src/codemirror/mode/javascript/*
+!_src/codemirror/mode/javascript/javascript.js

@@ -3,10 +3,9 @@
 .CodeMirror {
   /* Set height, width, borders, and global font properties here */
   font-family: monospace;
-  height: auto;
+  height: 300px;
   color: black;
   direction: ltr;
-  font-size: .75rem;
 }
 
 /* PADDING */
@@ -185,6 +184,7 @@ div.CodeMirror span.CodeMirror-nonmatchingbracket {color: #a22;}
   position: absolute;
   z-index: 6;
   display: none;
+  outline: none;
 }
 .CodeMirror-vscrollbar {
   right: 0; top: 0;
