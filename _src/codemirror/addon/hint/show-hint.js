@@ -1,8 +1,6 @@
 // CodeMirror, copyright (c) by Marijn Haverbeke and others
 // Distributed under an MIT license: https://codemirror.net/LICENSE
 
-// declare global: DOMRect
-
 (function(mod) {
   if (typeof exports == "object" && typeof module == "object") // CommonJS
     mod(require("../../lib/codemirror"));
@@ -96,10 +94,8 @@
                                completion.to || data.to, "complete");
         CodeMirror.signal(data, "pick", completion);
         self.cm.scrollIntoView();
-      });
-      if (this.options.closeOnPick) {
-        this.close();
-      }
+      })
+      this.close();
     },
 
     cursorActivity: function() {
@@ -117,9 +113,7 @@
       if (pos.line != this.startPos.line || line.length - pos.ch != this.startLen - this.startPos.ch ||
           pos.ch < identStart.ch || this.cm.somethingSelected() ||
           (!pos.ch || this.options.closeCharacters.test(line.charAt(pos.ch - 1)))) {
-        if (this.options.closeOnCursorActivity) {
-          this.close();
-        }
+        this.close();
       } else {
         var self = this;
         this.debounce = requestAnimationFrame(function() {self.update();});
@@ -265,15 +259,10 @@
     var winW = parentWindow.innerWidth || Math.max(ownerDocument.body.offsetWidth, ownerDocument.documentElement.offsetWidth);
     var winH = parentWindow.innerHeight || Math.max(ownerDocument.body.offsetHeight, ownerDocument.documentElement.offsetHeight);
     container.appendChild(hints);
+    var box = hints.getBoundingClientRect(), overlapY = box.bottom - winH;
+    var scrolls = hints.scrollHeight > hints.clientHeight + 1
+    var startScroll = cm.getScrollInfo();
 
-    var box = completion.options.moveOnOverlap ? hints.getBoundingClientRect() : new DOMRect();
-    var scrolls = completion.options.paddingForScrollbar ? hints.scrollHeight > hints.clientHeight + 1 : false;
-
-    // Compute in the timeout to avoid reflow on init
-    var startScroll;
-    setTimeout(function() { startScroll = cm.getScrollInfo(); });
-
-    var overlapY = box.bottom - winH;
     if (overlapY > 0) {
       var height = box.bottom - box.top, curTop = pos.top - (pos.bottom - box.top);
       if (curTop - height > 0) { // Fits above cursor
@@ -343,12 +332,7 @@
     CodeMirror.on(hints, "mousedown", function() {
       setTimeout(function(){cm.focus();}, 20);
     });
-
-    // The first hint doesn't need to be scrolled to on init
-    var selectedHintRange = this.getSelectedHintRange();
-    if (selectedHintRange.from !== 0 || selectedHintRange.to !== 0) {
-      this.scrollToActive();
-    }
+    this.scrollToActive()
 
     CodeMirror.signal(data, "select", completions[this.selectedHint], hints.childNodes[this.selectedHint]);
     return true;
@@ -395,9 +379,9 @@
     },
 
     scrollToActive: function() {
-      var selectedHintRange = this.getSelectedHintRange();
-      var node1 = this.hints.childNodes[selectedHintRange.from];
-      var node2 = this.hints.childNodes[selectedHintRange.to];
+      var margin = this.completion.options.scrollMargin || 0;
+      var node1 = this.hints.childNodes[Math.max(0, this.selectedHint - margin)];
+      var node2 = this.hints.childNodes[Math.min(this.data.list.length - 1, this.selectedHint + margin)];
       var firstNode = this.hints.firstChild;
       if (node1.offsetTop < this.hints.scrollTop)
         this.hints.scrollTop = node1.offsetTop - firstNode.offsetTop;
@@ -407,14 +391,6 @@
 
     screenAmount: function() {
       return Math.floor(this.hints.clientHeight / this.hints.firstChild.offsetHeight) || 1;
-    },
-
-    getSelectedHintRange: function() {
-      var margin = this.completion.options.scrollMargin || 0;
-      return {
-        from: Math.max(0, this.selectedHint - margin),
-        to: Math.min(this.data.list.length - 1, this.selectedHint + margin),
-      };
     }
   };
 
@@ -492,15 +468,11 @@
     completeSingle: true,
     alignWithWord: true,
     closeCharacters: /[\s()\[\]{};:>,]/,
-    closeOnCursorActivity: true,
-    closeOnPick: true,
     closeOnUnfocus: true,
     completeOnSingleClick: true,
     container: null,
     customKeys: null,
-    extraKeys: null,
-    paddingForScrollbar: true,
-    moveOnOverlap: true,
+    extraKeys: null
   };
 
   CodeMirror.defineOption("hintOptions", null);
