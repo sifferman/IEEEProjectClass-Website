@@ -1,0 +1,20 @@
+{
+  "name": "ieeewebdevclass-website",
+  "version": "1.0.0",
+  "description": "This website archives all lectures and exercises for Ethan's F20 IEEE WebDev Course.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/E4tHam/IEEEWebDevClass-Website.git"
+  },
+  "author": "Ethan Sifferman",
+  "bugs": {
+    "url": "https://github.com/E4tHam/IEEEWebDevClass-Website/issues"
+  },
+  "homepage": "https://github.com/E4tHam/IEEEWebDevClass-Website#readme",
+  "scripts": {
+    "build": "npm install"
+  },
+  "dependencies": {
+    "codemirror": "^5.59.0"
+  }
+}

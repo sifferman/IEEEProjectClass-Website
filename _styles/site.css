@@ -182,8 +182,9 @@ span.highlight {
 /* Other */
 /*********/
 
-.code {
-    height: auto;
+.CodeMirror {
+    height: auto !important;
+    font-size: 0.85rem;
 }
 .center {
     display: block !important;
