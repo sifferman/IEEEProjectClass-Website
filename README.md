@@ -12,10 +12,6 @@ Website: https://ieee.sifferman.dev/
 
 This website archives all lectures and exercises for Ethan's F20 IEEE WebDev Course.
 
-## Installing
-
-Do `npm install` to download required packages.
-
 ## Packages
 
 Libraries used:
