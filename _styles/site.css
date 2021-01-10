@@ -1,10 +1,10 @@
 @font-face {
     font-family: Dosis;
-    src: url("../_fonts/Dosis.ttf");
+    src: url("/_fonts/Dosis.ttf");
 }
 @font-face {
     font-family: Dosis;
-    src: url("../_fonts/Dosis-Bold.ttf");
+    src: url("/_fonts/Dosis-Bold.ttf");
     font-weight: bold;
 }
 
@@ -15,12 +15,10 @@ body {
     margin: 0;
     overflow-x: hidden;
     min-height: 100vh;
-    
-    background-color: #f0f8ff;
-    
+
     font-size: 20px;
     font-family: 'Dosis', Courier, monospace;
-    letter-spacing: .08em; 
+    letter-spacing: .08em;
 }
 
 body {
@@ -94,7 +92,7 @@ code {
 .button {
     color: aliceblue;
     font-size: 1.2em;
-    
+
     background-color: #00000050;
     border: #0000006b solid 2px;
     padding: 1.1em;
@@ -118,7 +116,7 @@ code {
     width: 1em;
     height: 1em;
 
-    background-image: url( "../_media/external-link.svg" );
+    background-image: url( "/_media/external-link.svg" );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -151,25 +149,22 @@ span.highlight {
 /**********/
 
 #_HEADER_ {
-    background-color: thistle;
-    background-image: linear-gradient(to bottom right, #d6add6, #f1dcdc);
 
     width: 100vw;
     overflow: hidden;
     flex-shrink: 0;
-    
+
     justify-content: center;
-    
+
     box-shadow: #00000040 0 -8rem 3rem 8rem;
-    
+
     font-size: calc( 13px + .8vw );
-    
-    
+
+
 }
 
 #_MAIN_ {
-    background-image: linear-gradient(to bottom left, transparent, #08131b27);
-    
+
     width: 100vw;
     flex-grow: 1;
 

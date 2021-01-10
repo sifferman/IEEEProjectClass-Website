@@ -1,0 +1,13 @@
+
+/**********/
+/* Header */
+/**********/
+
+#_HEADER_ {
+    background-color: thistle;
+    background-image: linear-gradient(to bottom right, #d6add6, #f1dcdc);
+}
+
+#_MAIN_ {
+    background-image: linear-gradient(to bottom left, transparent, #08131b27);
+}
