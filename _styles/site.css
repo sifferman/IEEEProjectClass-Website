@@ -134,6 +134,7 @@ p a {
 
     margin: auto;
     width: fit-content;
+    max-width: 700px;
 }
 
 
