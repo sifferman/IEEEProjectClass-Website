@@ -24,7 +24,7 @@ uint32_t reset_nth_bit( uint32_t num, uint8_t n );
 
 /**
  * Takes in an unsigned 32 bit integer "num" and an unsigned 8 bit integer "n".
- * Returns "num % (n^2)".
+ * Returns "num % (2^n)".
  */
 uint32_t mod_pow2( uint32_t num, uint8_t n );
 
