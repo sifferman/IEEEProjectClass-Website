@@ -73,7 +73,13 @@ p img {
 }
 code {
     opacity: .7;
-    font-size: .84em;
+}
+code,
+textarea {
+    font-size: .8em;
+}
+textarea {
+    resize: none;
 }
 
 
@@ -160,7 +166,6 @@ span.highlight {
     box-shadow: #00000040 0 -8rem 3rem 8rem;
 
     font-size: calc( 13px + .8vw );
-
 
 }
 

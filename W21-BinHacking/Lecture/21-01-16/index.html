@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>IEEE SMB BinHacking</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base target="_blank" rel="noopener">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/xml/xml.min.js" integrity="sha512-XPih7uxiYsO+igRn/NA2A56REKF3igCp5t0W1yYhddwHsk70rN1bbbMzYkxrvjQ6uk+W3m+qExHIJlFzE6m5eg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/css/css.min.js" integrity="sha512-ZvN/AsTF2m69ShtQTx8j09gqG9u5o3JVuvnOI7+a/WJ2Uv4wFl4NYb0pkRLqY9X2oCngn4vDXnZmQuFrLCyzdQ==" crossorigin="anonymous"></script>
+
+    <script src="/_scripts/init_codemirror.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Lecture 1 (01.16.21) - Binary, Hexadecimal, and Bitwise Operations
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <!-- <li class="clickable"><a href="#Recording" target="_self">
+                            Recorded Lecture
+                        </a></li> -->
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Non-Windows-Users" target="_self">
+                        Non-Windows Users
+                    </a></li>
+                    <li class="clickable"><a href="#Required-Software" target="_self">
+                        Required Software
+                    </a></li>
+                    <li class="clickable"><a href="#Organization" target="_self">
+                        Organization
+                    </a></li>
+                    <li class="clickable"><a href="#More" target="_self">
+                        More
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- <div id="Recording" class="center">
+                <h1>Recorded Lecture</h1>
+                <iframe width="560" height="315" src="" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen></iframe>
+            </div> -->
+
+            <div id="To-Do" class="center">
+                <h1>Finish These Before You Leave</h1>
+                <ul>
+                    <li>
+                        Download the required NES hacking tools for this class.
+                    </li>
+                    <li>
+                        Download a Super Mario Bros. NES ROM.
+                    </li>
+                    <li>
+                        Organize your directory for this class.
+                    </li>
+                    <li>
+                        Complete the bitwise operations exercise.
+                    </li>
+                </ul>
+            </div>
+
+            <div id="Non-Windows-Users">
+                <h1>Non-Windows Users</h1>
+
+                <h3>Why Windows is needed</h3>
+                <p>
+                    If you are not on a Windows machine, you will need to gain access to one by next class, (the 23<sup>rd</sup>). Almost all the NES ROM hacking tools we will be using were made only for Windows. Unfortunately, you must use Windows if you plan on completing the Super Mario Bros. unit of this class.
+                </p>
+                <p>
+                    Plus, having access to Windows will be extremely important moving forward at UCSB. In engineering courses, much of the software used is only for Windows. Therefore, it is best to set up a Windows environment now instead of later.
+                </p>
+
+                <h3>How to gain access to Windows</h3>
+                <p>
+                    You can <a href="https://doc.engr.ucsb.edu/display/EPK/Remote+Access+to+ECI+Computing+Labs">Remote Desktop into the ECI Windows machines</a>. (Only for those with CoE Accounts)
+                </p>
+                <p>
+                    You can use <a href="https://support.apple.com/boot-camp">Boot Camp</a> to install Windows on a Mac.
+                </p>
+
+                <h3>&ldquo;What if I can&rsquo;t get Windows working?&rdquo;</h3>
+                <p>
+                    You can always ask me for help with setup! However, if things still don't work, you will not need Windows to complete the WAV File Parser Unit. So you could rejoin the class then.
+                </p>
+            </div>
+            <div id="Required-Software">
+                <h1>Required Software</h1>
+                <ul>
+                    <li class="clickable external-link"><a href="../../NES_Rom_Hacking_Tools.zip" download>
+                        Ethan's Favorite NES Hacking Tools
+                    </a></li>
+                    <li>
+                        Super Mario Bros. NES ROM
+                    </li>
+                    <li class="clickable external-link"><a href="http://sites.cs.ucsb.edu/~zsisco/cs16/lab1.html">
+                        C++ Environment
+                    </a></li>
+                    <p>
+                        Be sure to have hacking tools and a Super Mario Bros. NES ROM by next week.
+                    </p>
+                    <p>
+                        If you do not have a C++ environment already, you will not have time to set one up during this class. Instead, just use this <a href="
+                        https://www.onlinegdb.com/online_c++_compiler/">online compiler</a> to complete today&rsquo;s exercise. But sure to have an environment set up by the WAV File Parser Unit.
+                    </p>
+                </ul>
+
+            </div>
+            <div id="Organization">
+                <h1>Organization</h1>
+                <p>
+                    Keeping your computer organized is crucial to maximize work efficiency. Please take this class to practice organization!
+                </p>
+                <p>
+                    Here is my personal file structure for this class. Copy it if you'd like!
+                </p>
+<textarea cols="45" rows="44" readonly>
+IEEE Binary Hacking
+│   Class Website.url
+│   Zoom.url
+│
+├───intro
+│       Makefile
+│       main.cpp
+│
+├───smb
+│   │   fceux.lnk
+│   │   GF.lnk
+│   │   Lunar IPS.lnk
+│   │   SmbTitleEditor.lnk
+│   │   tlp.lnk
+│   │
+│   │   pacman_vanilla.nes
+│   │   smb1_BinHacking.nes
+│   │   smb1_vanilla.nes
+│   │
+│   │   Super Mario Bros.-ROM map.url
+│   │
+│   ├───patches
+│   │       goomba_to_ghost.ips
+│   │       mariopallet.ips
+│   │       mariotext_to_ethantext.ips
+│   │       title'sb ieee bros'.ips
+│   │
+│   └───tools
+│       ├───fceux64
+│       ├───gf
+│       ├───lips
+│       ├───ste
+│       └───tlp11
+│
+└───wav
+        Makefile
+        helpers.h
+        wave.h
+        helpers.cpp
+        main.cpp
+        wave.cpp
+
+        WAV File Format.url
+</textarea>
+            </div>
+
+            <div id="Binary-Hexadecimal-BitwiseOperations">
+                <h1>Binary, Hexadecimal, and Bitwise Operations</h1>
+
+                <div class="bubble"><ul>
+                    <li class="clickable external-link"><a href="bitwise_exercise.zip" download>Exercise</a></li>
+                    <li class="clickable external-link"><a href="solution.cpp" download>Solution</a></li>
+                </ul></div>
+
+                <p>
+                    Definitions:                                                            <br>
+                    In decimal: digits can be any number 0, 1, 2, 3, 4, 5, 6, 7, 8, or 9.   <br>
+                    In binary, bits or binary digits can either be 0 or 1.                  <br>
+                    In hexadecimal, hexadecimal digits can be 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
+                </p>
+                <img src="/_media/W21-BinHacking/decimal_hexadecimal_binary.png" alt="Decimal Hexadecimal Binary" width="400">
+                
+                <p>
+                    Computers do computations with bits, not digits. Therefore, it is important, as computer engineers, to understand binary and hexadecimal arithmetic in additon to decimal.
+                </p>
+                <p>
+                    Common operations are:
+                </p>
+                <code><ul>
+                    <li>& AND</li>
+                    <li>| OR</li>
+                    <li>~ NOT</li>
+                    <li>^ XOR</li>
+                    <li>NAND</li>
+                    <li>NOR</li>
+                    <li>XNOR</li>
+                    <li><< Left Shift</li>
+                    <li>>> Right Shift</li>
+                    <li>>>> Unsigned Right Shift</li>
+                </ul></code>
+
+                <p>
+                    Here are a couple references you can follow for the exercise today. 
+                </p>
+                <img src="/_media/W21-BinHacking/bitwise_operators.png" alt="Bitwise Operators" width="600">
+                <img src="/_media/W21-BinHacking/truth_table.png" alt="Truth Table" width="400">
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
