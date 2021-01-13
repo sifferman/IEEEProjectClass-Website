@@ -191,5 +191,7 @@ span.highlight {
     display: block !important;
     margin-left: auto !important;
     margin-right: auto !important;
+}
+.center:not( img ) {
     width: fit-content;
 }
