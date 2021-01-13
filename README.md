@@ -4,15 +4,15 @@
 
 # IEEE WebDev Class Website
 
-Repo: https://github.com/E4tHam/IEEEProjectClass-Website
+Repository: <a href="https://github.com/E4tHam/IEEEProjectClass-Website" target="_blank" rel="noopener noreferrer">https://github.com/E4tHam/IEEEProjectClass-Website</a>
 
-Website: https://ieee.sifferman.dev/
+Website: <a href="https://ieee.sifferman.dev/" target="_blank" rel="noopener noreferrer">https://ieee.sifferman.dev/</a>
 
 ## Description
 
 This website archives all lectures and exercises for Ethan Sifferman's IEEE Classes.
- * [F20 WebDev](https://ieee.sifferman.dev/F20-WebDev/)
- * [W21 BinHacking](https://ieee.sifferman.dev/W21-BinHacking/)
+ * <a href="https://ieee.sifferman.dev/F20-WebDev/" target="_blank" rel="noopener noreferrer">F20 WebDev</a>
+ * <a href="https://ieee.sifferman.dev/W21-BinHacking/" target="_blank" rel="noopener noreferrer">W21 BinHacking</a>
 
 ## Packages
 
