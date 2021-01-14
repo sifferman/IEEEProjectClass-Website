@@ -225,7 +225,7 @@ IEEE Binary Hacking
 
             </div>
             <div id="C-Cpp">
-                <h1>Bitwise Operators in C/C++</h1>
+                <h1>Bitwise Operations in C/C++</h1>
 
                 <div class="bubble"><ul>
                     <li class="clickable external-link"><a href="bitwise_exercise.zip" download>Exercise</a></li>
@@ -235,31 +235,31 @@ IEEE Binary Hacking
                 <p>
                     Using bitwise operations in C/C++ is super easy, but it important to follow these guidelines:
                 </p>
-                <p>
-                    You must only use bitwise operations on unsigned numbers. However, <span class="highlight">best practice is to just always make ALL your variables unsigned (including chars) unless you distinctly need negative numbers.</span> This is an important habit to get into early, so that you are used to solving bugs with unsigned integers early.
-                </p>
+                <li>
+                    You should only use bitwise operations on <u>unsigned numbers</u>.*
+                </li>
 
-                <p>
-                    For bitwise operations, you must only use this naming convention for declaring numbers:
-                </p>
+                <li>
+                    You should only use the <u>Fixed Width naming convention</u> for declaring integers:
+                </li>
 
-<textarea class="center" cols="35" rows="11" readonly>
-
-int8_t   : char
-int16_t  : short
-int32_t  : int/long
-int64_t  : long long
+<textarea class="center" cols="40" rows="12" readonly>
 
 uint8_t  : unsigned char
 uint16_t : unsigned short
 uint32_t : unsigned int/unsigned long
 uint64_t : unsigned long long
+
+int8_t   : char
+int16_t  : short
+int32_t  : int/long
+int64_t  : long long
 </textarea>
                 <div class="clickable external-link center"><a href="https://en.cppreference.com/w/cpp/types/integer">C/C++ Fixed Width Integer Types</a></div>
 
-                <p>
-                    It can be better to use hex and binary notation to declare numbers. Use the <code>0x</code> prefix for hex, and the <code>0b</code> prefix for binary.
-                </p>
+                <li>
+                    You should use <u>hex and binary notation</u> to declare numbers. Use the <code>0x</code> prefix for hex, and the <code>0b</code> prefix for binary.
+                </li>
 
 <textarea class="center" cols="40" rows="9" readonly>
 
@@ -272,7 +272,11 @@ bool equals = ( d == x ) && ( d == b );
 std::cout << equals << "\n";    // true
 </textarea>
 
-                
+                <br>
+
+                <div class="bubble">
+                    * In C/C++, best practice is usually just to <u>make ALL your variables unsigned</u> (including chars) unless you distinctly need negative numbers. This is an important habit to get into early, so that you are used to solving bugs with unsigned integers early.
+                </div>
 
                 <br>
             </div>
