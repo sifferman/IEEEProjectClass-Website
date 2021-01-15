@@ -53,13 +53,16 @@
                     <li class="clickable"><a href="#Character-Encodings" target="_self">
                         Character Encodings
                     </a></li>
+                    <li class="clickable"><a href="#NES-Character-Encodings" target="_self">
+                        NES Character Encodings
+                    </a></li>
                     <li class="clickable"><a href="#Using-LIPS" target="_self">
                         Using LIPS
                     </a></li>
                 </ul>
             </div>
 
-            <!-- <div id="Recording" class="center">
+            <!-- <div id="Recording" class="center center-within">
                 <h1>Recorded Lecture</h1>
                 <iframe width="560" height="315" src="" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -84,7 +87,7 @@
                     Please download these if you haven&rsquo;t already.
                 </p>
                 <ul>
-                    <li class="clickable external-link"><a href="../../NES_Rom_Hacking_Tools.zip" download>
+                    <li class="clickable external-link"><a href="../../NES_ROM_Hacking_Tools.zip" download>
                         Ethan&rsquo;s Favorite NES Hacking Tools
                     </a></li>
                     <li>
@@ -99,14 +102,121 @@
             <div id="Character-Encodings">
                 <h1>Character Encodings</h1>
 
+                <p>
+                    Character encoding is the method of representing a collection of characters with a digital medium. For example, Morse code and Braille.
+                </p>
+                <p>
+                    In computer science, the digital medium is binary. But which numbers should go to which letters? Maybe we should pick this encoding?
+                </p>
+                <div class="bubble center-within">
+                    <h3>Ethan&rsquo;s Encoding</h3>
+<textarea cols="10" rows="19" readonly>
+
+000000 : A 
+000001 : B 
+000010 : C 
+  ·
+  ·
+011000 : X 
+011001 : Y 
+011010 : Z 
+
+100000 : a 
+100001 : b 
+100010 : c 
+  ·
+  ·
+111000 : x 
+111001 : y 
+111010 : z 
+</textarea>
+                </div>
+
+                <p>
+                    It turns out, that as of 1963, there is a standard we should follow: <a href="https://en.wikipedia.org/wiki/ASCII">the American Standard Code for Information Interchange (ASCII)</a>. ASCII was the first successful attempt at ensuring that all text used the same mapping from binary to characters.
+                </p>
+
+                <img class="center" src="/_media/W21-BinHacking/21-01-23/ascii.png" alt="ASCII">
+
+                <p>
+                    Since 1963, there have been <a href="https://en.wikipedia.org/wiki/Character_encoding">several more character encodings</a> released. Such as <a href="https://en.wikipedia.org/wiki/ISO/IEC_8859-1">ISO 8859-1</a> and <a href="https://en.wikipedia.org/wiki/UTF-8">UTF-8</a>, but nearly all character encodings are based off ASCII.
+                </p>
+
+            </div>
+            
+            <div id="NES-Character-Encodings">
+                <h1>NES Character Encodings</h1>
+                <p>
+                    Considering that the NES was released in 1983, you would expect that NES games would use a variation on ASCII for their text encoding. For games like <a href="https://en.wikipedia.org/wiki/Wrath_of_the_Black_Manta">Wrath of the Black Manta</a>, you would be correct:
+                    <img src="/_media/21-01-23/W21-BinHacking/WotBM_ASCII.png" alt="WotBM_ASCII">
+                    However, not all game developers chose to make life easier for hackers by using the standard character encoding. Actually, most games developed by Nintendo use a custom character encoding. Fortunately, hackers have reverse engineered many text encodings from their favorite games:
+                </p>
+                <ul>
+                    <li class="clickable external-link"><a href="https://datacrystal.romhacking.net/wiki/Super_Mario_Bros.:TBL">
+                        Super Mario Bros.
+                    </a></li>
+                    <li class="clickable external-link"><a href="https://datacrystal.romhacking.net/wiki/The_Legend_of_Zelda:TBL">
+                        The Legend of Zelda
+                    </a></li>
+                    <li class="clickable external-link"><a href="https://datacrystal.romhacking.net/wiki/Metroid:TBL">
+                        Metriod
+                    </a></li>
+                </ul>
+
+                <div class="bubble center">
+                    <h2>Exercise</h2>
+                    <ul>
+                        <li>
+                            Edit the SMB1 text with Gold Finger.
+                        </li>
+                        <li>
+                            Create a IPS Patch with LIPS.
+                        </li>
+                    </ul>
+                </div>
+                <p>
+                </p>
+            </div>
+
+            <div id="Using-GF">
+                <h1>Using GF</h1>
+                <p>
+                    Gold Finger is an easy-to-use, bare bones hex editor, that allows custom character encodings. Simply load the Super Mario Bros. ROM file and encoding table file, search for "Mario", and edit away.
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-23/GF.png" alt="Gold Finger">
             </div>
 
             <div id="Using-LIPS">
                 <h1>Using LIPS</h1>
 
-            </div>
+                <p>
+                    International Patching System (IPS) is a method for sharing ROM hacks legally. IPS files only store CHANGES to a ROM file, not the entire ROM file. IPS files are the standard for sharing hack of ROMs less than 16MiB in size. You should get into the habit of archiving your work as IPS files, not as ROMs.
+                    <img class="center" src="/_media/W21-BinHacking/21-01-23/LIPS.png" alt="LIPS">
+                </p>
 
+                <div class="bubble">
+                    <h3>Apply IPS Patch</h3>
+                    <ol>
+                        <li>Takes an IPS file <em>(newtext.ips)</em></li>
+                        <li>Takes a ROM file <em>(SMB1_vanilla.nes)</em></li>
+                        <li>Saves your patched ROM file <em>(SMB1_newtext.nes)</em></li>
+                    </ol>
+                </div>
+
+                <br>
+                
+                <div class="bubble">
+                    <h3>Create IPS Patch</h3>
+                    <ol>
+                        <li>Takes a base ROM file <em>(SMB1_vanilla.nes)</em></li>
+                        <li>Takes an edited ROM file <em>(SMB1_newtext.nes)</em></li>
+                        <li>Saves your patched ROM file <em>(newtext.ips)</em></li>
+                    </ol>
+                </div>
+            </div>
+            
         </div>
+        <br>
     </div>
 </body>
 

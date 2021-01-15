@@ -55,6 +55,7 @@ body > * {
 
 /* Element Defaults */
 img {
+    max-width: 100%;
     display: block;
 }
 a {
@@ -68,7 +69,6 @@ p {
     text-indent: 1em;
 }
 p img {
-    max-width: 100%;
     margin: .2em auto;
 }
 code {
@@ -142,6 +142,13 @@ p a {
     width: fit-content;
     max-width: 700px;
 }
+.bubble h1,
+.bubble h2,
+.bubble h3 {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
 
 
 span.highlight {
@@ -187,6 +194,7 @@ span.highlight {
     height: auto !important;
     font-size: 0.85rem;
 }
+
 .center {
     display: block !important;
     margin-left: auto !important;
@@ -194,4 +202,12 @@ span.highlight {
 }
 .center:not( img ) {
     width: fit-content;
+}
+
+.center-within {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
