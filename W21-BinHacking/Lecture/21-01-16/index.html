@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
+    <meta charset="UTF-8">
     <title>IEEE BinHacking 1 - Intro</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <base target="_blank" rel="noopener noreferrer">
+    <base target="_blank">
 
     <link rel="stylesheet" href="/_styles/site.css">
     <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
     <link rel="stylesheet" href="/_styles/lectures.css">
 
     <!-- codemirror -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/xml/xml.min.js" integrity="sha512-XPih7uxiYsO+igRn/NA2A56REKF3igCp5t0W1yYhddwHsk70rN1bbbMzYkxrvjQ6uk+W3m+qExHIJlFzE6m5eg==" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/css/css.min.js" integrity="sha512-ZvN/AsTF2m69ShtQTx8j09gqG9u5o3JVuvnOI7+a/WJ2Uv4wFl4NYb0pkRLqY9X2oCngn4vDXnZmQuFrLCyzdQ==" crossorigin="anonymous"></script>
 
-    <script src="/_scripts/init_codemirror.js"></script>
+    <script src="/_scripts/init_codemirror.js"></script> -->
 </head>
 
 <body onload="init()">
@@ -73,7 +74,7 @@
             <div id="To-Do" class="center">
                 <h1>Finish These Before You Leave</h1>
                 <ul>
-                    <li class="clickable external-link"><a href="https://discord.gg/udvRzqV">
+                    <li class="clickable external-link"><a href="https://discord.gg/udvRzqV" rel="noopener noreferrer">
                         Message the Discord with your preferred name and favorite Pok&eacute;mon!
                     </a></li>
                     <li class="clickable external-link"><a href="#Required-Software" target="_self">
@@ -104,10 +105,10 @@
 
                 <h3>How to gain access to Windows</h3>
                 <p>
-                    You can <a href="https://doc.engr.ucsb.edu/display/EPK/Remote+Access+to+ECI+Computing+Labs">Remote Desktop into the ECI Windows machines</a>. (Only for those with CoE Accounts)
+                    You can <a href="https://doc.engr.ucsb.edu/display/EPK/Remote+Access+to+ECI+Computing+Labs" rel="noopener noreferrer">Remote Desktop into the ECI Windows machines</a>. (Only for those with CoE Accounts)
                 </p>
                 <p>
-                    You can use <a href="https://support.apple.com/boot-camp">Boot Camp</a> to install Windows on a Mac.
+                    You can use <a href="https://support.apple.com/boot-camp" rel="noopener noreferrer">Boot Camp</a> to install Windows on a Mac.
                 </p>
 
                 <h3>&ldquo;What if I can&rsquo;t get Windows working?&rdquo;</h3>
@@ -115,7 +116,10 @@
                     You can always ask me for help with setup! However, if things still don&rsquo;t work, you will not need Windows to complete the WAV File Parser Unit. So you could rejoin the class then.
                 </p>
             </div>
+
+
             <div id="Required-Software">
+
                 <h1>Required Software</h1>
                 <ul>
                     <li class="clickable external-link"><a href="../../NES_ROM_Hacking_Tools.zip" download>
@@ -124,18 +128,21 @@
                     <li>
                         Super Mario Bros. NES ROM
                     </li>
-                    <li class="clickable external-link"><a href="http://sites.cs.ucsb.edu/~zsisco/cs16/lab1.html">
+                    <li class="clickable external-link"><a href="http://sites.cs.ucsb.edu/~zsisco/cs16/lab1.html" rel="noopener noreferrer">
                         C++ Environment
                     </a></li>
-                    <p>
-                        Be sure to have the hacking tools and a Super Mario Bros. NES ROM for next week (01.23.21).
-                    </p>
-                    <p>
-                        Be sure to have the C++ environment by the WAV File Parser Unit (starts 02.06.21). If you already have one set up, you may use that for today&rsquo;s exercise. Otherwise, use this <a href="https://www.onlinegdb.com/online_c++_compiler/">online compiler</a> just for today.
-                    </p>
                 </ul>
 
+                <p>
+                    Be sure to have the hacking tools and a Super Mario Bros. NES ROM for next week (01.23.21).
+                </p>
+                <p>
+                    Be sure to have the C++ environment by the WAV File Parser Unit (starts 02.06.21). If you already have one set up, you may use that for today&rsquo;s exercise.Otherwise, use this <a href="https://www.onlinegdb.com/online_c++_compiler/" rel="noopener noreferrer">online compiler</a> just for today.
+                </p>
+
             </div>
+
+
             <div id="Organization">
                 <h1>Organization</h1>
                 <p>
@@ -200,7 +207,7 @@ IEEE Binary Hacking
                     In hexadecimal, hexadecimal digits can be 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F.
                 </p>
                 <img class="center" src="/_media/W21-BinHacking/21-01-16/decimal_hexadecimal_binary.jpg" alt="Decimal Hexadecimal Binary" width="400">
-                
+
                 <p>
                     Computers do computations with bits, not digits. Therefore, it is important, as computer engineers, to understand binary and hexadecimal arithmetic in additon to decimal.
                 </p>
@@ -226,21 +233,29 @@ IEEE Binary Hacking
             <div id="C-Cpp">
                 <h1>Bitwise Operations in C/C++</h1>
 
-                <div class="bubble"><ul>
-                    <li class="clickable external-link"><a href="bitwise_exercise.zip" download>Exercise</a></li>
-                    <li class="clickable external-link"><a href="solution.cpp" download>Solution</a></li>
-                </ul></div>
-                
+                <div class="bubble">
+                    <ul>
+                        <li class="clickable external-link"><a href="bitwise_exercise.zip" download>
+                            Exercise
+                        </a></li>
+                        <li class="clickable external-link"><a href="solution.cpp" download>
+                            Solution
+                        </a></li>
+                    </ul>
+                </div>
+
                 <p>
                     Using bitwise operations in C/C++ is super easy, but it important to follow these guidelines:
                 </p>
-                <li>
-                    You should only use bitwise operations on <u>unsigned numbers</u>.*
-                </li>
+                <ul>
+                    <li>
+                        You should only use bitwise operations on <u>unsigned numbers</u>.*
+                    </li>
 
-                <li>
-                    You should only use the <u>Fixed Width naming convention</u> for declaring integers:
-                </li>
+                    <li>
+                        You should only use the <u>Fixed Width naming convention</u> for declaring integers:
+                    </li>
+                </ul>
 
 <textarea class="center" cols="40" rows="12" readonly>
 
@@ -254,11 +269,13 @@ int16_t  : short
 int32_t  : int/long
 int64_t  : long long
 </textarea>
-                <div class="clickable external-link center"><a href="https://en.cppreference.com/w/cpp/types/integer">C/C++ Fixed Width Integer Types</a></div>
+                <div class="clickable external-link center"><a href="https://en.cppreference.com/w/cpp/types/integer" rel="noopener noreferrer">C/C++ Fixed Width Integer Types</a></div>
 
-                <li>
-                    You should use <u>hex and binary notation</u> to declare numbers. Use the <code>0x</code> prefix for hex, and the <code>0b</code> prefix for binary.
-                </li>
+                <ul>
+                    <li>
+                        You should use <u>hex and binary notation</u> to declare numbers. Use the <code>0x</code> prefix for hex, and the <code>0b</code> prefix for binary.
+                    </li>
+                </ul>
 
 <textarea class="center" cols="40" rows="9" readonly>
 

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+    <meta charset="UTF-8">
         <title>IEEE WebDev</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -189,8 +190,9 @@ To make it easier for all browsers, all your html files should follow this struc
 
 <textarea class="code-HTML" readonly>
 <!DOCTYPE html>
-<html>
-    <head> <!-- Document Properties -->
+<html lang="en">
+    <head>
+    <meta charset="UTF-8"> <!-- Document Properties -->
         <title></title>
     </head>
     <body> <!-- Document Content -->
@@ -271,8 +273,9 @@ CSS can be added in many ways, although I will only show you the main way.
 <code>index.html</code>
 <textarea class="code-HTML" readonly>
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
+    <meta charset="UTF-8">
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
