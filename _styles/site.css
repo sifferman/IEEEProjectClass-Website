@@ -84,18 +84,22 @@ textarea {
 
 
 /* Flex Classes */
-.flex { display: flex;
-        align-items: center; }
-.flex__row { flex-direction: row; }
-.flex__column { flex-direction: column; }
-.flex__row-reverse { flex-direction: row-reverse; }
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flex__row              { flex-direction:   row         }
+.flex__column           { flex-direction:   column      }
+.flex__row-reverse      { flex-direction:   row-reverse }
+.flex__wrap             { flex-wrap     :   wrap        }
+.flex-child__stretch    { align-self    :   stretch     }
 
 .flex p {
     margin: 1em;
+    max-width: 800px;
 }
-.flex-child__stretch {
-    align-self: stretch;
-}
+
 
 /* Buttons */
 .clickable { cursor: pointer; width: fit-content; }
