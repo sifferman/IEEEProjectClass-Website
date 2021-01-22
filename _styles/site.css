@@ -90,6 +90,13 @@ textarea {
 .flex__column { flex-direction: column; }
 .flex__row-reverse { flex-direction: row-reverse; }
 
+.flex p {
+    margin: 1em;
+}
+.flex-child__stretch {
+    align-self: stretch;
+}
+
 /* Buttons */
 .clickable { cursor: pointer; width: fit-content; }
 .clickable:hover { transform: scale(1.05); }
@@ -148,6 +155,10 @@ p a {
     margin-left: auto;
     margin-right: auto;
     text-align: center;
+}
+.bubble h2 {
+    margin-top: 0;
+    margin-bottom: .5em;
 }
 
 
