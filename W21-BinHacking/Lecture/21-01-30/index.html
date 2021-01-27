@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE BinHacking 3 - SMB</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base target="_blank" rel="noopener noreferrer">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/xml/xml.min.js" integrity="sha512-XPih7uxiYsO+igRn/NA2A56REKF3igCp5t0W1yYhddwHsk70rN1bbbMzYkxrvjQ6uk+W3m+qExHIJlFzE6m5eg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/css/css.min.js" integrity="sha512-ZvN/AsTF2m69ShtQTx8j09gqG9u5o3JVuvnOI7+a/WJ2Uv4wFl4NYb0pkRLqY9X2oCngn4vDXnZmQuFrLCyzdQ==" crossorigin="anonymous"></script>
+
+    <script src="/_scripts/init_codemirror.js"></script> -->
+</head>
+
+<body onload="init()">
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Lecture 3 (01.30.21) - Sprites and Pallets
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <!-- <li class="clickable"><a href="#Recording" target="_self">
+                        Recorded Lecture
+                    </a></li> -->
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Required-Software" target="_self">
+                        Required Software
+                    </a></li>
+                    <li class="clickable"><a href="#Pallets" target="_self">
+                        Pallets
+                    </a></li>
+                    <li class="clickable"><a href="#Sprites" target="_self">
+                        Sprites
+                    </a></li>
+                    <li class="clickable"><a href="#TLP" target="_self">
+                        Tile Layer Pro
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- <div id="Recording" class="center center-within">
+                <h1>Recorded Lecture</h1>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO-ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div> -->
+
+            <div id="To-Do" class="center">
+                <h1>Finish These Before You Leave</h1>
+                <ul>
+                    <li>
+                        Edit a pallet somewhere in the game.
+                    </li>
+                    <li>
+                        Change a sprite somewhere in the game.
+                    </li>
+                    <li>
+                        Create a IPS Patch with LIPS.
+                    </li>
+                    <li>
+                        Send your patch in the Discord with a short description of what you changed.
+                    </li>
+                </ul>
+            </div>
+
+            <div id="Required-Software">
+                <h1>Required Software</h1>
+                <div class="clickable external-link"><a href="tlp_starter.zip" download>
+                        Tile Layer Pro Starter Files
+                </a></div>
+            </div>
+            
+            <div id="Pallets">
+                <h1>Pallets</h1>
+
+                <h2>The Problem</h2>
+                <p>
+                    In computers, colors are stored as 3 byte RGB values. <input type="color" id="colorpicker" value="#0000ff"> However, the NES cannot not store each pixel as its full 3 byte color value. The pictures would take up <em>WAY</em> too much data.
+                </p>
+                <p>
+                    For context, all of SMB1 takes up 40,976 bytes. In the entire game, 31,488 sprite pixels are stored, which would take up 231% of the game's entire data... We need a form of compression.
+                </p>
+
+                <h2>Solution 1</h2>
+                <p>
+                    One method is just to limit the amount of colors. The NES actually limits itself to just 60 colors, instead of the 16,777,216 that computers today use. 
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-30/nes-pallet.png" alt="NES Colors">
+                <p>
+                    This brings down the number of bytes used to 31,488. But this is still 77% of the game&rsquo;s capacity used.
+                </p>
+
+                <h2>Solution 2</h2>
+                <p>
+                    Another way to limit each picture to only 3 colors, and then store which colors are used as a pallet. This is a similar strategy that <a href="https://en.wikipedia.org/wiki/BMP_file_format#File_structure" rel="noopener noreferrer">BMP files</a> use. And this is the strategy NES game developers used.
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-30/toad.jpg" alt="Toad Pallet">
+                <p>
+                    This brings down our number of bytes used to 7,872, or just 19% of the game&rsquo;s capacity used. Much better!
+                </p>
+                
+            </div>
+
+
+            <div id="Sprites">
+                <h1>Sprites</h1>
+                <p>
+                    We break down these 3-color images into chunks of 8 &times; 8 pixels called sprites. Sprites can be combined to create meta sprites.
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-30/mario-sprite.png" alt="Mario Sprite">
+
+                <p>
+                    A sprite stores each pixel with 2 bits, and a row of pixels with 2 bytes. Since there are 8 rows, each sprite takes up 16 bytes.
+                </p>
+                <img src="/_media/W21-BinHacking/21-01-30/pixels.jpg" alt="Sprite Pixels">
+
+                <div class="center-within">
+                    <h2>Example of How NES Game Developers Use Sprites</h2>
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/ZWQ0591PAxM?start=234" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+
+            </div>
+
+
+            <div id="FCEUX">
+                <h1>FCEUX PPU Viewer</h1>
+                <p>
+                    The FCEUX PPU viewer lists each of the pallets and sprites that are currently loaded. Use this to find the value of a pallet.
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-30/FCEUX-PPU.png" alt="FCEUX PPU Viewer">
+                <p>
+                    Search for this pallet value in Gold Finger and edit it to your new desired pallet.
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-30/GF-pallet.png" alt="GF Pallet">
+            </div>
+
+
+            <div id="TLP">
+                <h1>Using Tile Layer Pro</h1>
+                <p>
+                    Tile Layer Pro is a hex editor, similar to Gold Finger, except it displays colors instead of hex values.
+                </p>
+                <img class="center" src="/_media/W21-BinHacking/21-01-30/TLP-sprites.png" alt="TLP Sprites">
+                <p>
+                    TLP is very nice because it lets you open multiple NES ROM files and you can click and drag a sprite from one file into another file. You can use this to edit a sprite in the game.
+                </p>
+            </div>
+
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
+
