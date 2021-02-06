@@ -8,7 +8,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <base target="_blank" rel="noopener noreferrer">
+    <base target="_blank">
 
     <link rel="stylesheet" href="/_styles/site.css">
     <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
@@ -31,7 +31,7 @@
         </a>
 
         <h1>
-            Lecture 4 (01.30.21) - Tiles
+            Lecture 4 (02.06.21) - Reverse Engineering Strategies
         </h1>
 
     </div>
@@ -48,34 +48,84 @@
                     <li class="clickable"><a href="#To-Do" target="_self">
                         To Do
                     </a></li>
-                    
+                    <li class="clickable"><a href="#EditingIPS" target="_self">
+                        Editing IPS Files (Exercise 1)
+                    </a></li>
+                    <li class="clickable"><a href="#SmbTitleEditor" target="_self">
+                        SMB Title Editor (Exercise 2)
+                    </a></li>
+                    <li class="clickable"><a href="#Resources" target="_self">
+                        Resources
+                    </a></li>
                 </ul>
             </div>
 
-            <div id="Recording" class="center center-within">
+            <!-- <div id="Recording" class="center center-within">
                 <h1>Recorded Lecture</h1>
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO-ID" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
+            </div> -->
 
             <div id="To-Do" class="center">
                 <h1>Finish These Before You Leave</h1>
                 <ul>
                     <li>
-                        Edit a palette somewhere in the game.
+                        Download and edit the provided SMB1 patch file so that the Goomba has a hat.
                     </li>
                     <li>
-                        Change a sprite somewhere in the game.
+                        On a clean SMB1 ROM file, edit the title screen. Create a IPS Patch of your title screen hack.
                     </li>
                     <li>
-                        Create a IPS Patch with LIPS.
-                    </li>
-                    <li>
-                        Send your patch in the Discord with a short description of what you changed.
+                        Send both your patches in the Discord with a short description of what you changed.
                     </li>
                 </ul>
             </div>
 
-            
+            <div id="EditingIPS">
+                <h1>Editing IPS Files</h1>
+                <div class="bubble center center-within">
+                    <p>
+                        In exercise 1, you will add a hat to Goombas only using existing sprites. To add a hat, we only need to edit 2 bytes in the game. It is your job to edit the IPS file so that the address and new data are correct. You will need to change the 5 bytes set to <code>FF</code> to correct values.
+                    </p>
+                    <div class="clickable external-link center"><a href="smb1_fancygoomba.ips" download>Download</a></div>
+                </div>
+            </div>
+
+            <div id="SmbTitleEditor">
+                <h1>SMB Title Editor</h1>
+                <img class="center" src="/_media/W21-BinHacking/21-02-06/SmbTitleEditor.png" alt="SmbTitleEditor">
+                <p>
+                    For exercise 2, have fun drawing out a new title screen using SMB Title Editor! When you&rsquo;re done, make an IPS patch and send it in the Discord.
+                </p>
+            </div>
+
+            <div id="Resources">
+                <h1>More Hacking Resources</h1>
+
+                <h2>IPS File Format</h2>
+                <div class="clickable external-link center"><a href="http://fileformats.archiveteam.org/wiki/IPS_(binary_patch_format)" target="_blank" rel="noopener noreferrer">
+                    IPS (binary patch format)
+                </a></div>
+                <p>
+                    This can help with writing/understanding IPS files.
+                </p>
+
+                <h2>Super Mario Bros. Disassembly</h2>
+                <div class="clickable external-link center"><a href="https://gist.github.com/1wErt3r/4048722" target="_blank" rel="noopener noreferrer">
+                    A Comprehensive Super Mario Bros. Disassembly
+                </a></div>
+                <p>
+                    This is a great resource to read the SMB1 ROM file easier.
+                </p>
+
+                <h2>The Definitive Guide To Exploring File Formats</h2>
+                <div class="clickable external-link center"><a href="http://wiki.xentax.com/index.php/DGTEFF" target="_blank" rel="noopener noreferrer">
+                    The Definitive Guide To Exploring File Formats
+                </a></div>
+                <p>
+                    This is one of the most referenced video game hacking guides of all time. It is the bible of any aspiring ROM hacker.
+                </p>
+
+            </div>
             
         </div>
         <br>
