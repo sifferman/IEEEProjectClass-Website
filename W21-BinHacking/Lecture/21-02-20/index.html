@@ -94,7 +94,7 @@
             <div id="Endianness">
                 <h1>Endianness</h1>
                 <p>
-                    Some computers store number in reverse order than one would expect. Observe the diagrams:
+                    Some computers store numbers in reverse order than one would expect. Observe the diagrams:
                 </p>
                 <div class="flex flex__column">
                     <img src="/_media/W21-BinHacking/21-02-20/endian.png" alt="Endian">
@@ -104,7 +104,7 @@
                     There are pros and cons of using each encoding, however the biggest con is that no one can agree on a standard. Therefore, we must waste lots of energy converting between endians.
                 </p>
                 <p>
-                    Fortunetly, all operating systems provide the functions &ldquo;host to network&rdquo; and &ldquo;network to host&rdquo; (<code>hton()</code> and <code>ntoh()</code>). Since all network traffic must use big endian, we now have a guarenteed function that will always give us a big endian output. Then we can just swap the endian to get little endian, the encoding for Wave files.
+                    Fortunately, all operating systems provide the functions &ldquo;host to network&rdquo; and &ldquo;network to host&rdquo; (<code>hton()</code> and <code>ntoh()</code>). Since all network traffic must use big endian, we now have a guaranteed function that will always give us a big endian output. Then we can just swap the endian to get little endian, the encoding for Wave files.
                 </p>
 <textarea class="code-C" readonly>
 // host to big endian
@@ -140,7 +140,7 @@
                     C++ has a very easy way to open files: <a href="https://www.cplusplus.com/reference/fstream/" target="_blank" rel="noopener noreferrer">std::fstream</a>. ifstream opens a file, and you can read it just like you can console input (<code>cin</code>). ofstream opens a file, and you can write to it just like console output (<code>cout</code>).
                 </p>
                 <p>
-                    However, fstream may print different text encodings for different characters between operating systems. For text, this doesn&rsaquo;t really matter. But for binary data where every bit matters, consistency is crucial.
+                    However, fstream may print different text encodings for different characters between operating systems. For text, this doesn&rsquo;t really matter. But for binary data where every bit matters, consistency is crucial.
                 </p>
                 <div class="bubble">
                     <h1>Line Endings</h1>
@@ -148,11 +148,28 @@
                         Windows uses CRLF. <code>"\r\n"</code> or <code>0x0D0A</code>.
                     </div>
                     <div>
-                        MacOS/Linus uses LF. <code>"\n"</code> or <code>0x0A</code>.
+                        MacOS/Linux uses LF. <code>"\n"</code> or <code>0x0A</code>.
+                    </div>
+                </div>
+                <div class="flex flex__column">
+                    <div class="center-within">
+                        <h3>Text</h3>
+<textarea cols="8" rows="3" readonly>
+IEEE
+Rocks!
+</textarea>
+                    </div>
+                    <div class="center-within">
+                        <h3>Windows</h3>
+                        <img src="/_media/W21-BinHacking/21-02-20/windows.png" alt="Windows">
+                    </div>
+                    <div class="center-within">
+                        <h3>Unix</h3>
+                        <img src="/_media/W21-BinHacking/21-02-20/unix.png" alt="UNIX">
                     </div>
                 </div>
                 <p>
-                    Because of this, it is crucial that we use fstream in <a href="https://en.cppreference.com/w/cpp/io/ios_base#Member_types_and_constants" target="_blank" rel="noopener noreferrer">binary mode</a>.
+                    Because of this, it is crucial that we use fstream in <a href="https://en.cppreference.com/w/cpp/io/ios_base/openmode" target="_blank" rel="noopener noreferrer">binary mode</a>. That way, no characters are translated/converted without our permission.
                 </p>
             </div>
 
