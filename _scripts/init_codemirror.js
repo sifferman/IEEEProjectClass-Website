@@ -43,5 +43,17 @@ function init() {
         );
     }
 
+    var code_instances = document.getElementsByClassName("code-C");
+    for ( var i = 0 ; i < code_instances.length ; i++ ) {
+        let c = CodeMirror.fromTextArea(
+            code_instances[i], {
+                mode: "clike",
+                lineNumbers: true,
+                viewportMargin: Infinity,
+                readOnly: "nocursor"
+            }
+        );
+    }
+
 
 }

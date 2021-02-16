@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE BinHacking 5 - SMB</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base target="_blank">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/mode/clike/clike.js" integrity="sha512-Bl6V0/rrsvLCiyJS3+ayojlYdXBvaZ3T74+OWYRHs3OwE3MDzGRMEHKAGajE/Xvw/7cOlcSATAvQZ0j1dEi/EQ==" crossorigin="anonymous"></script>
+
+    <script src="/_scripts/init_codemirror.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Lecture 5 (02.20.21) - Wave File Format
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <!-- <li class="clickable"><a href="#Recording" target="_self">
+                        Recorded Lecture
+                    </a></li> -->
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Endianness" target="_self">
+                        Endianness
+                    </a></li>
+                    <li class="clickable"><a href="#WaveFileFormat" target="_self">
+                        Wave File Format
+                    </a></li>
+                    <li class="clickable"><a href="#FileStream" target="_self">
+                        C++ File Stream
+                    </a></li>
+                </ul>
+            </div>
+
+            <!-- <div id="Recording" class="center center-within">
+                <h1>Recorded Lecture</h1>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/ijURmmMZLFY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div> -->
+
+            <div id="To-Do" class="center">
+                <h1>Finish These Before You Leave</h1>
+                <ol>
+                    <li>
+                        Download and compile the starter code for the Wave Parser.
+                    </li>
+                    <li>
+                        Implement all the code sections marked with <em>TO DO 1</em>.
+                    </li>
+                    <li>
+                        Send your favorite secret message from <code>TESTS/secret.wav</code> in Discord.
+                    </li>
+                </ol>
+            </div>
+
+            <div class="bubble center center-within">
+                <h1>Wave Parser Code</h1>
+                <ul>
+                    <li class="clickable external-link"><a href="Wave-Parser_starter.zip" download>
+                        Starter
+                    </a></li>
+                    <li class="clickable external-link"><a href="https://github.com/E4tHam/Wave-Parser" target="_blank" rel="noopener noreferrer">
+                        My Code
+                    </a></li>
+                </ul>
+            </div>
+
+            <div id="Endianness">
+                <h1>Endianness</h1>
+                <p>
+                    Some computers store number in reverse order than one would expect. Observe the diagrams:
+                </p>
+                <div class="flex flex__column">
+                    <img src="/_media/W21-BinHacking/21-02-20/endian.png" alt="Endian">
+                    <img src="/_media/W21-BinHacking/21-02-20/endianpig.png" alt="Endian Pig">
+                </div>
+                <p>
+                    There are pros and cons of using each encoding, however the biggest con is that no one can agree on a standard. Therefore, we must waste lots of energy converting between endians.
+                </p>
+                <p>
+                    Fortunetly, all operating systems provide the functions &ldquo;host to network&rdquo; and &ldquo;network to host&rdquo; (<code>hton()</code> and <code>ntoh()</code>). Since all network traffic must use big endian, we now have a guarenteed function that will always give us a big endian output. Then we can just swap the endian to get little endian, the encoding for Wave files.
+                </p>
+<textarea class="code-C" readonly>
+// host to big endian
+#define __htobe32(...) htonl(__VA_ARGS__)
+#define __htobe16(...) htons(__VA_ARGS__)
+
+// host to little endian
+#define __htole32(...) __builtin_bswap32(htonl(__VA_ARGS__))
+#define __htole16(...) __builtin_bswap16(htons(__VA_ARGS__))
+
+// big endian to host
+#define __betoh32(...) ntohl(__VA_ARGS__)
+#define __betoh16(...) ntohs(__VA_ARGS__)
+
+// little endian to host
+#define __letoh32(...) __builtin_bswap32(ntohl(__VA_ARGS__))
+#define __letoh16(...) __builtin_bswap16(ntohs(__VA_ARGS__))
+</textarea>
+            </div>
+
+
+            <div id="WaveFileFormat">
+                <h1>Wave File Format</h1>
+                <div class="clickable external-link center"><a href="http://soundfile.sapp.org/doc/WaveFormat/" target="_blank" rel="noopener noreferrer">WAVE PCM soundfile format</a></div>
+                <img class="center" src="/_media/W21-BinHacking/21-02-20/wav-sound-format.gif" alt="Wave File Format">
+            </div>
+
+
+
+            <div id="FileStream">
+                <h1>std::fstream</h1>
+                <p>
+                    C++ has a very easy way to open files: <a href="https://www.cplusplus.com/reference/fstream/" target="_blank" rel="noopener noreferrer">std::fstream</a>. ifstream opens a file, and you can read it just like you can console input (<code>cin</code>). ofstream opens a file, and you can write to it just like console output (<code>cout</code>).
+                </p>
+                <p>
+                    However, fstream may print different text encodings for different characters between operating systems. For text, this doesn&rsaquo;t really matter. But for binary data where every bit matters, consistency is crucial.
+                </p>
+                <div class="bubble">
+                    <h1>Line Endings</h1>
+                    <div>
+                        Windows uses CRLF. <code>"\r\n"</code> or <code>0x0D0A</code>.
+                    </div>
+                    <div>
+                        MacOS/Linus uses LF. <code>"\n"</code> or <code>0x0A</code>.
+                    </div>
+                </div>
+                <p>
+                    Because of this, it is crucial that we use fstream in <a href="https://en.cppreference.com/w/cpp/io/ios_base#Member_types_and_constants" target="_blank" rel="noopener noreferrer">binary mode</a>.
+                </p>
+            </div>
+
+            
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
+
