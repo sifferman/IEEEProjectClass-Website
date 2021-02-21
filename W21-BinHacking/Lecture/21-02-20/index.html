@@ -41,9 +41,9 @@
             <div id="Table-of-Contents" class="bubble">
                 <h1>Table of Contents</h1>
                 <ul>
-                    <!-- <li class="clickable"><a href="#Recording" target="_self">
+                    <li class="clickable"><a href="#Recording" target="_self">
                         Recorded Lecture
-                    </a></li> -->
+                    </a></li>
                     <li class="clickable"><a href="#To-Do" target="_self">
                         To Do
                     </a></li>
@@ -55,37 +55,80 @@
                     </a></li>
                 </ul>
             </div>
+            
 
-            <!-- <div id="Recording" class="center center-within">
+            <div id="Recording" class="center center-within">
                 <h1>Recorded Lecture</h1>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/ijURmmMZLFY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div> -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FYIm-QxF6lo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
             <div id="To-Do" class="center">
                 <h1>Finish These Before You Leave</h1>
                 <ol>
                     <li>
-                        Download and compile the starter code for the Wave Parser.
+                        Set up your C++ environment.
                     </li>
                     <li>
+                        Download and compile the starter code for the Wave Parser.
+                    </li>
+                    <!-- <li>
                         Implement all the code sections marked with <em>TO DO 1</em>.
                     </li>
                     <li>
                         Send your favorite secret message from <code>TESTS/secret.wav</code> in Discord.
-                    </li>
+                    </li> -->
                 </ol>
             </div>
 
-            <div class="bubble center center-within">
-                <h1>Wave Parser Code</h1>
-                <ul>
-                    <li class="clickable external-link"><a href="/W21-BinHacking/Wave-Parser_starter.zip" download>
-                        Starter
+
+
+            <div id="C++">
+                <h1>Setting Up a C++ Cnvironment</h1>
+                <h2>Unix</h2>
+                <p>
+                    If you are on a Unix OS like MacOS or Linux, this will be very easy. Just follow this tutorial.
+                </p>
+                <div class="clickable external-link"><a href="http://sites.cs.ucsb.edu/~zsisco/cs16/lab1.html" target="_blank" rel="noopener noreferrer">
+                    UCSB C++ Installation Tutorial
+                </a></div>
+                <h2>Windows</h2>
+                <p>
+                    If you are on Windows, it will be a bit harder:
+                </p>
+                <ol>
+                    <li class="clickable external-link"><a href="https://git-scm.com/download/" target="_blank" rel="noopener noreferrer">
+                        Install Git Bash
                     </a></li>
-                    <li class="clickable external-link"><a href="https://github.com/E4tHam/Wave-Parser" target="_blank" rel="noopener noreferrer">
-                        My Code
+                    <li class="clickable external-link"><a href="http://mingw-w64.org/doku.php/download/mingw-builds" target="_blank" rel="noopener noreferrer">
+                        Install MinGW
                     </a></li>
-                </ul>
+                    <li class="clickable external-link"><a href="https://stackoverflow.com/questions/36770716/mingw64-make-build-error-bash-make-command-not-found" target="_blank" rel="noopener noreferrer">
+                        Install <code>make</code>
+                    </a></li>
+                </ol>
+                <p>
+                    Now open Bash. You should be able to run <code>$ g++</code> and <code>$ make</code>. Test both commands and debug as needed.
+                </p>
+
+                <div class="bubble center center-within">
+                    <h1>Wave Parser Code</h1>
+                    <ul>
+                        <li class="clickable external-link"><a href="/W21-BinHacking/Wave-Parser_starter.zip" download>
+                            Starter
+                        </a></li>
+                        <li class="clickable external-link"><a href="https://github.com/E4tHam/Wave-Parser" target="_blank" rel="noopener noreferrer">
+                            My Code
+                        </a></li>
+                    </ul>
+                    <p>
+                        To compile the code, just run <br>
+                        <code>$ make</code>
+                    </p>
+                    <p>
+                        If you are on Windows do not have <code>make</code> installed, you can use this command: <br>
+                        <code>$ g++ -o main main.cpp wave.cpp riff.cpp --std=c++11 -Wall -lws2_32</code>
+                    </p>
+                </div>
             </div>
 
 
