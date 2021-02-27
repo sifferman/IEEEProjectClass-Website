@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE BinHacking 6 - SMB</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <base target="_blank">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.2/mode/clike/clike.js" integrity="sha512-Bl6V0/rrsvLCiyJS3+ayojlYdXBvaZ3T74+OWYRHs3OwE3MDzGRMEHKAGajE/Xvw/7cOlcSATAvQZ0j1dEi/EQ==" crossorigin="anonymous"></script>
+
+    <script src="/_scripts/init_codemirror.js"></script>
+</head>
+
+<body onload="init()">
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Lecture 6 (02.20.21) - Reading/Writing Binary Files
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#Recording" target="_self">
+                        Recorded Lecture
+                    </a></li>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#WaveFileFormat" target="_self">
+                        Wave File Format
+                    </a></li>
+                    <li class="clickable"><a href="#FileStream" target="_self">
+                        C++ File Stream
+                    </a></li>
+                </ul>
+            </div>
+
+
+            <!-- <div id="Recording" class="center center-within">
+                <h1>Recorded Lecture</h1>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/FYIm-QxF6lo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div> -->
+
+            <div id="To-Do" class="center">
+                <h1>Finish These Before You Leave</h1>
+                <ol>
+                    <li>
+                        Implement all the code sections marked with <em>TO DO</em>.
+                    </li>
+                    <li>
+                        Send your favorite secret message from <code>TESTS/secret.wav</code> in Discord.
+                    </li>
+                </ol>
+            </div>
+
+
+
+
+            <div id="WaveFileFormat">
+                <h1>Wave File Format</h1>
+                <img class="center" src="/_media/W21-BinHacking/21-02-20/wav-sound-format.gif" alt="Wave File Format">
+                <div class="clickable external-link center"><a href="http://soundfile.sapp.org/doc/WaveFormat/" target="_blank" rel="noopener noreferrer">WAVE PCM soundfile format</a></div>
+                <p>
+                    As you can see, RIFF files are made up of chunks. Each chunk has a ChunkSize (<code>uint32</code>), and ChunkID (<code>char[4]</code>). We can represent them as a C++ struct like so:
+                </p>
+<textarea class="code-C" readonly>
+struct Chunk {
+    char        ChunkID[4]  ; // Current Chunk ID.
+    uint32_t    ChunkSize   ; // Current Chunk size.
+};
+</textarea>
+                <p>
+                    Next, we see that the RIFF file is one large &ldquo;main&rdquo; chunk with 3 new members: Format (<code>char[4]</code>), &ldquo;fmt&rdquo; SubChunk, &ldquo;data&rdquo; SubChunk. Since &ldquo;main&rdquo; chunk is also a chunk, we can use inheritance to make our lives easier:
+                </p>
+<textarea class="code-C" readonly>
+struct MainChunk : public Chunk {
+    char        Format[4]   ;   // Contains the letters "WAVE".
+    FormatChunk formatChunk ;   // Describes the format the the sound information in dataChunk.
+    DataChunk   dataChunk   ;   // Contains the raw sound data.
+};
+</textarea>
+            <p>
+                Next we need to implement <code>struct FormatChunk</code> and <code>struct DataChunk</code>. Note, both of them are chunks, so they need to extend <code>struct Chunk</code>.
+            </p>
+<textarea class="code-C" readonly>
+struct FormatChunk : public Chunk {
+    uint16_t    AudioFormat     ;   // PCM = 1 (i.e. Linear quantization)
+    uint16_t    NumChannels     ;   // Mono = 1, Stereo = 2, etc.
+    uint32_t    SampleRate      ;   // 8000, 44100, etc.
+    uint32_t    ByteRate        ;   // == SampleRate * NumChannels * BitsPerSample/8
+    uint16_t    BlockAlign      ;   // == NumChannels * BitsPerSample/8
+    uint16_t    BitsPerSample   ;   // 8 bits = 8, 16 bits = 16, etc.
+};
+
+struct DataChunk : public Chunk {
+    uint8_t     * data          ; // Sample data.
+};
+</textarea>
+            <p>
+                According to soundfile.sapp.org/, this structure for the wave file format would be perfect. However, actual wave files have many more subchunks chunks, such as &ldquo;bext&rdquo;, &ldquo;iXML&rdquo;, etc. <a href="https://en.wikipedia.org/wiki/Broadcast_Wave_Format" target="_blank" rel="noopener noreferrer">Wikipedia</a>. Therefore, the starter code for the wave parser has a <code>struct MiscChunk</code> which is structually identical to the <code>struct DataChunk</code>. Therefore, the <code>struct MainChunk</code>, <code>struct MiscChunk</code>, and <code>struct DataChunk</code> look like this:
+            </p>
+<textarea class="code-C" readonly>
+struct MiscChunk : public Chunk {
+    uint8_t     * data      ; // Data for MiscChunk.
+};
+
+struct DataChunk : public MiscChunk { };
+
+struct MainChunk : public Chunk {
+    char        Format[4]   ;   // Contains the letters "WAVE".
+    FormatChunk formatChunk ;   // Describes the format the the sound information in dataChunk.
+    DataChunk   dataChunk   ;   // Contains the raw sound data.
+
+    std::vector<MiscChunk*> miscChunks;  // Contains other chunks that are not a format or data chunk.
+};
+</textarea>
+            <p>
+                Nice! Now we just need to make sure that each struct has a <code>load</code> and <code>write</code> method.
+            </p>
+            </div>
+
+
+
+            <div id="FileStream">
+                <h1>C++ File Stream</h1>
+                <p>
+                    C++ has a very easy way to open files: <a href="https://www.cplusplus.com/reference/fstream/" target="_blank" rel="noopener noreferrer"><code>std::fstream</code></a>. <code>std::ifstream</code> opens a file, and you can read just like <code>std::cin</code>. <code>std::ofstream</code> opens a file, and you can write to it just like <code>std::cout</code>.
+                </p>
+                <p>
+                    This example takes in a file called "input_file.txt", and copies it into "output_file.txt".
+                </p>
+<textarea class="code-C" readonly>
+#include <fstream>
+#include <string.h>
+
+int main () {
+
+    std::ifstream ifs("input_file.txt");
+    std::ofstream ofs("output_file.txt");
+
+    std::string line;
+
+    while ( ifs.good() ) {
+        std::getline( ifs, line );
+        ofs << line << '\n';
+    }
+
+    ifs.close();
+    ofs.close();
+
+    return 0;
+}
+</textarea>
+                <p>
+                    However, this example is inaccurate because it does not account for files without a line break at the end. This would suffice for text files, but for binary files where every bit matters, this is unacceptable.
+                </p>
+                <p>
+                    Plus, fstream may convert between different text encodings for different characters between operating systems. Once again, for text, this doesn&rsquo;t really matter. But for binary data where every bit matters, consistency is crucial.
+                </p>
+                <div class="bubble">
+                    <h1>Line Endings</h1>
+                    <div>
+                        Windows uses CRLF. <code>"\r\n"</code> or <code>0x0D0A</code>.
+                    </div>
+                    <div>
+                        MacOS/Linux uses LF. <code>"\n"</code> or <code>0x0A</code>.
+                    </div>
+                </div>
+                <div class="flex flex__column">
+                    <div class="center-within">
+                        <h3>Text</h3>
+<textarea cols="8" rows="3" readonly>
+IEEE
+Rocks!
+</textarea>
+                    </div>
+                    <div class="center-within">
+                        <h3>Windows</h3>
+                        <img src="/_media/W21-BinHacking/21-02-20/windows.png" alt="Windows">
+                    </div>
+                    <div class="center-within">
+                        <h3>Unix</h3>
+                        <img src="/_media/W21-BinHacking/21-02-20/unix.png" alt="UNIX">
+                    </div>
+                </div>
+                <p>
+                    Because of this, we use fstream in <a href="https://en.cppreference.com/w/cpp/io/ios_base/openmode" target="_blank" rel="noopener noreferrer">binary mode</a>. That way, no characters are translated/converted without our permission.
+                </p>
+                <p>
+                    This is a much better example:
+                </p>
+<textarea class="code-C" readonly>
+#include <fstream>
+
+int main () {
+
+    std::ifstream ifs( "input_file.txt",  std::ios_base::binary );
+    std::ofstream ofs( "output_file.txt", std::ios_base::binary );
+
+    // get length of input file:
+    ifs.seekg( 0, ifs.end );
+    size_t buffer_size = ifs.tellg();
+    ifs.seekg( 0, ifs.beg );
+
+    // load input file into buffer
+    uint8_t buffer[ buffer_size ];
+    ifs.read( (char*)buffer, buffer_size );
+
+    // write buffer into output file
+    ofs.write( (char*)buffer, buffer_size );
+
+    ifs.close();
+    ofs.close();
+
+    return 0;
+}
+</textarea>
+            </div>
+
+
+        </div>
+        <br>
+    </div>
+</body>
+
+</html>
+
