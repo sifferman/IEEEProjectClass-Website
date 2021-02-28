@@ -30,7 +30,7 @@
         </a>
 
         <h1>
-            Lecture 6 (02.20.21) - Reading/Writing Binary Files
+            Lecture 6 (02.27.21) - Reading/Writing Binary Files
         </h1>
 
     </div>
@@ -56,11 +56,10 @@
                 </ul>
             </div>
 
-
-            <!-- <div id="Recording" class="center center-within">
+            <div id="Recording" class="center center-within">
                 <h1>Recorded Lecture</h1>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/FYIm-QxF6lo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div> -->
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/hLZEBKudfgo" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
 
             <div id="To-Do" class="center">
                 <h1>Finish These Before You Leave</h1>
@@ -118,7 +117,7 @@ struct DataChunk : public Chunk {
 };
 </textarea>
             <p>
-                According to soundfile.sapp.org/, this structure for the wave file format would be perfect. However, actual wave files have many more subchunks chunks, such as &ldquo;bext&rdquo;, &ldquo;iXML&rdquo;, etc. <a href="https://en.wikipedia.org/wiki/Broadcast_Wave_Format" target="_blank" rel="noopener noreferrer">Wikipedia</a>. Therefore, the starter code for the wave parser has a <code>struct MiscChunk</code> which is structually identical to the <code>struct DataChunk</code>. Therefore, the <code>struct MainChunk</code>, <code>struct MiscChunk</code>, and <code>struct DataChunk</code> look like this:
+                According to soundfile.sapp.org/, this structure for the wave file format would be perfect. However, actual wave files have many more subchunks, such as &ldquo;bext&rdquo;, &ldquo;iXML&rdquo;, etc. <a href="https://en.wikipedia.org/wiki/Broadcast_Wave_Format" target="_blank" rel="noopener noreferrer">Wikipedia</a>. Therefore, the starter code for the wave parser has a <code>struct MiscChunk</code> which is structually identical to the <code>struct DataChunk</code>. Therefore, the <code>struct MainChunk</code>, <code>struct MiscChunk</code>, and <code>struct DataChunk</code> look like this:
             </p>
 <textarea class="code-C" readonly>
 struct MiscChunk : public Chunk {
