@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>IEEE BinHacking 5 - SMB</title>
+    <title>IEEE BinHacking 5 - Wave</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,12 +80,6 @@
                     <li>
                         Compile the starter code.
                     </li>
-                    <!-- <li>
-                        Implement all the code sections marked with <em>TO DO 1</em>.
-                    </li>
-                    <li>
-                        Send your favorite secret message from <code>TESTS/secret.wav</code> in Discord.
-                    </li> -->
                 </ol>
             </div>
 
@@ -125,8 +119,8 @@
                         <li class="clickable external-link"><a href="/W21-BinHacking/Wave-Parser_starter.zip" download>
                             Starter
                         </a></li>
-                        <li class="clickable external-link"><a href="https://github.com/E4tHam/Wave-Parser" target="_blank" rel="noopener noreferrer">
-                            My Code
+                        <li class="clickable external-link"><a href="https://github.com/E4tHam/Wave-Parser/tree/bed2910cbaa257de08bf340a74896bbe5c9654d2" target="_blank" rel="noopener noreferrer">
+                            My Solution
                         </a></li>
                     </ul>
                     <p>
@@ -183,47 +177,6 @@
 #define __letoh16(...) __builtin_bswap16(ntohs(__VA_ARGS__))
 </textarea>
             </div>
-
-
-
-            <!-- <div id="FileStream">
-                <h1>std::fstream</h1>
-                <p>
-                    C++ has a very easy way to open files: <a href="https://www.cplusplus.com/reference/fstream/" target="_blank" rel="noopener noreferrer">std::fstream</a>. ifstream opens a file, and you can read it just like you can console input (<code>cin</code>). ofstream opens a file, and you can write to it just like console output (<code>cout</code>).
-                </p>
-                <p>
-                    However, fstream may print different text encodings for different characters between operating systems. For text, this doesn&rsquo;t really matter. But for binary data where every bit matters, consistency is crucial.
-                </p>
-                <div class="bubble">
-                    <h1>Line Endings</h1>
-                    <div>
-                        Windows uses CRLF. <code>"\r\n"</code> or <code>0x0D0A</code>.
-                    </div>
-                    <div>
-                        MacOS/Linux uses LF. <code>"\n"</code> or <code>0x0A</code>.
-                    </div>
-                </div>
-                <div class="flex flex__column">
-                    <div class="center-within">
-                        <h3>Text</h3>
-<textarea cols="8" rows="3" readonly>
-IEEE
-Rocks!
-</textarea>
-                    </div>
-                    <div class="center-within">
-                        <h3>Windows</h3>
-                        <img src="/_media/W21-BinHacking/21-02-20/windows.png" alt="Windows">
-                    </div>
-                    <div class="center-within">
-                        <h3>Unix</h3>
-                        <img src="/_media/W21-BinHacking/21-02-20/unix.png" alt="UNIX">
-                    </div>
-                </div>
-                <p>
-                    Because of this, it is crucial that we use fstream in <a href="https://en.cppreference.com/w/cpp/io/ios_base/openmode" target="_blank" rel="noopener noreferrer">binary mode</a>. That way, no characters are translated/converted without our permission.
-                </p>
-            </div> -->
 
 
         </div>
