@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE FPGA Movie 1 - Verilog</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/S22-FPGA.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js" integrity="sha512-xwrAU5yhWwdTvvmMNheFn9IyuDbl/Kyghz2J3wQRDR8tyNmT8ZIYOd0V3iPYY/g4XdNPy0n/g0NvqGu9f0fPJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/verilog/verilog.min.js" integrity="sha512-qWcLOlsYfXLnxOBQCgID7vXpZMNHYRojDTPTxWYsGBFk+fUndq6rjGfGQt3xLO7vi6pAm7iuKlCg/K3emg3/3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/_scripts/init_codemirror.js" defer></script>
+
+</head>
+
+<body>
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Verilog
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Simulation-Software" target="_self">
+                        Simulation Software
+                    </a></li>
+                    <li class="clickable"><a href="#Combinational-Logic" target="_self">
+                        Combinational Logic
+                    </a></li>
+                    <li class="clickable"><a href="#Flip-Flops" target="_self">
+                        Flip Flops
+                    </a></li>
+                    <li class="clickable"><a href="#Verilog" target="_self">
+                        Verilog
+                    </a></li>
+                    <li class="clickable"><a href="#Verilog-Testbench" target="_self">
+                        Verilog Testbench
+                    </a></li>
+                    <li class="clickable"><a href="#Counter" target="_self">
+                        Counter
+                    </a></li>
+                </ul>
+            </div>
+
+
+
+            <div id="To-Do" class="center">
+                <h1>Work on These Today</h1>
+                <ul>
+                    <li class="clickable external-link"><a href="https://discord.com/channels/466338570878058527/952104459536838666" rel="noopener noreferrer">
+                        Message the Discord with your preferred name, <br> pronouns, and favorite superhero!
+                    </a></li>
+                    <li class="clickable"><a href="#Simulation-Software" target="_self">
+                        Install the required simulation software for the class.
+                    </a></li>
+                    <li class="clickable"><a href="#Counter">
+                        Implement a counter in Verilog.
+                    </a></li>
+                </ul>
+            </div>
+
+
+
+            <div id="Simulation-Software">
+                <h1>Simulation Software</h1>
+
+                <h2>Just for Windows Users</h2>
+                <ul>
+                    <li class="clickable external-link"><a href="https://docs.microsoft.com/en-us/windows/wsl/install" target="_blank" rel="noopener noreferrer">
+                        Windows Subsystem for Linux (WSL)
+                    </a></li>
+                </ul>
+
+                <h2>Just for MacOS Users</h2>
+                <ul>
+                    <li class="clickable external-link"><a href="https://brew.sh/" target="_blank" rel="noopener noreferrer">
+                        Homebrew
+                    </a></li>
+                </ul>
+
+                <h2>Software for All</h2>
+                <ul>
+                    <li class="clickable external-link"><a href="https://code.visualstudio.com/download" target="_blank" rel="noopener noreferrer">
+                        Visual Studio Code
+                    </a>
+                    </li>
+                    <li class="clickable external-link"><a href="https://marketplace.visualstudio.com/items?itemName=mshr-h.VerilogHDL" target="_blank" rel="noopener noreferrer">
+                        VSC VerilogHDL
+                    </a>
+                    </li>
+                    <li>Python3
+                        <ul>
+                            <li>WSL/Linux: <code>sudo apt install python3</code></li>
+                            <li>MacOS: <code>brew install python3</code></li>
+                        </ul>
+                    </li>
+                    <li>Pip3
+                        <ul>
+                            <li>WSL/Linux: <code>sudo apt install python3-pip</code></li>
+                            <li>MacOS: <code>brew install python3-pip</code></li>
+                        </ul>
+                    </li>
+                    <li><div class="clickable external-link"><a href="https://fusesoc.readthedocs.io/en/stable/" target="_blank" rel="noopener noreferrer">
+                        FuseSoC
+                    </a></div>
+                        <ul>
+                            <li><code>pip3 install --upgrade --user fusesoc</code></li>
+                        </ul>
+                    </li>
+                    <li><div class="clickable external-link"><a href="http://iverilog.icarus.com/" target="_blank" rel="noopener noreferrer">
+                        Icarus Verilog
+                    </a></div>
+                        <ul>
+                            <li>WSL/Linux:
+                                <ul>
+                                    <li class="clickable download"><a href="./iverilog-linux.zip" download>
+                                        Download Icarus for Linux
+                                    </a></li>
+                                    <li>Extract the <code>"iverilog/bin"</code> folder to <code>"~/Utils/iverilog/bin"</code>.</li>
+                                    <li>Add <code>"~/Utils/iverilog/bin"</code> to path. (Add <code>export PATH=$PATH:~/Utils/iverilog/bin</code> to the file <code>"~/.bashrc"</code>.)</li>
+                                </ul>
+                            </li>
+                            <li>MacOS: <code>brew install iverilog</code></li>
+                            <li>Ensure you have installed version &geq;11.0 with <code>iverilog -v</code>.</li>
+                        </ul>
+                    </li>
+                    <li><div class="clickable external-link"><a href="http://gtkwave.sourceforge.net/" target="_blank" rel="noopener noreferrer">
+                        GTKWave
+                    </a></div>
+                        <ul>
+                            <li class="clickable external-link"><a href="https://sourceforge.net/projects/gtkwave/files/" target="_blank" rel="noopener noreferrer">
+                                Download
+                            </a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <p>
+                    Download this <a href="./verilog_template.zip" download>Verilog project template</a>, and run <code>make view</code> to ensure everything was installed correctly. It should simulate the Verilog and open the waves in GTKWave.
+                </p>
+                <img src="make_view.png" alt="GTKWave">
+
+            </div>
+
+
+
+            <div id="Combinational-Logic">
+                <h1>Combinational Logic</h1>
+                <p>
+                    To implement any boolean expression, you will need to use combinational logic. Combinational logic is a type of digital logic that is run independent of clock pulses. For example:
+                    <ul>
+                        <li>Xor = AB&rsquo; + A&rsquo;B = (<code>A&~B | ~A&B</code>)</li>
+                        <li>Sum = A &oplus; B &oplus; Cin = (<code>A ^ B ^ Cin</code>)</li>
+                        <li>Cout = AB + Cin(A &oplus; B) = (<code>A&B | Cin&(A^B)</code>)</li>
+                        <li>Mux2 = S&rsquo; I<sub>0</sub> + S I<sub>1</sub> = (<code>~S&I0 | S&I1</code>)</li>
+                    </ul>
+                </p>
+            </div>
+
+
+
+            <div id="Flip-Flops">
+                <h1>Flip Flops</h1>
+                <p>
+                    To change the value of registers on clock edges, you will need to use flip flops. Combinational logic is inputted to a flip flop, then is saved once it receives a clock pulse. You can configure a flip flop to activate either on a positive clock edge &rsh; or negative clock edge &rdsh;.
+                </p>
+                <a class="center" href="https://commons.wikimedia.org/wiki/File:Register_transfer_level_-_example_toggler.svg" target="_blank" rel="noopener noreferrer"><img width="600" src="ff.svg" alt="Flip Flop"></a>
+
+            </div>
+
+
+
+            <div id="Verilog">
+                <h1>Verilog</h1>
+                <p>
+                    Verilog is a hardware description language (HDL). Just as markup languages such as HTML and Markdown are not programming languages, HDLs are not programming languages. HDLs describe register-transfer level (RTL) circuits that can be either simulated or synthesized. In this class, we will be writing RTL that implements VGA in Verilog; we will be simulating the design in Icarus Verilog and synthesizing the design with Yosys.
+                </p>
+                <p>
+                    Using the provided <a href="verilog_template.zip" download>Verilog project template</a>, play around with the project until you understand how it works.
+                    If you want to see the circuit that will be generated by Verilog, use <a href="http://digitaljs.tilk.eu/" target="_blank" rel="noopener noreferrer">DigitalJS Online</a>.
+                </p>
+                <h2>Arrays and Concatenation</h2>
+                <em>To do...</em>
+
+                <h2>Parameters</h2>
+                <em>To do...</em>
+
+                <h2>Combinational Logic in Verilog</h2>
+                <p>
+                    To implement combinational logic in Verilog, you must use <code>assign</code> or <code>always_comb</code>.
+                </p>
+                <textarea class="code" src="verilog_template/rtl/adder.sv" mode="verilog" readonly></textarea>
+                <p>
+                    Notice that you can use C-like functionality such as integer arithmetic, for loops, if-else statements, and more.
+                </p>
+                <textarea class="code" src="comb_advanced.sv" mode="verilog" readonly></textarea>
+                <p>
+                    However, <b>Icarus Verilog will often mistakenly simulate unsynthesizable Verilog. </b> This class will try to only cover best practices for writing Verilog, but Icarus is so forgiving that you may accidentally write something that works in simulation, but not in synthesis. For example, every modified value in an <code>always_comb</code> block must have a default value; if it does not, Yosys will infer a latch, which is unsupported. If you are ever unsure about what you wrote, test it with <a href="http://digitaljs.tilk.eu/" target="_blank" rel="noopener noreferrer">DigitalJS Online</a>.
+                </p>
+                <textarea class="code" src="latch.sv" mode="verilog" readonly></textarea>
+
+                <h2>Flip Flops in Verilog</h2>
+                <p>
+                    To implement flip flops in Verilog, you must use <code>always_ff @ (posedge clk)</code> or <code>always_ff @ (negedge clk)</code>. For best practice, you should add a reset to every register. Non-blocking assignment <code><=</code> must be used to signify that all assignments happen as soon as a clock pulse occurs. There should be no combinational logic inside an <code>always_ff</code> block, otherwise synthesis tools will have trouble deciphering what logic should be treated as a clock or reset.
+                </p>
+                <textarea class="code" src="dff.sv" mode="verilog" readonly></textarea>
+
+            </div>
+
+
+
+            <div id="Verilog-Testbench">
+                <h1>Verilog Testbench</h1>
+                <textarea class="code" src="verilog_template/sim/tb.sv" mode="verilog" readonly></textarea>
+                <em>To do...</em>
+            </div>
+
+
+
+            <div id="Counter">
+                <h1>Implement a Counter</h1>
+                <p>
+                    Using everything covered in this guide, implement a counter in Verilog.
+                </p>
+                <textarea class="code" src="counter.sv" mode="verilog" readonly></textarea>
+                <em>To do...</em>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+

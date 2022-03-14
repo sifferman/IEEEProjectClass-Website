@@ -51,11 +51,15 @@
     margin-top: 2em;
 }
 
-#Squished > * { margin: 1em 0; }
+#Squished > * { margin: 3em 0; }
 
 #_MAIN_ li {
     margin: 1em;
 }
+
+#_MAIN_ h2 { font-size: 1.2rem; }
+#_MAIN_ h3 { font-size: 1.1rem; }
+#_MAIN_ h4 { font-size: 1.0rem; }
 
 #Whoops {
     width: fit-content;
@@ -71,10 +75,10 @@
     width: min( 100%, 800px );
     padding: 2em;
     box-sizing: border-box;
-    
+
     margin: auto;
     margin: .5em auto;
-    
+
 }
 
 /* Contents */

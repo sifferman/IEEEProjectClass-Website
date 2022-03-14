@@ -13,6 +13,7 @@ This website archives all lectures and exercises for Ethan Sifferman's IEEE Clas
 
 * [F20 WebDev](https://ieee.sifferman.dev/F20-WebDev/)
 * [W21 BinHacking](https://ieee.sifferman.dev/W21-BinHacking/)
+* [S22 FPGA Movie](https://ieee.sifferman.dev/S22-FPGA/)
 
 ## Packages
 
