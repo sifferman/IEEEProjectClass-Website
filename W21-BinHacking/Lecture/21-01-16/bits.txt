@@ -1,0 +1,7 @@
+uint32_t d = 42034;
+uint32_t x = 0xA432;
+uint32_t b = 0b1010010000110010;
+
+bool equals = ( d == x ) && ( d == b );
+
+std::cout << equals << "\n";    // true

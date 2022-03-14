@@ -1,0 +1,41 @@
+IEEE Binary Hacking
+│   Class Website.url
+│   Zoom.url
+│
+├───intro
+│       Makefile
+│       main.cpp
+│
+├───smb
+│   │   fceux.lnk
+│   │   GF.lnk
+│   │   Lunar IPS.lnk
+│   │   SmbTitleEditor.lnk
+│   │   tlp.lnk
+│   │
+│   │   smb1_vanilla.nes
+│   │
+│   │   Super Mario Bros.-ROM map.url
+│   │
+│   ├───patches
+│   │       goomba_to_ghost.ips
+│   │       mariopalette.ips
+│   │       mariotext_to_ethantext.ips
+│   │       title'sb ieee bros'.ips
+│   │
+│   └───tools
+│       ├───fceux64
+│       ├───gf
+│       ├───lips
+│       ├───ste
+│       └───tlp11
+│
+└───wav
+        Makefile
+        helpers.h
+        wave.h
+        helpers.cpp
+        main.cpp
+        wave.cpp
+
+        WAV File Format.url

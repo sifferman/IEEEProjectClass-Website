@@ -80,6 +80,7 @@ textarea {
 }
 textarea {
     resize: none;
+    max-width: 100%;
 }
 
 
@@ -126,17 +127,23 @@ textarea {
 }
 
 /* Links */
-.external-link::after {
+.external-link::after,
+.download::after {
     content: "";
 
     display: inline-block;
     width: 1em;
     height: 1em;
 
-    background-image: url( "/_media/external-link.svg" );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+}
+.external-link::after {
+    background-image: url( "/_media/external-link.svg" );
+}
+.download::after {
+    background-image: url( "/_media/download.svg" );
 }
 p a {
     color: #4c61a8c9;
@@ -208,6 +215,9 @@ span.highlight {
 .CodeMirror {
     height: auto !important;
     font-size: 0.85rem;
+}
+.CodeMirror-cursor {
+    display: none !important
 }
 
 .center {

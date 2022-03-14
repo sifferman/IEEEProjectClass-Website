@@ -14,6 +14,9 @@
     <link rel="stylesheet" href="/_styles/W21-BinHacking.css">
     <link rel="stylesheet" href="/_styles/lectures.css">
 
+    <!-- codemirror -->
+    <script src="/_scripts/init_codemirror.js" defer></script>
+
 </head>
 
 <body>
@@ -115,7 +118,7 @@
 
                 <h1>Required Software</h1>
                 <ul>
-                    <li class="clickable external-link"><a href="../../NES_ROM_Hacking_Tools.zip" download>
+                    <li class="clickable download"><a href="../../NES_ROM_Hacking_Tools.zip" download>
                         Ethan&rsquo;s Favorite NES Hacking Tools
                     </a></li>
                     <li>
@@ -144,50 +147,7 @@
                 <p>
                     Here is my personal file structure for this class. Copy it if you&rsquo;d like!
                 </p>
-<textarea cols="38" rows="45" readonly>
-
-IEEE Binary Hacking
-│   Class Website.url
-│   Zoom.url
-│
-├───intro
-│       Makefile
-│       main.cpp
-│
-├───smb
-│   │   fceux.lnk
-│   │   GF.lnk
-│   │   Lunar IPS.lnk
-│   │   SmbTitleEditor.lnk
-│   │   tlp.lnk
-│   │
-│   │   smb1_vanilla.nes
-│   │
-│   │   Super Mario Bros.-ROM map.url
-│   │
-│   ├───patches
-│   │       goomba_to_ghost.ips
-│   │       mariopalette.ips
-│   │       mariotext_to_ethantext.ips
-│   │       title'sb ieee bros'.ips
-│   │
-│   └───tools
-│       ├───fceux64
-│       ├───gf
-│       ├───lips
-│       ├───ste
-│       └───tlp11
-│
-└───wav
-        Makefile
-        helpers.h
-        wave.h
-        helpers.cpp
-        main.cpp
-        wave.cpp
-
-        WAV File Format.url
-</textarea>
+                <textarea src="organization.txt" readonly></textarea>
             </div>
 
             <div id="Binary-Hexadecimal-BitwiseOperations">
@@ -228,10 +188,10 @@ IEEE Binary Hacking
 
                 <div class="bubble">
                     <ul>
-                        <li class="clickable external-link"><a href="bitwise_exercise.zip" download>
+                        <li class="clickable download"><a href="bitwise_exercise.zip" download>
                             Exercise
                         </a></li>
-                        <li class="clickable external-link"><a href="solution.cpp" download>
+                        <li class="clickable download"><a href="solution.cpp" download>
                             Solution
                         </a></li>
                     </ul>
@@ -250,18 +210,7 @@ IEEE Binary Hacking
                     </li>
                 </ul>
 
-<textarea class="center" cols="40" rows="12" readonly>
-
-uint8_t  : unsigned char
-uint16_t : unsigned short
-uint32_t : unsigned int/unsigned long
-uint64_t : unsigned long long
-
-int8_t   : char
-int16_t  : short
-int32_t  : int/long
-int64_t  : long long
-</textarea>
+                <textarea class="center" src="fixed_width.txt" readonly></textarea>
                 <div class="clickable external-link center"><a href="https://en.cppreference.com/w/cpp/types/integer" rel="noopener noreferrer">C/C++ Fixed Width Integer Types</a></div>
 
                 <ul>
@@ -270,16 +219,7 @@ int64_t  : long long
                     </li>
                 </ul>
 
-<textarea class="center" cols="40" rows="9" readonly>
-
-uint32_t d = 42034;
-uint32_t x = 0xA432;
-uint32_t b = 0b1010010000110010;
-
-bool equals = ( d == x ) && ( d == b );
-
-std::cout << equals << "\n";    // true
-</textarea>
+                <textarea class="center" src="bits.txt" readonly></textarea>
 
                 <br>
 

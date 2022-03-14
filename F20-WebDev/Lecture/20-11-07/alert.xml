@@ -1,0 +1,17 @@
+
+<!-- index.html -->
+
+<html lang="en">
+    <head>
+    <meta charset="UTF-8">
+        <title> JavaScript Alert </title>
+        <script src="script.js"></script>
+    </head>
+    <body onload="initialize()">
+
+        <button onclick="handleAlertButton()">
+            Click me for an alert!
+        </button>
+
+    </body>
+</html>

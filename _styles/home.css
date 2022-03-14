@@ -55,6 +55,11 @@
     box-shadow: #00000090 .2em .2em .5em;
 }
 
+#Logo {
+    width: 8rem;
+    filter: drop-shadow(.2em .2em .5em #00000090);
+}
+
 
 /********/
 /* Main */

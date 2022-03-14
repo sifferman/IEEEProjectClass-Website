@@ -2,58 +2,48 @@
 /* init_codemirror.js */
 
 
-function init() {
+const textareas = document.getElementsByTagName("textarea");
+for ( let i = 0; i < textareas.length; i++ ) {
 
+    let textarea = textareas[i];
 
-    var code_instances = document.getElementsByClassName("code-HTML");
-    for ( var i = 0 ; i < code_instances.length ; i++ ) {
-        let c = CodeMirror.fromTextArea(
-            code_instances[i], {
-                mode: "xml",
-                lineNumbers: true,
-                viewportMargin: Infinity,
-                readOnly: "nocursor"
-            }
-        );
-    }
-    
-    
-    
-    var code_instances = document.getElementsByClassName("code-CSS");
-    for ( var i = 0 ; i < code_instances.length ; i++ ) {
-        let c = CodeMirror.fromTextArea(
-            code_instances[i], {
-                mode: "css",
-                lineNumbers: true,
-                viewportMargin: Infinity,
-                readOnly: "nocursor"
-            }
-        );
-    }
-    
-    var code_instances = document.getElementsByClassName("code-JS");
-    for ( var i = 0 ; i < code_instances.length ; i++ ) {
-        let c = CodeMirror.fromTextArea(
-            code_instances[i], {
-                mode: "javascript",
-                lineNumbers: true,
-                viewportMargin: Infinity,
-                readOnly: "nocursor"
-            }
-        );
+    // skip if there is no src
+    if ( !textarea.hasAttribute("src") ) {
+        beautify_textarea( textarea );
+        continue;
     }
 
-    var code_instances = document.getElementsByClassName("code-C");
-    for ( var i = 0 ; i < code_instances.length ; i++ ) {
+    // get code src
+    fetch( textarea.getAttribute("src") )
+        .then(response => response.text())
+        .then(data => {
+            textarea.value = data;
+            textarea.setAttribute("readonly","true");
+            beautify_textarea( textarea );
+        });
+}
+
+
+function beautify_textarea( textarea ) {
+    if ( textarea.classList.contains("code") ) {
+        // config codemirror
         let c = CodeMirror.fromTextArea(
-            code_instances[i], {
-                mode: "clike",
-                lineNumbers: true,
+            textarea, {
+                mode: {name: textarea.getAttribute("mode")},
+                lineNumbers: !(textarea.hasAttribute("nonumbers")),
                 viewportMargin: Infinity,
-                readOnly: "nocursor"
+                readOnly: "true"
             }
         );
+    } else {
+        // config default textarea
+        textarea.style.height = "1px";
+        textarea.style.width = "1px";
+        textarea.style.whiteSpace = "pre";
+        setTimeout(function() {
+            textarea.style.height = (textarea.scrollHeight+5)+"px";
+            textarea.style.width = (textarea.scrollWidth+5)+"px";
+        }, 1);
+        textarea.style.opacity = "100%";
     }
-
-
 }

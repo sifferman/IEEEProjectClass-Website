@@ -14,15 +14,15 @@
         <link rel="stylesheet" href="/_styles/lectures.css">
 
         <!-- codemirror -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.js" integrity="sha512-guAOPzMlYhWXne9TpfFRWD7iI0YnDTVqNN8fNgZGeqcmZFuUKWxD1/74Rsse81voD2uzxyBJkkp97G/tahKipg==" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/codemirror.min.css" integrity="sha512-MWdvo/Qqcf4pY1ecQUB1uBn0qLp19U/qJ1Rpp2BDZeuBA7YsFEwkvqR/+aG4BroPiAYDunKJ6X8R/Pmdt3p7oA==" crossorigin="anonymous" />
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/xml/xml.min.js" integrity="sha512-XPih7uxiYsO+igRn/NA2A56REKF3igCp5t0W1yYhddwHsk70rN1bbbMzYkxrvjQ6uk+W3m+qExHIJlFzE6m5eg==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/css/css.min.js" integrity="sha512-ZvN/AsTF2m69ShtQTx8j09gqG9u5o3JVuvnOI7+a/WJ2Uv4wFl4NYb0pkRLqY9X2oCngn4vDXnZmQuFrLCyzdQ==" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.59.0/mode/javascript/javascript.min.js" integrity="sha512-ZV6RoI4VtjC2qr4NUVLAXqcUjEtxgD1mxx05KrDXI6iU8fFh61XU/PhQzYZGap0ueg4mvLqbNzKPHLoow3U+5A==" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js" integrity="sha512-xwrAU5yhWwdTvvmMNheFn9IyuDbl/Kyghz2J3wQRDR8tyNmT8ZIYOd0V3iPYY/g4XdNPy0n/g0NvqGu9f0fPJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/xml/xml.min.js" integrity="sha512-UWfBe6aiZInvbBlm91IURVHHTwigTPtM3M4B73a8AykmxhDWq4EC/V2rgUNiLgmd/i0y0KWHolqmVQyJ35JsNA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/css/css.min.js" integrity="sha512-2gAMyrBfWPuTJDA2ZNIWVrBBe9eN6/hOjyvewDd0bsk2Zg06sUla/nPPlqQs75MQMvJ+S5AmfKmq9q3+W2qeKw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/javascript/javascript.min.js" integrity="sha512-IS1FyxQkiJHT1SAvLXBaJu1UTFSIw0GT/DuzxHl69djqyLoEwGmR2davcZUnB8M7ppi9nfTGZR/vdfqmWt+i6A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
-        <script src="/_scripts/init_codemirror.js"></script>
+        <script src="/_scripts/init_codemirror.js" defer></script>
     </head>
-    <body onload="init()">
+    <body>
         <div id="_HEADER_" class="flex flex__row">
 
             <a id="Back" class="clickable" href="../../" target="_self">
@@ -72,10 +72,10 @@
             <div id="To-Do" class="center">
                 <h1> To Do </h1>
                 <ul>
-                    <li class="clickable external-link"><a href="javascript_exercise.zip" download>
+                    <li class="clickable download"><a href="javascript_exercise.zip" download>
                         Complete this exercise by editing <code>_scripts/script.js</code> and <code>index.html</code>.
                     </a></li>
-                    <li class="clickable external-link"><a href="my_solution.zip" download>
+                    <li class="clickable download"><a href="my_solution.zip" download>
                         Compare with my solution.
                     </a></li>
                 </ul>
@@ -121,36 +121,9 @@
                 </p>
 
                 <div class="center-within"><code> index.html </code></div>
-<textarea class="code-HTML" readonly>
-
-<!-- index.html -->
-
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-        <title> JavaScript Alert </title>
-        <script src="script.js"></script>
-    </head>
-    <body onload="initialize()">
-
-        <button onclick="handleAlertButton()">
-            Click me for an alert!
-        </button>
-
-    </body>
-</html>
-</textarea>
+                <textarea class="code" mode="xml" src="alert.xml" readonly></textarea>
                 <div class="center-within"><code> script.js </code></div>
-<textarea class="code-JS" readonly>
-
-/* script.js */
-
-function initialize() { }
-
-function handleAlertButton() {
-    alert( "Hello, World!" );
-}
-</textarea>
+                <textarea class="code" mode="javascript" src="alert.js" readonly></textarea>
 
                 <h2> Passing <code>this</code> as a Parameter </h2>
 
@@ -162,36 +135,9 @@ function handleAlertButton() {
                 </p>
 
                 <div class="center-within"><code> index.html </code></div>
-<textarea class="code-HTML" readonly>
-
-<!-- index.html -->
-
-<html lang="en">
-    <head>
-    <meta charset="UTF-8">
-        <title> JavaScript Alert </title>
-        <script src="script.js"></script>
-    </head>
-    <body onload="initialize()">
-
-        <button onclick="handleAlertButton(this)" value="This"> Click </button>
-        <button onclick="handleAlertButton(this)" value="Message"> Click </button>
-        <button onclick="handleAlertButton(this)" value="is"> Click </button>
-        <button onclick="handleAlertButton(this)" value="Secret!"> Click </button>
-    </body>
-</html>
-</textarea>
+                <textarea class="code" mode="xml" src="secret.xml" readonly></textarea>
                 <div class="center-within"><code> script.js </code></div>
-<textarea class="code-JS" readonly>
-
-/* script.js */
-
-function initialize() { }
-
-function handleAlertButton( button ) {
-    alert( button.value );
-}
-</textarea>
+                <textarea class="code" mode="javascript" src="secret.js" readonly></textarea>
                 <p>
                     If you would like real example of <code>this</code> in action, look at this calculator app.
                 </p>
@@ -207,7 +153,7 @@ function handleAlertButton( button ) {
                 </p>
                 <ol>
                     <li>
-                        List all Global Variables prefaced with <code>var</code>. 
+                        List all Global Variables prefaced with <code>var</code>.
                     </li>
                     <li>
                         Have a function <code>initialize()</code>, where you initialize all your Global Variables and call any functions you need.
@@ -218,41 +164,10 @@ function handleAlertButton( button ) {
                 </ol>
                 <p> For example: </p>
                 <p class="center"><code>script.js</code></p>
-<textarea class="code-JS" readonly>
-
-/*  script.js */
-
-
-/*  Global Variables */
-
-var addInput1;
-var addInput2;
-var addOutput;
-
-
-/*  Run inside body onload  */
-
-function initialize() {
-
-    addInput1 = document.getElementById( "Addition-Input__1" );
-    addInput2 = document.getElementById( "Addition-Input__2" );
-    addOutput = document.getElementById( "Addition-Output" );
-    handleAdditionInput();
-
-}
-
-
-
-/*  Addition Calculator */
-
-function handleAdditionInput() {
-    addOutput.innerHTML = parseInt( addInput1.value )
-                        + parseInt( addInput2.value );
-}
-</textarea>
+                <textarea class="code" mode="javascript" src="organization.js" readonly></textarea>
             </div>
 
-            
+
 
             <div id="Final-Thoughts">
                 <h1>Final Thoughts</h1>
@@ -260,7 +175,7 @@ function handleAdditionInput() {
                     JavaScript is incredibly powerful and can manipulate anything on the HTML page. Now that you know how to call JavaScript functions, its possibilites are endless! Have fun :)
                 </p>
             </div>
-            
+
             </div>
 
         </div>

@@ -1,0 +1,50 @@
+
+/* style.css */
+
+
+/* ===== Variables ====== */
+:root {
+    --dark-color: #2b2727;
+    --light-color: #f8d1a7;
+    --golden-ratio: 0.618033;
+}
+
+
+/* === Override HTML Defaults ===== */
+html, body { margin: 0; }
+img { display: block; }
+p { text-align: center; }
+
+
+/* === Page-wide Style ==== */
+html, body {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font: 16px 'Courier New', Courier, monospace;
+}
+
+
+/* === Common Classes ==== */
+.center {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+.inverted {
+    background-color: var(--dark-color);
+    color: var(--light-color);
+}
+
+
+/* === Specific Instances ==== */
+
+
+/*  Form  */
+.info > * {
+    margin: .5em;
+}
+
+/*  Spooky Picture  */
+#Skeleton {
+    width: 6em;
+}
