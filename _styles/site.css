@@ -94,6 +94,7 @@ textarea {
 .flex__column           { flex-direction:   column      }
 .flex__row-reverse      { flex-direction:   row-reverse }
 .flex__wrap             { flex-wrap     :   wrap        }
+.flex__space-around     { justify-content: space-around; }
 .flex-child__stretch    { align-self    :   stretch     }
 
 .flex p {

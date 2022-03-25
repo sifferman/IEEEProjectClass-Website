@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE FPGA Movie - Digital Design</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/S22-FPGA.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js" integrity="sha512-xwrAU5yhWwdTvvmMNheFn9IyuDbl/Kyghz2J3wQRDR8tyNmT8ZIYOd0V3iPYY/g4XdNPy0n/g0NvqGu9f0fPJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/verilog/verilog.min.js" integrity="sha512-qWcLOlsYfXLnxOBQCgID7vXpZMNHYRojDTPTxWYsGBFk+fUndq6rjGfGQt3xLO7vi6pAm7iuKlCg/K3emg3/3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/_scripts/init_codemirror.js" defer></script>
+
+</head>
+
+<body>
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            Digital Design
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Transistors" target="_self">
+                        Transistors
+                    </a></li>
+                    <li class="clickable"><a href="#Combinational-Logic" target="_self">
+                        Combinational Logic
+                    </a></li>
+                    <li class="clickable"><a href="#Flip-Flops" target="_self">
+                        Flip Flops
+                    </a></li>
+                    <li class="clickable"><a href="#Misc" target="_self">
+                        Misc.
+                    </a></li>
+                </ul>
+            </div>
+
+
+
+            <div id="To-Do" class="center">
+                <h1>Finish These Before You Leave</h1>
+                <ul>
+                    <li class="clickable external-link"><a href="https://discord.com/channels/466338570878058527/952104459536838666" rel="noopener noreferrer">
+                        Message the Discord with your preferred name, <br> pronouns, and favorite superhero!
+                    </a></li>
+                </ul>
+            </div>
+
+
+
+
+
+
+
+            <div id="Transistors">
+                <h1>Transistors</h1>
+                <p>
+                    <b>Moore&rsquo;s law is the observation that the number of transistors in a microchip doubles every two years.</b> Computer companies have been racing to achieve this feat, and succeeding. CPUs and GPUs with transistor counts over 1 billion are common.
+                </p>
+                <a href="https://en.wikipedia.org/wiki/Moore%27s_law" target="_blank" rel="noopener noreferrer"><img src="Moore's_Law.png" alt="Moore's Law"></a>
+                <p>
+                    Aside from the incredible engineering problems in fabricating these chips, (take ECE 120AB if you want to learn about fabrication,) <b>how do you create a design to take advantage of that many transistors?</b>
+                </p>
+                <p>
+                    You can use transistors to create a set of componants that are <b>functionally complete, meaning they can be used to solve any boolean expression.</b> Examples of componants include
+                    <ul>
+                        <li>and/or/not/nand/nor/xor gates,</li>
+                        <li>multiplexers, and</li>
+                        <li>block memory (ROM/RAM).</li>
+                    </ul>
+                </p>
+
+                <div class="flex flex__space-around">
+                    <div>
+                        NAND and NOR gates from MOSFETs
+                        <a href="https://electronics.stackexchange.com/questions/72806/preference-of-nand-nor-gates" target="_blank" rel="noopener noreferrer"><img src="nand_nor_cmos.png" alt="NAND/NOR CMOS" height="295px"></a>
+                    </div>
+                    <div>
+                        Multiplexer from MOSFETs
+                        <a href="https://www.electronics-tutorial.net/Digital-CMOS-Design/Pass-Transistor-Logic/4-1-multiplexer-using-CMOS-logic/" target="_blank" rel="noopener noreferrer"><img src="mux_cmos.png" alt="MUX CMOS" height="295px"></a>
+                    </div>
+                    <div>
+                        SRAM Cell from MOSFETs
+                        <a href="https://commons.wikimedia.org/wiki/File:6t-SRAM-cell.png" target="_blank" rel="noopener noreferrer"><img src="sram_cmos.png" alt="SRAM CMOS" height="295px"></a>
+                    </div>
+                </div>
+                <div>
+                    These are just a few examples of using transistors to implement these componants. Different designs have tradeoffs in speed, power usage, and size. Take ECE 122A if you want to learn more about using transistors in digital circuits.
+                </div>
+
+            </div>
+
+
+
+
+            <div id="Combinational-Logic">
+                <h1>Combinational Logic</h1>
+                <p>
+                    To implement any boolean expression, you will need to use combinational logic. Combinational logic is a type of digital logic that is run independent of clock pulses. For example:
+                    <ul>
+                        <li>Xor = AB&rsquo; + A&rsquo;B
+                        <li>Sum = A &oplus; B &oplus; Cin
+                        <li>Cout = AB + Cin(A &oplus; B)
+                        <li>Mux2 = S&rsquo; I<sub>0</sub> + S I<sub>1</sub>
+                    </ul>
+                </p>
+            </div>
+
+
+
+            <div id="Flip-Flops">
+                <h1>Flip Flops</h1>
+                <p>
+                    To change the value of registers on clock edges, you will need to use flip flops. Combinational logic is inputted to a flip flop, then is saved once it receives a clock pulse. You can configure a flip flop to activate either on a positive clock edge &rsh; or negative clock edge &rdsh;.
+                </p>
+
+                <div>
+                    D-Flip-Flop from Gates
+                    <a href="https://www.kindpng.com/imgv/JbiTmo_flip-drawing-flop-edge-triggered-d-flip-flop/" target="_blank" rel="noopener noreferrer"><img src="dflip_flop.png" alt="D-Flip-Flop"></a>
+                </div>
+
+                <div>
+                    Using a D-Flip-Flop in a toggle circuit
+                    <a href="https://commons.wikimedia.org/wiki/File:Register_transfer_level_-_example_toggler.svg" target="_blank" rel="noopener noreferrer"><img width="600" src="ff.svg" alt="Flip Flop"></a>
+                </div>
+            </div>
+
+
+            <div id="Misc">
+                <h1>Misc.</h1>
+                <div class="flex flex__wrap flex__space-around">
+                    <div>
+                        Full Adder
+                        <a href="https://www.sciencedirect.com/topics/computer-science/full-adder" target="_blank" rel="noopener noreferrer"><img src="full_adder.png" alt="Full Adder" height="250px"></a>
+                    </div>
+
+                    <div>
+                        Shift Register
+                        <a href="https://slideplayer.com/slide/14507923/" target="_blank" rel="noopener noreferrer"><img src="shift_register.jpg" alt="Shift Register" height="250px"></a>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+

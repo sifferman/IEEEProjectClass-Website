@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>IEEE FPGA Movie 1 - Verilog</title>
+    <title>IEEE FPGA Movie - Verilog</title>
     <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,20 +46,17 @@
                     <li class="clickable"><a href="#Simulation-Software" target="_self">
                         Simulation Software
                     </a></li>
+                    <li class="clickable"><a href="#Verilog" target="_self">
+                        Verilog
+                    </a></li>
                     <li class="clickable"><a href="#Combinational-Logic" target="_self">
                         Combinational Logic
                     </a></li>
                     <li class="clickable"><a href="#Flip-Flops" target="_self">
                         Flip Flops
                     </a></li>
-                    <li class="clickable"><a href="#Verilog" target="_self">
-                        Verilog
-                    </a></li>
                     <li class="clickable"><a href="#Verilog-Testbench" target="_self">
                         Verilog Testbench
-                    </a></li>
-                    <li class="clickable"><a href="#Counter" target="_self">
-                        Counter
                     </a></li>
                 </ul>
             </div>
@@ -69,14 +66,11 @@
             <div id="To-Do" class="center">
                 <h1>Work on These Today</h1>
                 <ul>
-                    <li class="clickable external-link"><a href="https://discord.com/channels/466338570878058527/952104459536838666" rel="noopener noreferrer">
-                        Message the Discord with your preferred name, <br> pronouns, and favorite superhero!
-                    </a></li>
                     <li class="clickable"><a href="#Simulation-Software" target="_self">
                         Install the required simulation software for the class.
                     </a></li>
-                    <li class="clickable"><a href="#Counter">
-                        Implement a counter in Verilog.
+                    <li class="clickable"><a href="https://chipdev.io/question-list" target="_blank" rel="noopener noreferrer">
+                        Solve a few Verilog questions on ChipDev.
                     </a></li>
                 </ul>
             </div>
@@ -167,48 +161,31 @@
 
 
 
-            <div id="Combinational-Logic">
-                <h1>Combinational Logic</h1>
-                <p>
-                    To implement any boolean expression, you will need to use combinational logic. Combinational logic is a type of digital logic that is run independent of clock pulses. For example:
-                    <ul>
-                        <li>Xor = AB&rsquo; + A&rsquo;B = (<code>A&~B | ~A&B</code>)</li>
-                        <li>Sum = A &oplus; B &oplus; Cin = (<code>A ^ B ^ Cin</code>)</li>
-                        <li>Cout = AB + Cin(A &oplus; B) = (<code>A&B | Cin&(A^B)</code>)</li>
-                        <li>Mux2 = S&rsquo; I<sub>0</sub> + S I<sub>1</sub> = (<code>~S&I0 | S&I1</code>)</li>
-                    </ul>
-                </p>
-            </div>
-
-
-
-            <div id="Flip-Flops">
-                <h1>Flip Flops</h1>
-                <p>
-                    To change the value of registers on clock edges, you will need to use flip flops. Combinational logic is inputted to a flip flop, then is saved once it receives a clock pulse. You can configure a flip flop to activate either on a positive clock edge &rsh; or negative clock edge &rdsh;.
-                </p>
-                <a class="center" href="https://commons.wikimedia.org/wiki/File:Register_transfer_level_-_example_toggler.svg" target="_blank" rel="noopener noreferrer"><img width="600" src="ff.svg" alt="Flip Flop"></a>
-
-            </div>
-
 
 
             <div id="Verilog">
                 <h1>Verilog</h1>
                 <p>
-                    Verilog is a hardware description language (HDL). Just as markup languages such as HTML and Markdown are not programming languages, HDLs are not programming languages. HDLs describe register-transfer level (RTL) circuits that can be either simulated or synthesized. In this class, we will be writing RTL that implements VGA in Verilog; we will be simulating the design in Icarus Verilog and synthesizing the design with Yosys.
+                    Verilog is a hardware description language (HDL). Just as markup languages such as HTML and Markdown are not programming languages, HDLs are not programming languages. HDLs describe register-transfer level (RTL) circuits that can be either simulated or synthesized. In this class, we will be writing RTL in Verilog; we will be simulating the design in <a href="http://iverilog.icarus.com/" target="_blank" rel="noopener noreferrer">Icarus Verilog</a> and synthesizing the design with <a href="https://yosyshq.net/yosys/" target="_blank" rel="noopener noreferrer">Yosys</a>.
                 </p>
+
                 <p>
-                    Using the provided <a href="verilog_template.zip" download>Verilog project template</a>, play around with the project until you understand how it works.
-                    If you want to see the circuit that will be generated by Verilog, use <a href="http://digitaljs.tilk.eu/" target="_blank" rel="noopener noreferrer">DigitalJS Online</a>.
+                    There are lots of &ldquo;good&rdquo; Verilog resources already avaiable. Skim this if you have any quesitons on syntax: <a href="https://www.asic-world.com/verilog/verilog_one_day.html" target="_blank" rel="noopener noreferrer">Verilog In One Day</a>. If you want to see the circuit that will be generated by Verilog, use <a href="http://digitaljs.tilk.eu/" target="_blank" rel="noopener noreferrer">DigitalJS Online</a>.
                 </p>
-                <h2>Arrays and Concatenation</h2>
-                <em>To do...</em>
 
-                <h2>Parameters</h2>
-                <em>To do...</em>
+                <div class="clickable external-link center"><a href="verilog_template.zip" download>
+                    Verilog Project Template
+                </a></div>
 
-                <h2>Combinational Logic in Verilog</h2>
+            </div>
+
+
+
+
+
+            <div id="Combinational-Logic">
+
+                <h1>Combinational Logic</h1>
                 <p>
                     To implement combinational logic in Verilog, you must use <code>assign</code> or <code>always_comb</code>.
                 </p>
@@ -222,30 +199,27 @@
                 </p>
                 <textarea class="code" src="latch.sv" mode="verilog" readonly></textarea>
 
-                <h2>Flip Flops in Verilog</h2>
+            </div>
+
+
+
+
+
+            <div id="Flip-Flops">
+                <h1>Flip Flops</h1>
                 <p>
                     To implement flip flops in Verilog, you must use <code>always_ff @ (posedge clk)</code> or <code>always_ff @ (negedge clk)</code>. For best practice, you should add a reset to every register. Non-blocking assignment <code><=</code> must be used to signify that all assignments happen as soon as a clock pulse occurs. There should be no combinational logic inside an <code>always_ff</code> block, otherwise synthesis tools will have trouble deciphering what logic should be treated as a clock or reset.
                 </p>
                 <textarea class="code" src="dff.sv" mode="verilog" readonly></textarea>
-
             </div>
+
+
 
 
 
             <div id="Verilog-Testbench">
                 <h1>Verilog Testbench</h1>
                 <textarea class="code" src="verilog_template/sim/tb.sv" mode="verilog" readonly></textarea>
-                <em>To do...</em>
-            </div>
-
-
-
-            <div id="Counter">
-                <h1>Implement a Counter</h1>
-                <p>
-                    Using everything covered in this guide, implement a counter in Verilog.
-                </p>
-                <textarea class="code" src="counter.sv" mode="verilog" readonly></textarea>
                 <em>To do...</em>
             </div>
 

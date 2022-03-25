@@ -2,8 +2,8 @@
 module tb ();
 
 // test bench contents
-reg a, b, cin;
-wire sum, cout;
+logic a, b, cin;
+logic sum, cout;
 
 adder add (
     a, b, cin,
@@ -14,7 +14,7 @@ adder add (
 initial begin : sim
 $dumpfile( "dump.fst" );
 $dumpvars;
-$display( "Begin simulation.");
+$display( "Begin simulation." );
 //\\ =========================== \\//
 
 // test every value
