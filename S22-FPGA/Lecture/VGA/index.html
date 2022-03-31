@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE FPGA Movie - VGA</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/S22-FPGA.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js" integrity="sha512-xwrAU5yhWwdTvvmMNheFn9IyuDbl/Kyghz2J3wQRDR8tyNmT8ZIYOd0V3iPYY/g4XdNPy0n/g0NvqGu9f0fPJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/verilog/verilog.min.js" integrity="sha512-qWcLOlsYfXLnxOBQCgID7vXpZMNHYRojDTPTxWYsGBFk+fUndq6rjGfGQt3xLO7vi6pAm7iuKlCg/K3emg3/3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/_scripts/init_codemirror.js" defer></script>
+
+</head>
+
+<body>
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            VGA
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Verilog" target="_self">
+                        VGA
+                    </a></li>
+                </ul>
+            </div>
+
+
+
+            <div id="To-Do" class="center">
+                <h1>Work on These Today</h1>
+                <ul>
+                    <li>
+                        Implement the VGA timing protocol
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div id="VGA">
+                <h1>What is VGA</h1>
+                <p>
+                    Video Graphics Array (VGA) is a 35 year old analog video interface. It is the most simple video interface to implement, which makes it perfect for students/hobbyists.
+                </p>
+                <div class="flex flex__row flex__space-around">
+                    <img src="vga_cable.jpg" alt="VGA Cable" height="400px">
+                    <a href="https://electronics.stackexchange.com/questions/288876/why-does-vga-have-so-many-ground-pins-compared-to-dvi-i-for-example" target="_blank" rel="noopener noreferrer"><img src="vga_pinout.gif" alt="VGA Pinout"></a>
+                </div>
+                <p>
+                    It works by drawing each pixel row by row. After drawing a row, it waits for the horizonal sync wire to go low. After finishing the entire frame, it waits for a vertical sync wire to go low. Observe this timing diagram:
+                </p>
+                <a href="https://www.digikey.com/eewiki/pages/viewpage.action?pageId=15925278" target="_blank" rel="noopener noreferrer" class="center"><img src="VGA-Timing.jpg" alt="VGA Timing Diagram"></a>
+                <p>
+                    The length of the visible and blanking areas is dependent on what specific protocol you want to implement. For this project, we will follow the <a class="blue" href="http://www.tinyvga.com/vga-timing/640x480@60Hz" target="_blank" rel="noopener noreferrer">VESA 640&times;480 @ 60 Hz protocol</a>.
+                </p>
+
+                <p>
+                    If you want more information about video timings, watch this:
+                </p>
+                <div class="clickable external-link center"><a href="https://youtu.be/l7rce6IQDWs" target="_blank" rel="noopener noreferrer">
+                    Ben Eater Graphics Card Video
+                </a></div>
+
+
+            </div>
+
+
+
+            <div id="Verilog">
+                <h1>VGA Timer in Verilog</h1>
+
+                <p>
+                    You should implement a horizontal/vertical counter, that will reset after reaching the end of each row/frame. You can use that counter value to get the x and y positions of each pixel, and to assign the values of hsync and vsync. This is an example of what it should look like when you&rsquo;re done:
+                </p>
+                <img src="gtkwave_hsync.png" alt="hsync">
+                <img src="gtkwave_vsync.png" alt="vsync">
+
+                <p>
+                    Use this template to implement the Verilog.
+                </p>
+
+                <div class="clickable center download"><a href="vga_timer.sv" download="">
+                    vga_timer.sv
+                </a></div>
+                <textarea class="code" src="vga_timer.sv" mode="verilog" readonly></textarea>
+
+            </div>
+
+
+            <div id="Image">
+                <h1>Image</h1>
+                <p>
+                    Now that the VGA timer is finished, the next step is to convert pixel coordinates to colors. Use this template to implement the Verilog:
+                </p>
+                <div class="clickable center download"><a href="image.sv" download="">
+                    image.sv
+                </a></div>
+                <textarea class="code" src="image.sv" mode="verilog" readonly></textarea>
+                <p>
+                    The sky is the limit here; use your imagination to create a cool design! You may use my example as inspiration: <a href="https://github.com/E4tHam/fpga_movie/blob/main/rtl/image.sv" target="_blank" rel="noopener noreferrer">Ethan&rsquo;s <code>image.sv</code></a>. Other ideas include:
+                </p>
+                <ul>
+                    <li>Bouncing box</li>
+                    <li>(low resolution) Image</li>
+                    <li>Clock</li>
+                    <li>Random color generator</li>
+                </ul>
+            </div>
+
+
+
+
+            <div id="DAC">
+                <h1>Digital to Analog Converter for Color</h1>
+                <p>
+                    For each clock pulse, the pixel color is drawn according to the voltage level (0V - 0.7V) of the RGB signals. The closer the voltage to 0, the darker that color; the closer the voltage to 0.7, the brighter the color.
+                </p>
+                <p>
+                    However, the FPGA uses digital values to represent the colors, so we need a digital to analog converter (DAC) to convert the 4 color bits into a voltage level 0 - 0.7. The VGA port has an input resistance of 75&Omega;, so we can design our DAC as so:
+                </p>
+                <a href="https://digilent.com/reference/_media/reference/pmod/pmodvga/pmodvga_sch.pdf" target="_blank" rel="noopener noreferrer"><img src="vga_color_dac.png" alt="VGA Color DAC"></a>
+            </div>
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+

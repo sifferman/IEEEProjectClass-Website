@@ -129,7 +129,8 @@ textarea {
 
 /* Links */
 .external-link::after,
-.download::after {
+.download::after,
+.next-page::after {
     content: "";
 
     display: inline-block;
@@ -145,6 +146,9 @@ textarea {
 }
 .download::after {
     background-image: url( "/_media/download.svg" );
+}
+.next-page::after {
+    background-image: url( "/_media/next.svg" );
 }
 p a {
     color: #4c61a8c9;
