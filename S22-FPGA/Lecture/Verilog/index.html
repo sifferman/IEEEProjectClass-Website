@@ -151,8 +151,8 @@
                                     <li>Run <code>chmod +x ~/Utils/iverilog/bin/* ~/Utils/iverilog/ivl/*</code> to make iverilog runnable.</li>
                                 </ul>
                             </li>
-                            <li>MacOS: <code>brew install iverilog</code></li>
-                            <li>Ensure you have installed version &geq;11.0 with <code>iverilog -v</code>.</li>
+                            <li>MacOS: <code>brew install icarus-verilog</code></li>
+                            <li>Ensure you have installed version &geq;11.0 with <code>iverilog -v</code></li>
                         </ul>
                     </li>
                     <li><div class="clickable external-link"><a href="http://gtkwave.sourceforge.net/" target="_blank" rel="noopener noreferrer">
@@ -160,15 +160,49 @@
                     </a></div>
                         <ul>
                             <li>WSL/Linux: <code>sudo apt install gtkwave</code></li>
-                            <li class="clickable external-link"><a href="https://ughe.github.io/2018/11/06/gtkwave-osx" target="_blank" rel="noopener noreferrer">
-                                MaxOS: GTKWave Download Guide
-                            </a></li>
+                            <li>MacOS:
+                                <ul>
+                                    <li class="clickable external-link"><a href="https://ughe.github.io/2018/11/06/gtkwave-osx" target="_blank" rel="noopener noreferrer">Summary of this guide: </a></li>
+                                    <li>Run the following commands
+                                        <ul>
+                                            <li><code>
+                                                brew tap homebrew/cask
+                                            </code></li>
+                                            <li><code>
+                                                brew install gtkwave --cask
+                                            </code></li>
+                                            <li><code>
+                                                sudo cpan install Switch
+                                            </code></li>
+                                            <li><code>
+                                                perl -V:'installsitelib'
+                                            </code></li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        If the previous command prints something like <code>"/usr/local/Cellar/perl/..."</code>, then Switch must be coppied to the correct location in <code>"/Library/Perl/5.*/"</code> with <code>sudo cp /usr/local/Cellar/perl/5.*/lib/perl5/site_perl/5.*/Switch.pm /Library/Perl/5.*/</code>
+                                    </li>
+                                    <li>
+                                        You should now be able to run <code>/Applications/gtkwave.app/Contents/Resources/bin/gtkwave</code>
+                                    </li>
+                                    <li>
+                                        Add <code>"/Applications/gtkwave.app/Contents/Resources/bin/"</code> to path.
+                                    </li>
+                                </ul>
+
+                            </li>
+                        </ul>
+                    </li>
+                    <li>Verilator
+                        <ul>
+                            <li>WSL/Linux: <code>sudo apt install verilator</code></li>
+                            <li>MacOS: <code>brew install verilator</code></li>
                         </ul>
                     </li>
                 </ul>
 
                 <p>
-                    Download this <a href="./verilog_template.zip" download>Verilog project template</a>, and run <code>make view</code> to ensure everything was installed correctly. It should simulate the Verilog and open the waves in GTKWave.
+                    Download this <a href="./verilog_template.zip" download>Verilog project template</a>, and run <code>make lint</code> and <code>make view</code> to ensure everything was installed correctly. It should verify and simulate the Verilog and open the waves in GTKWave.
                 </p>
                 <img src="waves.png" alt="GTKWave">
 
