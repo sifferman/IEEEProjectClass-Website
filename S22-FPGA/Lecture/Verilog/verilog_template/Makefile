@@ -1,9 +1,14 @@
 # ======================================================= #
 
-PROJECT = ucsbieee::adder_example
+FILE	= adder.core
+VENDOR	= ucsbieee
+LIBRARY	=
+CORE	= adder
+VERSION	= 1.0.0
+PROJECT = ${VENDOR}:${LIBRARY}:${CORE}:${VERSION}
 
 # VVP Dump
-DUMP	= build/ucsbieee__adder_example_1.0.0/sim-icarus/dump.fst
+DUMP	= build/${VENDOR}_${LIBRARY}_${CORE}_${VERSION}/sim-icarus/dump.fst
 
 # ======================================================= #
 # API
@@ -31,9 +36,9 @@ clean:
 # Files
 
 fusesoc.conf:
-	fusesoc library add adder . --sync-type=local
+	fusesoc library add ${VENDOR}_${LIBRARY}_${CORE}_${VERSION} . --sync-type=local
 
-${DUMP}: $(shell find sim -type f) fusesoc.conf $(shell find rtl -type f) adder.core
+${DUMP}: $(shell find sim -type f) fusesoc.conf $(shell find rtl -type f) ${FILE}
 	fusesoc run --target sim ${PROJECT}
 
 # ======================================================= #

@@ -1,13 +1,13 @@
 
-module tb ();
+module adder_tb ();
 
 // test bench contents
 logic a, b, cin;
 logic sum, cout;
 
-adder add (
-    a, b, cin,
-    sum, cout
+adder test_adder (
+    .a(a), .b(b), .cin(cin),
+    .sum(sum), .cout(cout)
 );
 //
 

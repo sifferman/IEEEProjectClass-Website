@@ -1,16 +1,16 @@
 CAPI=2:
-name: ucsbieee::adder_example:1.0.0
+name: ucsbieee::adder:1.0.0
 description: Adder Example
 
 filesets:
   # default
   rtl:
     files:
-      - rtl/adder.sv: {file_type: systemVerilogSource}
+      - rtl/adder.sv:     {file_type: systemVerilogSource}
   # simulation
   tb:
     files:
-      - sim/tb.sv:    {file_type: systemVerilogSource}
+      - sim/adder_tb.sv:  {file_type: systemVerilogSource}
 
 
 targets:
@@ -18,12 +18,12 @@ targets:
     filesets:
       - rtl
 
-  sim: # fusesoc run --target sim ucsbieee::adder_example
+  sim: # fusesoc run --target sim ucsbieee::adder
     <<: *default
     description: Simulate the design
     filesets_append:
       - tb
-    toplevel: tb
+    toplevel: adder_tb
     default_tool: icarus
     tools:
       icarus:
