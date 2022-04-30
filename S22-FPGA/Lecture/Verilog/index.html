@@ -134,7 +134,7 @@
                     </a></div>
                         <ul>
                             <li><code>pip3 install --upgrade --user fusesoc</code></li>
-                            <li>You might have to add pip&rsquo;s local site packages to path. <code>"~/.local/lib/python3.8/site-packages"</code></li>
+                            <li>You might have to add pip&rsquo;s local packages to path. <code>"~/.local/bin"</code></li>
                         </ul>
                     </li>
                     <li><div class="clickable external-link"><a href="http://iverilog.icarus.com/" target="_blank" rel="noopener noreferrer">
@@ -146,9 +146,9 @@
                                     <li class="clickable download"><a href="./iverilog-linux.zip" download>
                                         Download Icarus for Linux
                                     </a></li>
-                                    <li>Extract the <code>"iverilog"</code> folder to <code>"~/Utils/iverilog"</code>.</li>
+                                    <li>Extract the <code>"iverilog"</code> folder to <code>"~/Utils/iverilog"</code>. (Open <code>\\wsl$</code> in Explorer.)</li>
                                     <li>Add <code>"~/Utils/iverilog/bin"</code> to path. (Add <code>export PATH=$PATH:~/Utils/iverilog/bin</code> to the file <code>"~/.bashrc"</code>.)</li>
-                                    <li>Run <code>chmod +x ~/Utils/iverilog/bin/* ~/Utils/iverilog/ivl/*</code> to make iverilog runnable.</li>
+                                    <li>Run <code>chmod +x ~/Utils/iverilog/bin/* ~/Utils/iverilog/lib/ivl/*</code> to make iverilog runnable.</li>
                                 </ul>
                             </li>
                             <li>MacOS: <code>brew install icarus-verilog</code></li>

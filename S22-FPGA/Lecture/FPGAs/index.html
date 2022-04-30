@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>IEEE FPGA Screensaver - FPGAs</title>
+    <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/_styles/site.css">
+    <link rel="stylesheet" href="/_styles/S22-FPGA.css">
+    <link rel="stylesheet" href="/_styles/lectures.css">
+
+    <!-- codemirror -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js" integrity="sha512-xwrAU5yhWwdTvvmMNheFn9IyuDbl/Kyghz2J3wQRDR8tyNmT8ZIYOd0V3iPYY/g4XdNPy0n/g0NvqGu9f0fPJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/verilog/verilog.min.js" integrity="sha512-qWcLOlsYfXLnxOBQCgID7vXpZMNHYRojDTPTxWYsGBFk+fUndq6rjGfGQt3xLO7vi6pAm7iuKlCg/K3emg3/3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="/_scripts/init_codemirror.js" defer></script>
+
+</head>
+
+<body>
+    <div id="_HEADER_" class="flex flex__row">
+
+        <a id="Back" class="clickable" href="../../" target="_self">
+            <img src="/_media/back.svg" alt="back">
+        </a>
+
+        <h1>
+            FPGAs
+        </h1>
+
+    </div>
+    <div id="_MAIN_">
+        <div id="Squished">
+
+
+            <div id="Table-of-Contents" class="bubble">
+                <h1>Table of Contents</h1>
+                <ul>
+                    <li class="clickable"><a href="#To-Do" target="_self">
+                        To Do
+                    </a></li>
+                    <li class="clickable"><a href="#Synthesis-Software" target="_self">
+                        Synthesis Software
+                    </a></li>
+                    <li class="clickable"><a href="#FPGAs" target="_self">
+                        FPGAs
+                    </a></li>
+                </ul>
+            </div>
+
+
+
+            <div id="To-Do" class="center">
+                <h1>Work on These Today</h1>
+                <ul>
+                    <li class="clickable"><a href="#Simulation-Software" target="_self">
+                        Install the required synthesis software for the class.
+                    </a></li>
+                    <li>
+                        Finish the project!
+                    </li>
+                </ul>
+            </div>
+
+
+
+            <div id="Synthesis-Software">
+                <h1>Synthesis Software</h1>
+
+                <p>
+                    This guide is only for WSL/Linux. If you are on MacOS, you will need to borrow a Linux machine. You may use the following example if you want to install the tools yourself:
+                    <a href="https://github.com/E4tHam/tangnano_example" target="_blank" rel="noopener noreferrer">E4tHam/tangnano_example</a>.
+                </p>
+
+                <ul>
+                    <li>Download <a href="https://github.com/YosysHQ/oss-cad-suite-build" target="_blank" rel="noopener noreferrer">OSS CAD Suite</a>
+                        <ul>
+                            <li><code>cd ~/Downloads</code></li>
+                            <li><code>curl -JOL https://github.com/YosysHQ/oss-cad-suite-build/releases/download/2022-04-30/oss-cad-suite-linux-x64-20220430.tgz</code></li>
+                            <li><code>tar -xzvf oss-cad-suite-linux-x64-20220430.tgz -C ~/Utils/</code></li>
+                            <li>Add <code>"~/Utils/oss-cad-suite/bin"</code> to PATH.</li>
+                        </ul>
+                    </li>
+                    <li>Download <code>nextpnr-gowin</code> (compiled by myself)
+                        <ul>
+                            <li><code>cd ~/Utils/oss-cad-suite/bin</code></li>
+                            <li><code>curl -JOL https://ieee.sifferman.dev/S22-FPGA/Lecture/FPGAs/nextpnr-gowin</code></li>
+                            <li><code>chmod +x nextpnr-gowin</code></li>
+                        </ul>
+                    </li>
+                    <li class="clickable external-link"><a href="https://dl.sipeed.com/TANG/Nano/IDE" target="_blank" rel="noopener noreferrer">
+                        Download Gowin Programmer 2 <em>&ldquo;programmer2.7z&rdquo;</em>
+                    </a></li>
+                </ul>
+
+            </div>
+
+
+
+            <div id="FPGAs" class="center">
+                <h1>FPGAs</h1>
+                <p>
+                    FPGA stands for field-programmable gate array. They are used to implement digital circuits designed in RTL. There is a good explanation of their architecture in <a href="https://kastner.ucsd.edu/hlsbook/" target="_blank" rel="noopener noreferrer">Parallel Programming for FPGAs by Ryan Kastner, Janarbek Matai, and Stephen Neuendorffer</a>, Section 1.2. The following figures are taken from that textbook.
+                </p>
+                <div class="center">LUT Diagram:</div>
+                <img class="center" src="LUT.png" alt="LUT Diagram">
+                <div class="center">Routing Diagram:</div>
+                <img class="center" src="Routing.png" alt="Routing Diagram">
+                <div class="center">Full FPGA Diagram:</div>
+                <img class="center" src="Full.png" alt="Full FPGA Diagram">
+            </div>
+
+
+
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+
