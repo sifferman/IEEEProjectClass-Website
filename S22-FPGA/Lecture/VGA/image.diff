@@ -11,8 +11,6 @@ module image #(
     output logic                  [3:0] r, g, b
 );
 
-assign r = 4'hf;
-assign g = 4'h0;
-assign b = 4'h0;
+// put your image implementation here
 
 endmodule

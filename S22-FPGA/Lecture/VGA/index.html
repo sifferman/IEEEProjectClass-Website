@@ -55,6 +55,9 @@
                     <li class="clickable"><a href="#DAC" target="_self">
                         Digital to Analog Converter
                     </a></li>
+                    <li class="clickable"><a href="#Image-Development" target="_self">
+                        Image Development
+                    </a></li>
                 </ul>
             </div>
 
@@ -74,7 +77,7 @@
             <div id="VGA">
                 <h1>What is VGA</h1>
                 <p>
-                    Video Graphics Array (VGA) is a 35 year old analog video interface. It is the most simple video interface to implement, which makes it perfect for students/hobbyists.
+                    Video Graphics Array (VGA) is a 35 year old analog video interface. It is the simplest video interface to implement, which makes it perfect for students/hobbyists.
                 </p>
                 <div class="flex flex__row flex__space-around">
                     <img src="vga_cable.jpg" alt="VGA Cable" height="400px">
@@ -167,12 +170,16 @@
                     <li class="clickable external-link"><a href="https://github.com/E4tHam/fpga_screensaver" target="_blank" rel="noopener noreferrer">
                         Download <code>E4tHam/fpga_screensaver</code>
                     </a></li>
-                    <li>Make the following modifications to <code>"tb/top.tb.sv"</code> and <code>"rtl/image.sv"</code>:</li>
+                    <li>
+                        Make the following modifications to <code>"tb/top.tb.sv"</code> and <code>"rtl/image.sv"</code>:
+                        <div class="center"><code>"tb/top.tb.sv"</code></div>
+                        <textarea class="code" src="tb.diff" mode="verilog" nonumbers readonly></textarea>
+                        <div class="center"><code>"rtl/image.sv"</code></div>
+                        <textarea class="code" src="image.diff" mode="verilog" readonly></textarea>
+                    </li>
+                    <li>Run <code>make img</code> and observe the PNG file that was created.</li>
                 </ol>
-                <div class="center"><code>"tb/top.tb.sv"</code></div>
-                <textarea class="code" src="tb.diff" mode="verilog" readonly></textarea>
-                <div class="center"><code>"rtl/image.sv"</code></div>
-                <textarea class="code" src="image.diff" mode="verilog" readonly></textarea>
+
             </div>
 
 
