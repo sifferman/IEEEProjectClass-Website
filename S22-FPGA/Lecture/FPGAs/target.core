@@ -1,0 +1,10 @@
+  tangnano:
+    <<: *default
+    description: Synthesize for Tang Nano
+    default_tool: apicula
+    filesets_append:
+      - tangnano
+    tools:
+      apicula:
+        device: GW1N-LV1QN48C6/I5
+    toplevel: tangnano

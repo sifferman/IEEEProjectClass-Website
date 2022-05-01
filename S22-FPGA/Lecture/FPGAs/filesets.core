@@ -1,0 +1,4 @@
+  tangnano:
+    files:
+      - tangnano/tangnano.sv: {file_type: systemVerilogSource}
+      - tangnano/pins.cst:    {file_type: CST}

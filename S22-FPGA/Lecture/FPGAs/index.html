@@ -16,6 +16,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.js" integrity="sha512-xwrAU5yhWwdTvvmMNheFn9IyuDbl/Kyghz2J3wQRDR8tyNmT8ZIYOd0V3iPYY/g4XdNPy0n/g0NvqGu9f0fPJQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/codemirror.min.css" integrity="sha512-uf06llspW44/LZpHzHT6qBOIVODjWtv4MxCricRxkzvopAlSWnTf6hpZTFxuuZcuNE9CBQhqE0Seu1CoRk84nQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.2/mode/verilog/verilog.min.js" integrity="sha512-qWcLOlsYfXLnxOBQCgID7vXpZMNHYRojDTPTxWYsGBFk+fUndq6rjGfGQt3xLO7vi6pAm7iuKlCg/K3emg3/3w==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/mode/tcl/tcl.min.js" integrity="sha512-WYR0Yi16GlQJlp4L/eH8nYS1D/zWnGMBPS+bvsZ1MnqeYTQv8xh4Jps1zELOO0QlGanQfX+0Nyv2kgtvtw564g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.3/mode/yaml/yaml.min.js" integrity="sha512-+aXDZ93WyextRiAZpsRuJyiAZ38ztttUyO/H3FZx4gOAOv4/k9C6Um1CvHVtaowHZ2h7kH0d+orWvdBLPVwb4g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
     <script src="/_scripts/init_codemirror.js" defer></script>
 
@@ -77,6 +79,11 @@
                 </p>
 
                 <ul>
+                    <li>Install <a href="https://github.com/YosysHQ/apicula" target="_blank" rel="noopener noreferrer">Apicula</a>
+                        <ul>
+                            <li><code>pip3 install apycula</code></li>
+                        </ul>
+                    </li>
                     <li>Download <a href="https://github.com/YosysHQ/oss-cad-suite-build" target="_blank" rel="noopener noreferrer">OSS CAD Suite</a>
                         <ul>
                             <li><code>cd ~/Downloads</code></li>
@@ -87,6 +94,7 @@
                     </li>
                     <li>Download <code>nextpnr-gowin</code> (compiled by myself)
                         <ul>
+                            <li><code>sudo apt install libboost-all-dev</code></li>
                             <li><code>cd ~/Utils/oss-cad-suite/bin</code></li>
                             <li><code>curl -JOL https://ieee.sifferman.dev/S22-FPGA/Lecture/FPGAs/nextpnr-gowin</code></li>
                             <li><code>chmod +x nextpnr-gowin</code></li>
@@ -114,6 +122,34 @@
                 <img class="center" src="Full.png" alt="Full FPGA Diagram">
             </div>
 
+
+
+
+            <div id="Verilog" class="center">
+                <h1>Verilog</h1>
+                <p>
+                    Now that our RTL is finished, we need to set our IO on our FPGA. You can use the following template:
+                </p>
+
+                <div class="clickable center download"><a href="tangnano.sv" download>
+                    <code>"tangnano/tangnano.sv"</code>
+                </a></div>
+                <textarea class="code" src="tangnano.sv" mode="verilog" readonly></textarea>
+
+                <div class="clickable center download"><a href="pins.cst" download>
+                    <code>"tangnano/pins.cst"</code>
+                </a></div>
+                <textarea class="code" src="pins.cst" mode="tcl" readonly></textarea>
+
+                <p>
+                    Next, add the new files to the core file and create a new Apicula target.
+                </p>
+                <div class="center">New fileset:</div>
+                <textarea class="code" src="filesets.core" mode="yaml" nonumbers readonly></textarea>
+                <div class="center">New target:</div>
+                <textarea class="code" src="target.core" mode="yaml" nonumbers readonly></textarea>
+
+            </div>
 
 
 
